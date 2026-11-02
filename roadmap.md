@@ -27,4 +27,4 @@
 
 # Aurax Oculto — ouvir pensamentos (3D estilizado por código)
 - [x] Narração Puck (88 s) + 6 vozes de pensamento
-- [ ] Animação 3D cartunizada por código, sem legendas/textos, música e efeitos; MP4 em /mnt/documents/videos/pensamentos-aurax-oculto.mp4
+- [x] Animação 3D cartunizada por código, sem legendas/textos, música e efeitos; MP4 em /mnt/documents/videos/pensamentos-aurax-oculto.mp4
