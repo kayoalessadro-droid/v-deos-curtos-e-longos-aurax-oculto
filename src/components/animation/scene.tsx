@@ -15,7 +15,7 @@ export function AnimationScene({time,model=false}:{time:number;model?:boolean}) 
  if(n===6) camera=time<24.82?'translate(10 -200) scale(1.35)':time<26.66?'translate(-120 -140) scale(1.3)':'translate(-230 -415) scale(1.6)';
  if(n===12) camera='translate(-100 -245) scale(1.45)';
  if(n>=19) {const z=1.4+f.progress*(n===20?.28:.1);camera=`translate(${270-z*270} ${435-z*520}) scale(${z})`;}
- return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 960" role="img" aria-label={model?'Modelo vetorial definitivo de Léo':`Animação da cena ${f.scene.id}`} data-scene={f.scene.id} className={`animation-canvas ${f.frozen?'world-frozen':''}`}>
+ return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 960" role="img" aria-label={model?'Modelo vetorial definitivo de Léo':`Animação da cena ${f.scene.id}`} data-scene={f.scene.id} className={`animation-canvas ${f.frozen?'world-frozen':''} ${n>=19?'suspense-scene':''}`}>
  <defs><pattern id="street-grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" className="grid-line"/></pattern><clipPath id="frame-clip"><rect width="540" height="960"/></clipPath></defs>
  <rect width="540" height="960" className="scene-sky"/>
  {model?<><rect width="540" height="960" fill="url(#street-grid)"/><circle cx="270" cy="430" r="190" className="model-circle"/><text x="270" y="130" textAnchor="middle" className="model-title">LÉO</text><ellipse cx="270" cy="805" rx="104" ry="14" className="ground-shadow"/><g transform="translate(94 264) scale(1.95)"><Leo time={time} expression="happy"/></g></>:<>
