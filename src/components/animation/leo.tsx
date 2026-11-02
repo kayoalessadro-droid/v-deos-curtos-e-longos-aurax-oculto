@@ -1,0 +1,29 @@
+type LeoProps = { time?: number; walking?: boolean; expression?: 'curious' | 'happy' | 'surprised'; backpack?: boolean };
+
+// All poses use this one rig; rotations pivot at the actual shoulder/hip joints.
+export function Leo({ time = 0, walking = false, expression = 'curious', backpack = true }: LeoProps) {
+  const stride = walking ? Math.sin(time * 9) * 25 : 0;
+  const bob = walking ? Math.abs(Math.sin(time * 9)) * 3 : Math.sin(time * 2) * 1.4;
+  const blink = time % 3.7 > 3.52;
+  const wave = !walking ? -22 + Math.sin(time * 3) * 9 : -stride;
+  return <g className="leo-rig" transform={`translate(0 ${-bob})`}>
+    {backpack && <g className="leo-bag"><path d="M58 129 Q34 122 31 146 L28 205 Q29 216 44 218 L64 218Z"/><path d="M35 154L51 154L51 200L33 200" className="bag-detail"/></g>}
+    <g transform={`rotate(${-stride} 77 222)`}><path className="leo-pants" d="M60 216L89 216L86 282L80 330L60 330L61 273Z"/><path className="leo-shoe" d="M60 322L81 322L83 334L94 340Q97 348 87 348L54 348L54 336Z"/></g>
+    <g transform={`rotate(${stride} 104 222)`}><path className="leo-pants" d="M90 216L119 216L122 278L128 330L107 333L95 275Z"/><path className="leo-shoe" d="M106 324L128 324L130 335L144 340Q147 348 137 348L105 348L101 337Z"/></g>
+    <g transform={`rotate(${stride} 59 148)`}><path className="leo-shirt" d="M62 132Q45 130 39 147L34 170L55 178L69 155Z"/><path className="leo-skin" d="M36 169L52 174L46 216Q45 226 34 224Q25 222 28 211Z"/></g>
+    <path className="leo-shirt" d="M64 128Q89 118 113 131L126 175L122 225Q86 237 54 223L58 162Z"/>
+    {backpack && <path className="bag-strap" d="M66 132Q55 168 63 208"/>}
+    <path className="leo-skin" d="M76 107L77 133Q88 144 101 130L99 104Z"/>
+    <g transform={`rotate(${wave} 115 145)`}><path className="leo-shirt" d="M109 130Q126 126 135 143L141 166L119 176L107 150Z"/><path className="leo-skin" d="M122 170L139 163L149 190L163 170Q169 161 176 167Q184 175 176 184L156 209Q149 217 141 209Z"/><path className="skin-detail" d="M166 177L174 170"/></g>
+    <g transform={`rotate(${walking ? -3 : Math.sin(time * 1.4) * 3} 88 91)`}>
+      <ellipse className="leo-skin" cx="47" cy="84" rx="10" ry="15"/><ellipse className="leo-skin" cx="126" cy="84" rx="10" ry="15"/>
+      <path className="leo-skin" d="M48 56Q50 26 89 28Q130 32 126 72L121 100Q112 126 88 127Q60 125 50 99Z"/>
+      <path className="leo-hair" d="M46 76Q30 48 47 29Q53 17 72 18Q93 3 112 21Q136 24 134 52L127 78L117 52Q95 61 77 42Q65 61 50 55L51 79Z"/>
+      <path className="leo-hair" d="M71 29Q85 16 100 25Q109 43 94 58Q88 44 75 40Z"/>
+      <path className="face-line" d={expression === 'surprised' ? 'M59 65L76 60M101 60L117 65' : 'M59 67Q67 61 77 65M100 65Q108 61 117 68'}/>
+      {blink ? <path className="face-line" d="M63 80L74 80M103 80L114 80"/> : <g className="leo-eye"><ellipse cx="69" cy="80" rx="4" ry={expression === 'surprised' ? 7 : 5}/><ellipse cx="108" cy="80" rx="4" ry={expression === 'surprised' ? 7 : 5}/></g>}
+      <path className="skin-detail" d="M88 81L84 94L92 95"/>
+      {expression === 'surprised' ? <ellipse className="leo-mouth" cx="90" cy="108" rx="6" ry="8"/> : <path className="face-line" d={expression === 'happy' ? 'M76 105Q91 121 106 103' : 'M81 107Q91 112 101 105'}/>}
+    </g>
+  </g>;
+}
