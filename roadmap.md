@@ -12,3 +12,9 @@
 - [x] Animar todas as sequências em 3D reutilizável, incluindo explicações científicas e suspense.
 - [x] Montar áudio com efeitos discretos e exportar MP4 vertical 1080 × 1920.
 - [x] Conferir cenas, ausência de telas pretas e áudio integrado; disponibilizar download sem publicar. Reprodução completa no navegador não verificada; vídeo termina 0,15 s antes do áudio, após a narração.
+## Narração aprovada no vídeo do Caio
+- [x] Trocar a voz rejeitada pela narração aprovada (narracao-caio-reflexos-v2.mp3)
+- [x] Remontar as cenas frase por frase sobre a nova narração (32 cortes, 117 s)
+- [x] Trilha: narração + efeitos discretos gerados localmente (buzina, copo, bola, vento, batida final, ambiente dia/noite)
+- [x] Exportar MP4 1080x1920 -> /mnt/documents/videos/caio-reflexos-10x-final-v2.mp4
+- [ ] Aprimorar o acabamento 3D (hoje simplificado) se o usuário quiser nova versão
