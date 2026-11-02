@@ -24,3 +24,7 @@
 
 # Aurax Oculto — teletransporte (2D, método econômico)
 - [x] Narração com a voz Puck, 7 cenas 2D reutilizando o rig do Léo, legendas grandes, trilha e efeitos; MP4 1080x1920 em /mnt/documents/videos/teleporte-aurax-oculto.mp4
+
+# Aurax Oculto — ouvir pensamentos (3D estilizado por código)
+- [x] Narração Puck (88 s) + 6 vozes de pensamento
+- [ ] Animação 3D cartunizada por código, sem legendas/textos, música e efeitos; MP4 em /mnt/documents/videos/pensamentos-aurax-oculto.mp4
