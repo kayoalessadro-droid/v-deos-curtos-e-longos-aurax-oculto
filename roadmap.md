@@ -29,3 +29,7 @@
 - [x] Narração Puck (88 s) + 6 vozes de pensamento
 - [x] Animação 3D cartunizada por código, sem legendas/textos, música e efeitos; MP4 em /mnt/documents/videos/pensamentos-aurax-oculto.mp4
 - [x] Teletransporte v2: sem legendas, pausas encurtadas (74s) em /mnt/documents/videos/teleporte-aurax-oculto-v2.mp4
+
+# Léo — Parte 2 (continuação na prova)
+- [x] Narração Puck (7 cenas) + sussurro da garota; música baixa e efeitos de congelar/voltar
+- [x] 7 cenas 2D reutilizando o rig do Léo, sala de aula nova, garota com visual fixo, sem textos; MP4 1080x1920 em /mnt/documents/videos/leo-parar-o-tempo-parte-2.mp4
