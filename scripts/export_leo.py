@@ -7,12 +7,14 @@ from pathlib import Path
 from playwright.async_api import async_playwright
 DURATION=83.128095
 async def main(args):
+    global DURATION
+    DURATION=args.duration
     output=Path(args.output)
     output.parent.mkdir(parents=True,exist_ok=True)
     async with async_playwright() as p:
         browser=await p.chromium.launch(headless=True)
         page=await browser.new_page(viewport={"width":1280,"height":1800})
-        await page.goto('http://localhost:8080/?render=1',wait_until='networkidle')
+        await page.goto('http://localhost:8080'+args.path,wait_until='networkidle')
         await page.wait_for_selector('.render-only')
         css=await page.evaluate("""() => [...document.styleSheets].flatMap(s=>{try{return [...s.cssRules].map(r=>r.cssText)}catch{return []}}).join('\\n')""")
         await page.evaluate("css => window.leoExportCss=css",css)
@@ -42,5 +44,5 @@ async def main(args):
             await browser.close()
     print(f'Exported {output}',flush=True)
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--audio',required=True);parser.add_argument('--output',required=True);parser.add_argument('--fps',type=int,default=24);parser.add_argument('--start',type=float,default=0)
+    parser=argparse.ArgumentParser();parser.add_argument('--audio',required=True);parser.add_argument('--output',required=True);parser.add_argument('--fps',type=int,default=24);parser.add_argument('--start',type=float,default=0);parser.add_argument('--path',default='/?render=1');parser.add_argument('--duration',type=float,default=83.128095)
     asyncio.run(main(parser.parse_args()))

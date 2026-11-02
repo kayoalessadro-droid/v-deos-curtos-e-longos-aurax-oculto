@@ -21,3 +21,6 @@
 
 # Aurax Oculto — regeneração
 - [x] Narração (mesma voz do Léo/Caio), 8 cenas geradas com IA 1080x1920, trilha e efeitos, MP4 final em /mnt/documents/aurax/
+
+# Aurax Oculto — teletransporte (2D, método econômico)
+- [x] Narração com a voz Puck, 7 cenas 2D reutilizando o rig do Léo, legendas grandes, trilha e efeitos; MP4 1080x1920 em /mnt/documents/videos/teleporte-aurax-oculto.mp4
