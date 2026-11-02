@@ -8,7 +8,7 @@
 
 # Caio — reflexos dez vezes mais rápidos
 
-- [ ] Produzir narração completa por recurso gratuito, preservando a história.
-- [ ] Animar todas as sequências em 3D reutilizável, incluindo explicações científicas e suspense.
-- [ ] Montar áudio com efeitos discretos e exportar MP4 vertical 1080 × 1920.
-- [ ] Verificar cenas, sincronização, reprodução e download; informar limitações e não publicar.
+- [x] Produzir narração completa por recurso gratuito, preservando a história.
+- [x] Animar todas as sequências em 3D reutilizável, incluindo explicações científicas e suspense.
+- [x] Montar áudio com efeitos discretos e exportar MP4 vertical 1080 × 1920.
+- [x] Conferir cenas, ausência de telas pretas e áudio integrado; disponibilizar download sem publicar. Reprodução completa no navegador não verificada; vídeo termina 0,15 s antes do áudio, após a narração.
