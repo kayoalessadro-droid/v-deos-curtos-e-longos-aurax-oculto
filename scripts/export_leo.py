@@ -24,6 +24,7 @@ async def main(args):
                   window.dispatchEvent(new CustomEvent('leo-render-frame',{detail:t}));
                   const svg=document.querySelector('.animation-canvas').cloneNode(true);
                   svg.setAttribute('width',width);svg.setAttribute('height',height);
+                  if(svg.classList.contains('suspense-scene')) { const heading=svg.querySelector('.scene-heading'); if(heading) heading.setAttribute('style','fill: oklch(.985 .01 160) !important'); }
                   const style=document.createElementNS('http://www.w3.org/2000/svg','style');style.textContent=window.leoExportCss;svg.prepend(style);
                   const url=URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml'}));
                   const img=new Image();img.src=url;await img.decode();
