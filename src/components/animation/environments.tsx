@@ -1,4 +1,4 @@
-export function Clock({ time, x = 270, y = 220, countdown }: { time: number; x?: number; y?: number; countdown?: number }) {
+export function Clock({ time, x = 270, y = 220, countdown }: { time: number; x?: number; y?: number; countdown?: number | undefined }) {
  return <g transform={`translate(${x} ${y})`}><circle r="62" className="clock-face"/><path className="clock-tick" d="M0-51V-43M51 0H43M0 51V43M-51 0H-43"/>{countdown === undefined ? <><path className="clock-hand" d="M0 0V-35" transform={`rotate(${time*90})`}/><path className="clock-hand" d="M0 0H24"/><circle r="4" className="leo-eye"/></> : <text textAnchor="middle" y="17" className="scene-heading">{countdown}</text>}</g>;
 }
 export function Bus({time}:{time:number}) {
