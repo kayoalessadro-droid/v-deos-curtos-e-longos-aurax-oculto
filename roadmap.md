@@ -18,3 +18,6 @@
 - [x] Trilha: narração + efeitos discretos gerados localmente (buzina, copo, bola, vento, batida final, ambiente dia/noite)
 - [x] Exportar MP4 1080x1920 -> /mnt/documents/videos/caio-reflexos-10x-final-v2.mp4
 - [ ] Aprimorar o acabamento 3D (hoje simplificado) se o usuário quiser nova versão
+
+# Aurax Oculto — regeneração
+- [x] Narração (mesma voz do Léo/Caio), 8 cenas geradas com IA 1080x1920, trilha e efeitos, MP4 final em /mnt/documents/aurax/
