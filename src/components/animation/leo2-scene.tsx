@@ -95,7 +95,7 @@ export function Leo2Scene({ time }: { time: number }) {
       <Classmate x={440} y={655} s={1.05} w={w + 2} tone="tone-b"/>
       {tint > 0 && <rect x="-200" y="-200" width="940" height="1360" className="l2-freeze-tint" opacity={tint * .55}/>}
       {!stand && girlNode}
-      {!stand && <g transform="translate(266 330) scale(.78)"><rect x="0" y="228" width="180" height="120" className="desk-panel"/><rect x="-10" y="215" width="200" height="18" rx="3" className="desk"/><path d="M60 200L140 206L134 218L52 212Z" className="paper"/>
+      {!stand && <g transform="translate(266 330) scale(.78)"><rect x="-5" y="228" width="265" height="120" className="desk-panel"/><rect x="-15" y="215" width="285" height="18" rx="3" className="desk"/><path d="M60 200L140 206L134 218L52 212Z" className="paper"/>
         {tapping && [0, 1, 2].map(k => <ellipse key={k} cx={150 + k * 9} cy={212 - Math.max(0, Math.sin(t * 9 + k * 1.4)) * 7} rx="4" ry="5" className="leo-skin girl-finger"/>)}</g>}
       {leoSeated && leoNode}
       <g><rect x="30" y="716" width="240" height="190" className="desk-panel"/><rect x="20" y="700" width="260" height="22" rx="4" className="desk"/><path d="M120 662L230 672L222 700L106 694Z" className="paper"/><path d="M128 672L196 680M124 683L176 689" className="skin-detail"/>{leoSeated && <path d="M232 664L262 688" className="pencil"/>}</g>
