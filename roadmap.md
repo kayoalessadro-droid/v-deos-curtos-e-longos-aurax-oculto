@@ -1,8 +1,7 @@
-# Léo — teste de animação
+# Léo — montagem completa para aprovação privada
 
-- [x] Conferir recursos e preservar a narração aprovada.
-- [x] Preparar modelo vetorial reutilizável de Léo.
-- [x] Criar prévia funcional apenas das cenas 01, 02 e 05.
-- [x] Verificar movimentos, controles e apresentação em tamanhos diferentes.
-
-As demais cenas e o vídeo final aguardam autorização e não fazem parte desta etapa.
+- [x] Ajustar caminhada unidirecional na cena 02 e impacto fora do rosto na cena 05.
+- [x] Implementar 20 cenas aprovadas com o mesmo personagem e cenários reutilizáveis.
+- [x] Integrar narração original e sincronizar pela posição real do áudio.
+- [x] Confirmar exportação MP4 vertical gratuita com áudio.
+- [x] Verificar continuidade, expressões, congelamento e prévia no celular; não publicar.
