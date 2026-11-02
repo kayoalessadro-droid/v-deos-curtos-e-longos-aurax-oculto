@@ -40,6 +40,11 @@ function Index() {
     return () => cancelAnimationFrame(handle);
   }, [playing]);
   const selectScene = (start: number) => { setModel(false); setTime(start); };
+  const changeScene = (direction: number) => {
+    const i = TEST_SCENES.findIndex(s => s.id === frame.scene.id);
+    const next = TEST_SCENES[(i + direction + TEST_SCENES.length) % TEST_SCENES.length];
+    if (next) selectScene(next.start);
+  };
   return <main className="review-app">
     <header className="review-header">
       <a href="/" className="wordmark">LÉO<span className="wordmark-dot">.</span><span className="wordmark-divider"/><span className="wordmark-label">10 SEGUNDOS</span></a>
@@ -75,7 +80,7 @@ function Index() {
         </div>
         <div className="narration-excerpt"><span className="section-label">{model ? 'PERSONAGEM' : `ROTEIRO · CENA ${frame.scene.id}`}</span><p>{model ? 'Léo' : `“${frame.scene.line}”`}</p>{model && <div className="character-swatches"><span className="swatch hair" title="Cabelo preto"/><span className="swatch shirt" title="Camiseta verde"/><span className="swatch pants" title="Calça grafite"/><span className="swatch bag" title="Mochila coral"/></div>}</div>
         <div className="review-footer"><VolumeX size={15}/><span>Teste silencioso · narração preservada</span></div>
-        <div className="scene-navigation"><Button variant="ghost" size="icon" aria-label="Cena anterior" title="Cena anterior" onClick={() => { const i = TEST_SCENES.findIndex(s => s.id === frame.scene.id); selectScene(TEST_SCENES[(i + 2) % 3].start); }}><ArrowLeft/></Button><span>{model ? 'MODELO 01' : `CENA ${frame.scene.id}`}</span><Button variant="ghost" size="icon" aria-label="Próxima cena" title="Próxima cena" onClick={() => { const i = TEST_SCENES.findIndex(s => s.id === frame.scene.id); selectScene(TEST_SCENES[(i + 1) % 3].start); }}><ArrowRight/></Button></div>
+        <div className="scene-navigation"><Button variant="ghost" size="icon" aria-label="Cena anterior" title="Cena anterior" onClick={() => changeScene(-1)}><ArrowLeft/></Button><span>{model ? 'MODELO 01' : `CENA ${frame.scene.id}`}</span><Button variant="ghost" size="icon" aria-label="Próxima cena" title="Próxima cena" onClick={() => changeScene(1)}><ArrowRight/></Button></div>
       </aside>
     </div>
   </main>;
