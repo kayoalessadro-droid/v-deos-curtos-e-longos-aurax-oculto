@@ -28,3 +28,4 @@
 # Aurax Oculto — ouvir pensamentos (3D estilizado por código)
 - [x] Narração Puck (88 s) + 6 vozes de pensamento
 - [x] Animação 3D cartunizada por código, sem legendas/textos, música e efeitos; MP4 em /mnt/documents/videos/pensamentos-aurax-oculto.mp4
+- [x] Teletransporte v2: sem legendas, pausas encurtadas (74s) em /mnt/documents/videos/teleporte-aurax-oculto-v2.mp4

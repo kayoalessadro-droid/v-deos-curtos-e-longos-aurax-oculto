@@ -1,4 +1,4 @@
-import { CAPTIONS, getTpFrame, wrapCaption } from '@/lib/teleport-timeline';
+import { getTpFrame } from '@/lib/teleport-timeline';
 import { Leo } from './leo';
 
 function Park({ t }: { t: number }) {
@@ -39,7 +39,6 @@ export function TeleportScene({ time }: { time: number }) {
   const breathe = f.n >= 6 ? 1 + Math.sin(f.t * 2.4) * 0.012 : 1;
   const stretch = 1 + (1 - f.vis) * 0.6;
   const heroX = f.x + 87;
-  const caption = CAPTIONS.find(c => f.t >= c.start && f.t < c.end);
   const shake = f.n === 6 && f.ring.length ? Math.sin(f.t * 80) * 4 : 0;
   return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 960" role="img" aria-label={`Teletransporte, cena ${f.scene.id}`} className="animation-canvas">
     <defs><clipPath id="tp-clip"><rect width="540" height="960"/></clipPath><radialGradient id="tp-glow"><stop offset="0" className="tp-glow-in"/><stop offset="1" className="tp-glow-out"/></radialGradient></defs>
@@ -59,7 +58,6 @@ export function TeleportScene({ time }: { time: number }) {
     </g></g>
     {(f.flash > 0 || (f.n === 4 && f.local > 9.3)) && <rect width="540" height="960" className="tp-flash" opacity={f.n === 4 ? Math.min(1, (f.local - 9.3) / 0.6) : f.flash}/>}
     {f.n === 7 && <rect width="540" height="960" className="tp-vignette" opacity={Math.min(0.7, f.local / 14)}/>}
-    {caption && !f.black && <g className="tp-caption">{wrapCaption(caption.text).map((l, i, arr) => <text key={i} x="270" y={250 + (i - (arr.length - 1) / 2) * 50} textAnchor="middle">{l}</text>)}</g>}
     {f.black && <rect width="540" height="960" className="tp-black"/>}
   </svg>;
 }

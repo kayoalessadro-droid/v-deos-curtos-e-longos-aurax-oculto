@@ -5,7 +5,7 @@ import { Pause, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { TeleportScene } from '@/components/animation/teleport-scene';
 import mix from '@/assets/audio/teleporte-mix.m4a.asset.json';
-import { getTpFrame, TP_DURATION, TP_SCENES } from '@/lib/teleport-timeline';
+import { editToSource, getTpFrame, TP_DURATION, TP_SCENES } from '@/lib/teleport-timeline';
 
 export const Route = createFileRoute('/teleporte')({
   head: () => ({ meta: [
@@ -22,7 +22,8 @@ function Teleporte() {
   const audio = useRef<HTMLAudioElement>(null);
   useEffect(() => {
     setRenderOnly(new URLSearchParams(window.location.search).has('render'));
-    const render = (e: Event) => { if (e instanceof CustomEvent && typeof e.detail === 'number') flushSync(() => setTime(e.detail)); };
+    const edit = new URLSearchParams(window.location.search).has('edit');
+    const render = (e: Event) => { if (e instanceof CustomEvent && typeof e.detail === 'number') { const t = edit ? editToSource(e.detail) : e.detail; flushSync(() => setTime(t)); } };
     window.addEventListener('leo-render-frame', render);
     return () => window.removeEventListener('leo-render-frame', render);
   }, []);

@@ -32,6 +32,18 @@ export const placeTime = (t: number) => {
 };
 export const CAPTIONS = RAW_CAPTIONS.map(([a, b, text]) => ({ start: placeTime(a), end: placeTime(b) + 0.25, text }));
 
+// Tightening edit: spans of the original timeline removed from the final cut (dead air between lines).
+export const TP_EDIT_CUTS: [number, number][] = [
+  [0.3, 0.8], [7.9, 10.7], [21.9, 24.4], [35.0, 37.6], [45.0, 45.8], [59.4, 62.4], [72.8, 75.2], [86.5, 87.3],
+];
+export const TP_EDIT_DURATION = TP_EDIT_CUTS.reduce((d, [a, b]) => d - (b - a), TP_DURATION);
+/** Maps a time in the tightened edit back to the original timeline. */
+export function editToSource(t: number) {
+  let s = t;
+  for (const [a, b] of TP_EDIT_CUTS) if (s >= a) s += b - a;
+  return s;
+}
+
 export function wrapCaption(text: string, max = 20) {
   const lines: string[] = [];
   for (const w of text.split(' ')) {
