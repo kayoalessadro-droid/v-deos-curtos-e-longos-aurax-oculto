@@ -21,11 +21,12 @@ export function AnimationScene({time,model=false}:{time:number;model?:boolean}) 
  {model?<><rect width="540" height="960" fill="url(#street-grid)"/><circle cx="270" cy="430" r="190" className="model-circle"/><text x="270" y="130" textAnchor="middle" className="model-title">LÉO</text><ellipse cx="270" cy="805" rx="104" ry="14" className="ground-shadow"/><g transform="translate(94 264) scale(1.95)"><Leo time={time} expression="happy"/></g></>:<>
  <g clipPath="url(#frame-clip)"><g transform={camera}>
  {bus?<BusInterior time={f.worldTime} driver={n===9&&time>=42.30}/>:room?<Bedroom time={f.worldTime}/>:exam?<Classroom time={f.worldTime}/>:science?<><rect width="540" height="960" fill="url(#street-grid)"/>{n>=11&&<AirDiagram time={f.localTime} frozen={f.frozen} light={n===13||(n===14&&time>=59.78)}/>}</>:<Street time={f.worldTime}/>}
- {sleeping?<g data-testid="leo-pose" transform="translate(40 644) rotate(-90) scale(.95)"><Leo time={time} expression={expression} backpack={false}/></g>:<>
- <ellipse cx={f.leoX+100} cy={bus||exam?823:847} rx="70" ry="12" className="ground-shadow"/>
- <g data-testid="leo-pose" transform={`translate(${bus?195:exam?164:f.leoX} ${bus?450:exam?433:445}) scale(1.15)`}><Leo time={time} walking={f.walk&&!bus} running={n===3||n===4} seated={bus||exam} expression={expression} backpack={!room&&!exam&&!science}/></g>
+ {sleeping?<g data-testid="leo-pose" transform="translate(40 681) rotate(-90) scale(.95)"><Leo time={time} expression={expression} backpack={false}/></g>:<>
+ <ellipse cx={bus?150:f.leoX+100} cy={bus||exam?823:847} rx="70" ry="12" className="ground-shadow"/>
+ <g data-testid="leo-pose" transform={`translate(${bus?45:exam?164:f.leoX} ${bus?450:exam?433:445}) scale(1.15 ${n===12?1.15+Math.sin(f.localTime*3)*.015:1.15})`}><Leo time={time} walking={f.walk&&!bus} running={n===3||n===4} seated={bus||exam} expression={expression} backpack={!room&&!exam&&!science}/></g>
  </>}
  {exam&&<Desk/>}
+ {n>=19&&<rect x="40" y="180" width="460" height="160" className="board"/>}
  {n===6&&time>=26.66&&<path d="M370 482Q355 503 370 514Q391 504 370 482Z" className="suspended-drop"/>}
  {n===4&&time>=17.74&&<g transform="translate(395 380)"><circle r="31" className="scene-sun"/><path d="M-9 25H9M-7 32H7M0-50V-40M-45-20L-33-14M45-20L33-14" className="clock-tick"/></g>}
  </g></g>
