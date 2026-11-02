@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LeoParte2RouteImport } from './routes/leo-parte-2'
 import { Route as TeleporteRouteImport } from './routes/teleporte'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeoParte2Route = LeoParte2RouteImport.update({
+  id: '/leo-parte-2',
+  path: '/leo-parte-2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TeleporteRoute = TeleporteRouteImport.update({
@@ -25,27 +31,31 @@ const TeleporteRoute = TeleporteRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/leo-parte-2': typeof LeoParte2Route
   '/teleporte': typeof TeleporteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/leo-parte-2': typeof LeoParte2Route
   '/teleporte': typeof TeleporteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/leo-parte-2': typeof LeoParte2Route
   '/teleporte': typeof TeleporteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/teleporte'
+  fullPaths: '/' | '/leo-parte-2' | '/teleporte'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/teleporte'
-  id: '__root__' | '/' | '/teleporte'
+  to: '/' | '/leo-parte-2' | '/teleporte'
+  id: '__root__' | '/' | '/leo-parte-2' | '/teleporte'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LeoParte2Route: typeof LeoParte2Route
   TeleporteRoute: typeof TeleporteRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leo-parte-2': {
+      id: '/leo-parte-2'
+      path: '/leo-parte-2'
+      fullPath: '/leo-parte-2'
+      preLoaderRoute: typeof LeoParte2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/teleporte': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LeoParte2Route: LeoParte2Route,
   TeleporteRoute: TeleporteRoute,
 }
 export const routeTree = rootRouteImport

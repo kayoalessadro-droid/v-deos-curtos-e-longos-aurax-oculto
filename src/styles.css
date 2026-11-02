@@ -198,3 +198,10 @@
 .tp-ring{fill:none;stroke:oklch(0.85 0.15 220);stroke-width:7}.tp-spark{fill:oklch(0.95 0.08 220)}.tp-ring.tp-fail{stroke:oklch(0.7 0.2 20)}.tp-spark.tp-fail{fill:oklch(0.8 0.17 30)}
 .tp-flash{fill:oklch(0.97 0.03 220)}.tp-vignette{fill:oklch(0.1 0.03 280)}.tp-black{fill:oklch(0 0 0)}
 .tp-caption text{font-family:Arial Black,Arial,sans-serif;font-weight:900;font-size:40px;fill:oklch(1 0 0);stroke:oklch(0.12 0 0);stroke-width:9px;paint-order:stroke;stroke-linejoin:round}
+.girl-scope{--leo-green:oklch(0.55 0.15 330);--leo-hair:oklch(0.27 0.05 40);--leo-pants:oklch(0.42 0.07 250);--leo-skin:oklch(0.76 0.09 55)}.girl-long{stroke:var(--ink);stroke-width:2.8}.girl-band{fill:none;stroke:var(--sun);stroke-width:5;stroke-linecap:round}.girl-finger{stroke:var(--ink);stroke-width:1.5}
+.teacher-coat{fill:oklch(0.55 0.09 200);stroke:var(--ink);stroke-width:2.5}.teacher-skirt{fill:oklch(0.35 0.03 260);stroke:var(--ink);stroke-width:2.5}.teacher-hair{fill:oklch(0.62 0.01 250);stroke:var(--ink);stroke-width:2}.chalk{stroke:var(--cloud);stroke-width:5;stroke-linecap:round}
+.classmate-hair{fill:var(--leo-hair)}.tone-a{fill:var(--sun);stroke:var(--ink);stroke-width:2.5}.tone-b{fill:var(--leo-coral);stroke:var(--ink);stroke-width:2.5}.paper-line{stroke:var(--cloud);stroke-width:3}
+.l2-floor{fill:oklch(0.7 0.05 70)}.chalk-scribble{fill:none;stroke:var(--cloud);stroke-width:4;stroke-linecap:round;opacity:.8}.chalk-tray{stroke:var(--ink);stroke-width:6}.curtain{fill:var(--leo-coral);stroke:var(--ink);stroke-width:2}.clock-second{stroke:var(--leo-coral);stroke-width:2.5;stroke-linecap:round}
+.dust{fill:var(--cloud);opacity:.6}.dust-frozen{fill:oklch(0.85 0.1 230);opacity:.95}.l2-freeze-tint{fill:oklch(0.45 0.08 250)}
+.l2-wave{fill:none;stroke:oklch(0.88 0.12 230);stroke-width:10}.l2-wave-back{stroke:var(--sun)}.l2-flash{fill:oklch(0.97 0.03 230)}.l2-vig-in{stop-color:oklch(0.1 0.03 260);stop-opacity:0}.l2-vig-out{stop-color:oklch(0.1 0.03 260);stop-opacity:.85}
+.desk-panel{fill:oklch(0.62 0.06 60);stroke:var(--ink);stroke-width:3}
