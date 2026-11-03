@@ -278,7 +278,7 @@ export function EnzoScene({ time }: { time: number }) {
       bg = <rect width="540" height="960" className="enz-final-bg"/>;
       fg = <><Person tx={-12} ty={70 + Math.sin(t * 1.2) * 2} s={3.2} scope="enzo-scope" t={t} expression="scared" gaze={[0, 3.2]} shine hideArms/>
         <ColdMist x={300} y={400} t={t} amount={.6} w={30} rise={90} size={.9} n={4}/>
-        <BigHands t={t} crystals={1} frost={.5 + lin(t, 95.6, 98) * .3} glow={pulse} y={820} id="hands7"/>
+        <BigHands t={t} crystals={1} frost={.22 + lin(t, 95.6, 98) * .18} glow={pulse} y={820} id="hands7"/>
         <Sparkles x={40} y={520} w={460} h={420} t={t} n={16}/></>;
       cam = `translate(${-270 * lin(t, 95.6, 100.5) * .06} ${-480 * lin(t, 95.6, 100.5) * .06}) scale(${1 + lin(t, 95.6, 100.5) * .06})`;
     }
