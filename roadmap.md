@@ -36,5 +36,5 @@
 
 # Lucas — nunca mais sentir dor (3D estilizado por código)
 - [x] Narração Puck (71,8 s) em /mnt/documents/videos/dor/narracao-lucas.wav
-- [ ] Animação 3D, trilha e MP4 final em /mnt/documents/videos/dor-aurax-oculto.mp4 (renderização em andamento)
-- [ ] Sugerir próximo passo após o remix (depois de entregar o MP4)
+- [x] Animação 3D, trilha e MP4 final em /mnt/documents/videos/dor-aurax-oculto.mp4 (80,8 s)
+- [x] Sugerir próximo passo após o remix
