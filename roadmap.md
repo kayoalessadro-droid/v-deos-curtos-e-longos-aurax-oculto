@@ -45,3 +45,7 @@
 # Enzo — tudo o que toca congela (2D, rig do Léo)
 - [x] Narração Puck (97,7 s) cobrindo as 7 cenas do roteiro
 - [x] Animação 2D com efeitos de gelo, trilha de suspense e efeitos; MP4 1080x1920 em /mnt/documents/videos/enzo-tudo-congela.mp4
+
+# Lucas — cópias de si mesmo (2D, rig do Léo)
+- [x] Narração Puck + falas do Lucas e da cópia (mesma voz para os dois), pausa dramática antes do final
+- [x] Animação 2D com cópias idênticas, quarto e sala, trilha e efeitos; MP4 1080x1920 em /mnt/documents/videos/lucas-copias-de-si-mesmo.mp4
