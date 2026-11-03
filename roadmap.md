@@ -33,3 +33,8 @@
 # Léo — Parte 2 (continuação na prova)
 - [x] Narração Puck (7 cenas) + sussurro da garota; música baixa e efeitos de congelar/voltar
 - [x] 7 cenas 2D reutilizando o rig do Léo, sala de aula nova, garota com visual fixo, sem textos; MP4 1080x1920 em /mnt/documents/videos/leo-parar-o-tempo-parte-2.mp4
+
+# Lucas — nunca mais sentir dor (3D estilizado por código)
+- [x] Narração Puck (71,8 s) em /mnt/documents/videos/dor/narracao-lucas.wav
+- [x] Animação 3D, trilha e MP4 final em /mnt/documents/videos/dor-aurax-oculto.mp4 (80,8 s)
+- [x] Sugerir próximo passo após o remix
