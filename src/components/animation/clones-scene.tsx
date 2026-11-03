@@ -330,7 +330,7 @@ export function ClonesScene({ time }: { time: number }) {
   if (n >= 4) {
     const spawns = { cook: 41.5, gamer: 41.5, guitar: 41.6, sofa: 42.0, rebel: 42.4, run: 42.8 };
     const vanish = { cook: 59.2, gamer: 59.5, guitar: 59.8, sofa: 60.1, run: 60.4 };
-    const stareStart = 56.9;
+    const stareStart = 54.3;
     const stilled = t >= stareStart, gone = (k: keyof typeof vanish) => clamp(1 - (t - vanish[k]) / .6);
     const ap = (k: keyof typeof spawns, v?: keyof typeof vanish) => Math.min(appearAt(t, spawns[k]), v ? gone(v) : 1);
     const busy = !stilled;
@@ -382,23 +382,23 @@ export function ClonesScene({ time }: { time: number }) {
     let A = <Lucas x={lx} t={t} flip={lflip} walking={lWalk} expression={lExpr} reach={lReach} armL={lArmL} gaze={lGaze} jitter={lJit} talk={lTalk}/>;
     let B = <Lucas x={rx} g={rG} s={rS} t={t + 2.2} flip={rflip} walking={rWalk} running={rRun} expression={rExpr} crossed={rCross} reach={rReach} armL={rArmL} flicker={rFlicker} jitter={rJit} talk={rTalk} gaze={rGaze} appear={appearAt(t, spawns.rebel)} pop={t - spawns.rebel} pace={n === 7 ? .55 : 1}/>;
     if (n === 7 && t > 93.3) {
-      A = <Lucas x={swapped ? 340 : 170} t={t} flip={swapped} expression="scared" gaze={[2, 0]} jitter={.8}/>;
-      B = <Lucas x={swapped ? 170 : 340} t={t + 2.2} flip={!swapped} expression="scared" gaze={[2, 0]} jitter={.8}/>;
+      A = <Lucas x={swapped ? 340 : 170} t={t} flip={swapped} expression="scared" reach={-8} gaze={[2, 0]} jitter={.8}/>;
+      B = <Lucas x={swapped ? 170 : 340} t={t + 2.2} flip={!swapped} expression="scared" reach={-8} gaze={[2, 0]} jitter={.8}/>;
     }
-    const shadowCopy = n === 6 && t > 73.4 ? <g opacity={ramp(t, 73.6, 76) * .45}><g transform={`translate(${430} ${640}) scale(${1.4 + lin(t, 73.6, 78.6) * .5}) translate(${-430} ${-640})`}><g className="cl-wall-shadow"><Lucas x={470} g={700} t={t} flip crossed expression="cold" shadow={false} shine={false}/></g></g></g> : null;
+    const shadowCopy = n === 6 && t > 73.4 ? <g opacity={ramp(t, 73.6, 76) * .45}><g transform={`translate(490 812) scale(${1.25 + lin(t, 73.6, 78.6) * .45}) translate(-490 -812)`}><g className="cl-wall-shadow"><Lucas x={490} g={812} t={t} flip crossed expression="cold" shadow={false} shine={false}/></g></g></g> : null;
     const bgCopies = n <= 6 && t < 61.5 ? <>
       <Lucas x={COOK} t={t + .5} flip appear={ap('cook', 'cook')} expression={stilled ? 'surprised' : 'happy'} reach={cookReach} gaze={stilled ? [-2, 0] : [2, 3]}
         extra={null}/>
       {ap('cook', 'cook') > 0 && <g transform={`translate(${cookHand.x} ${cookHand.y}) scale(-1 1)`} opacity={ap('cook', 'cook')}><path d="M0 0L44 -4" className="cl-handle"/><ellipse cx="70" cy="-6" rx="30" ry="9" className="cl-pan"/><ellipse cx="70" cy={-14 - flipUp} rx="17" ry="5" className="cl-pancake" transform={`rotate(${flipUp * 4} 70 ${-14 - flipUp})`}/></g>}
       <Lucas x={GUITAR_X} t={t + 1.1} appear={ap('guitar', 'guitar')} pop={t - spawns.guitar} expression={stilled ? 'surprised' : 'happy'} reach={strum} armL={-80} gaze={stilled ? [2, 0] : [2, 3]} extra={GUITAR}/>
-      <Lucas x={SOFA_X} g={748} t={t + 1.7} appear={ap('sofa', 'sofa')} pop={t - spawns.sofa} lift={jump} expression={stilled ? 'surprised' : 'happy'} reach={busy ? -150 : -20} armL={busy ? -140 : 0} gaze={[2, -1]} shadow={false}/>
+      <Lucas x={stilled ? 300 : SOFA_X} g={stilled ? 890 : 748} t={t + 1.7} seated={stilled} appear={ap('sofa', 'sofa')} pop={t - spawns.sofa} lift={jump} expression={stilled ? 'surprised' : 'happy'} reach={busy ? -150 : -10} armL={busy ? -140 : 0} gaze={[2, -1]} shadow={false}/>
       <Lucas x={GAMER_X} g={935} t={t + 2.8} seated appear={ap('gamer', 'gamer')} expression={stilled ? 'surprised' : 'happy'} reach={-40 + (busy ? Math.sin(t * 20) * 3 : 0)} armL={-70} gaze={stilled ? [-2, 0] : [3, 0]} extra={CONTROLLER} flip={stilled}/>
       <Lucas x={stilled ? 40 : runB.x} g={820} s={1.1} t={t + 3.3} flip={stilled ? false : runB.flip} walking={busy} running={busy} appear={ap('run', 'run')} pop={t - spawns.run} expression={stilled ? 'surprised' : 'happy'} gaze={[2, 0]}/>
       {n === 4 && [0, 1, 2].map(i => <Note key={i} x={GUITAR_X + 40 + i * 26 + Math.sin(t * 3 + i) * 8} y={560 - ((t * 40 + i * 30) % 90)} o={busy ? 1 - ((t * 40 + i * 30) % 90) / 90 : 0}/>)}
       {n === 4 && busy && [0, 1, 2].map(i => { const ph = (t * .8 + i / 3) % 1; return <circle key={i} cx={-226 + Math.sin(t * 2 + i) * 10} cy={600 - ph * 90} r={8 + ph * 18} className="cl-dust" opacity={(1 - ph) * .8}/>; })}
       {Object.entries(vanish).map(([k, v]) => {
-        const x = k === 'cook' ? COOK : k === 'guitar' ? GUITAR_X : k === 'sofa' ? SOFA_X : k === 'gamer' ? GAMER_X : 40;
-        const g = k === 'sofa' ? 748 : k === 'gamer' ? 900 : k === 'run' ? 820 : G;
+        const x = k === 'cook' ? COOK : k === 'guitar' ? GUITAR_X : k === 'sofa' ? 300 : k === 'gamer' ? GAMER_X : 40;
+        const g = k === 'sofa' ? 860 : k === 'gamer' ? 900 : k === 'run' ? 820 : G;
         return <Dissolve key={k} x={x} g={g} p={(t - v) / .9} t={t}/>;
       })}
       {n === 4 && ([['guitar', GUITAR_X, G], ['sofa', SOFA_X, 748], ['run', runB.x, 820], ['rebel', runA.x, 820]] as Array<[keyof typeof spawns, number, number]>).map(([k, x, g]) => <SpawnFx key={k} x={x} g={g} p={t - spawns[k]} t={t}/>)}
@@ -466,7 +466,7 @@ export function ClonesScene({ time }: { time: number }) {
     <rect width="540" height="960" className="cl-wall"/>
     <g clipPath="url(#clones-clip)"><g transform={`translate(${sx} ${sy})`}><g transform={cam}>
       {world}
-      {mood > 0 && <rect x="-1200" y="-1200" width="3200" height="3400" className="cl-night" opacity={mood * .7}/>}
+      {mood > 0 && <rect x="-1200" y="-1200" width="3200" height="3400" className="cl-night" opacity={mood * .62}/>}
       {lamp > 0 && <ellipse cx="560" cy="560" rx="380" ry="420" fill="url(#cl-lamp)" opacity={lamp * .55}/>}
     </g></g></g>
     <rect width="540" height="960" fill="url(#cl-vig)" opacity={vig}/>
