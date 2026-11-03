@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { getEnzoFrame, ramp, lin, clamp, handPos, T } from '@/lib/enzo-timeline';
 import { Leo, type LeoExpression } from './leo';
-import { Freezable, FrostBurst, ColdMist, IceSheet, Sparkles, EdgeFrost, BigHands, rnd } from './ice';
+import { Freezable, FrostBurst, ColdMist, IceSheet, Sparkles, EdgeFrost, BigHands } from './ice';
 
 type PersonProps = { tx: number; ty: number; s: number; flip?: boolean; scope: string; t: number; walking?: boolean; seated?: boolean; expression?: LeoExpression; reach?: number | undefined; armL?: number | undefined; gaze?: readonly [number, number] | undefined; shine?: boolean };
 function Person({ tx, ty, s, flip = false, scope, t, walking = false, seated = false, expression = 'curious', reach, armL, gaze, shine = false }: PersonProps) {
@@ -302,6 +302,6 @@ export function EnzoScene({ time }: { time: number }) {
     <EdgeFrost p={edge} t={t}/>
     <rect width="540" height="960" fill="url(#enzo-vig)" opacity={vig}/>
     {fade > 0 && <rect width="540" height="960" className="tp-black" opacity={fade}/>}
-    {sig > 0 && <text x="270" y="905" textAnchor="middle" className="enz-signature" opacity={sig * (rnd(1, 1) > 2 ? 0 : 1)}>AURAX OCULTO</text>}
+    {sig > 0 && <text x="270" y="905" textAnchor="middle" className="enz-signature" opacity={sig}>AURAX OCULTO</text>}
   </svg>;
 }
