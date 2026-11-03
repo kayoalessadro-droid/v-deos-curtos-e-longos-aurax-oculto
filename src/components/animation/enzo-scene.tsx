@@ -194,9 +194,9 @@ export function EnzoScene({ time }: { time: number }) {
       cam = t < 29.2 ? z(170, 470, 1.8) : t < 31 ? z(220, 560, 1.7) : t < 32.9 ? z(250, 540, 1.25) : z(352, 598, 2.3 + lin(t, 32.9, 35.8) * .5);
     } else {
       const ice = ramp(t, 36.15, 38.6) * 720, cracks = lin(t, 38.0, 38.6);
-      const hp = handPos(40, 60, 535, S);
+      const hp = handPos(40, 60, 555, S);
       bg = <><Hallway t={t} plantP={1} knobP={1}/><IceSheet cx={hp.x} cy={805} r={ice} flat={.26} cracks={cracks} t={t}/></>;
-      fg = <><Person tx={60} ty={535} s={S} scope="enzo-scope" t={t} seated expression={t < 37 ? 'curious' : 'happy'} reach={40} gaze={[3, 3]} shine/>
+      fg = <><Person tx={60} ty={555} s={S} scope="enzo-scope" t={t} seated expression={t < 37 ? 'curious' : 'happy'} reach={40} gaze={[3, 3]} shine/>
         <FrostBurst x={hp.x} y={hp.y + 6} p={lin(t, 36.1, 37.6)} size={140} seed={27} dir={0} spread={200} t={t}/><ColdMist x={hp.x + 60} y={800} t={t} amount={ramp(t, 36.3, 37)} w={300} n={9}/></>;
       cam = z(240, 690, 1.35 + lin(t, 35.8, 40.55) * .15);
       if (t > 38 && t < 38.35) shake = 4;
@@ -213,14 +213,14 @@ export function EnzoScene({ time }: { time: number }) {
       <Person tx={360 + (stop ? 0 : (t - 50.5) * 6) + flee * 50} ty={445} s={.56} flip scope="onlooker-a" t={t + .4} walking={!stop || (flee > 0 && flee < 1)} expression={onlookExpr} reach={t > T.flee ? -70 : undefined}/>
       <Person tx={445 + (stop ? 0 : (t - 50.5) * 4) + flee * 60} ty={430} s={.52} flip scope="onlooker-b" t={t + 1.1} walking={!stop || (flee > 0 && flee < 1)} expression={onlookExpr} armL={t > T.flee ? -60 : undefined}/>
     </>;
-    fg = <>{shadow(tx + 103, 878)}<Person tx={tx} ty={476} s={S} scope="enzo-scope" t={t} walking={t < 45.1} expression={t < 46.4 ? 'happy' : t < 49.8 ? 'surprised' : 'worried'} reach={t > 45 ? 14 - touch * 24 * (1 - ramp(t, 47.2, 47.8)) : undefined} shine/></>;
+    fg = <>{shadow(tx + 103, 878)}<Person tx={tx} ty={476} s={S} scope="enzo-scope" t={t} walking={t < 45.1} expression={t < 46.4 ? 'happy' : t < 49.8 ? 'surprised' : 'scared'} reach={t > 45 ? 14 - touch * 24 * (1 - ramp(t, 47.2, 47.8)) : undefined} shine/></>;
     bg = <>{bg}{people}</>;
     cam = t < 44.8 ? z(tx + 160, 600, 1.15) : t < 46.0 ? z(290, 650, 1.9) : t < 49.6 ? z(390, 700, 1.5 - lin(t, 46, 49.6) * .2) : t < 51.4 ? z(420, 560, 1.9) : z(330, 600, 1.05);
     if (t > 47.2 && t < 47.5) shake = 3;
   }
   if (n === 5 || n === 6) {
     // second angle on the plaza: Enzo faces left, his friend arrives from the left
-    let etx = 194, eWalk = false, eExpr: LeoExpression = 'worried', eReach: number | undefined = undefined;
+    let etx = 194, eWalk = false, eExpr: LeoExpression = 'scared', eReach: number | undefined = undefined;
     let ftx = 40, fWalk = false, fExpr: LeoExpression = 'happy', fReach: number | undefined = undefined;
     const grab = { x: 240, y: 640 };
     const sleeve = lin(t, 61.4, 62.9), floor = ramp(t, 63.2, 64.6) * 430;
@@ -268,7 +268,7 @@ export function EnzoScene({ time }: { time: number }) {
       const reach = t < 83.2 ? 10 : t < 92.4 ? 10 - ramp(t, 83.3, 86.9) * 22 : -12 + ramp(t, 92.4, 93.6) * 22;
       const look = t > 92.4;
       bg = <NightRoom t={t} mugP={mugP} frost={ramp(t, 93.8, 96)}/>;
-      fg = <>{shadow(tx + 103, 790, 60)}<Person tx={tx} ty={386} s={S} scope="enzo-scope" t={t} walking={t > 83.2 && t < 86.8} expression={t < 90 ? 'worried' : 'scared'} reach={look ? reach - 40 * ramp(t, 93.6, 94.4) : reach} gaze={look ? [2, -1] : [2, 1]} shine/>
+      fg = <>{shadow(tx + 103, 790, 60)}<Person tx={tx} ty={386} s={S} scope="enzo-scope" t={t} walking={t > 83.2 && t < 86.8} expression={t < 90 ? 'scared' : 'scared'} reach={look ? reach - 40 * ramp(t, 93.6, 94.4) : reach} gaze={look ? [2, -1] : [2, 1]} shine/>
         <Mug t={t} p={mugP}/>
         <ColdMist x={tx + 100 * S + 25} y={386 + 108 * S} t={t} amount={.55} w={10} rise={50} size={.4} n={3}/>
         <rect x="-200" y="-200" width="940" height="1360" className="enz-night-tint"/></>;
