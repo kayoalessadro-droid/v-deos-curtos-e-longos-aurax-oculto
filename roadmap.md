@@ -41,3 +41,7 @@
 
 # 60 Segundos Sem Gravidade (16:9, ~10 min, 3D por código)
 - [x] Narração das 10 cenas, 3D por código com Rafael, Nina e Davi, trilha e efeitos; MP4 1920x1080 (9min31s) em /mnt/documents/videos/60-segundos-sem-gravidade.mp4
+
+# Enzo — tudo o que toca congela (2D, rig do Léo)
+- [x] Narração Puck (97,7 s) cobrindo as 7 cenas do roteiro
+- [x] Animação 2D com efeitos de gelo, trilha de suspense e efeitos; MP4 1080x1920 em /mnt/documents/videos/enzo-tudo-congela.mp4

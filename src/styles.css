@@ -205,3 +205,50 @@
 .dust{fill:var(--cloud);opacity:.6}.dust-frozen{fill:oklch(0.85 0.1 230);opacity:.95}.l2-freeze-tint{fill:oklch(0.45 0.08 250)}
 .l2-wave{fill:none;stroke:oklch(0.88 0.12 230);stroke-width:10}.l2-wave-back{stroke:var(--sun)}.l2-flash{fill:oklch(0.97 0.03 230)}.l2-vig-in{stop-color:oklch(0.1 0.03 260);stop-opacity:0}.l2-vig-out{stop-color:oklch(0.1 0.03 260);stop-opacity:.85}
 .desk-panel{fill:oklch(0.62 0.06 60);stroke:var(--ink);stroke-width:3}
+
+/* ---------- Enzo — tudo o que toca congela ---------- */
+.enzo-scope{--leo-green:oklch(0.72 0.14 72);--leo-hair:oklch(0.29 0.05 45);--leo-pants:oklch(0.43 0.08 255);--leo-skin:oklch(0.8 0.085 60);--leo-shoe:oklch(0.97 0.01 90)}
+.friend-scope{--leo-green:oklch(0.57 0.17 25);--leo-hair:oklch(0.17 0.01 40);--leo-pants:oklch(0.35 0.02 260);--leo-skin:oklch(0.6 0.09 50)}
+.onlooker-a{--leo-green:oklch(0.55 0.12 300);--leo-hair:oklch(0.55 0.1 60);--leo-pants:oklch(0.3 0.02 260);--leo-skin:oklch(0.78 0.08 55)}
+.onlooker-b{--leo-green:oklch(0.6 0.11 185);--leo-hair:oklch(0.2 0.01 40);--leo-pants:oklch(0.45 0.04 60);--leo-skin:oklch(0.52 0.08 45)}
+.eye-white{fill:oklch(0.99 0 0)!important}.eye-shine{fill:oklch(1 0 0)}
+.jacket-zip{fill:none;stroke:oklch(0.5 0.1 65);stroke-width:3;stroke-linecap:round}.jacket-collar{fill:none;stroke:oklch(0.55 0.11 68);stroke-width:5;stroke-linecap:round}
+.big-hand rect,.big-hand path{stroke:var(--ink);stroke-width:3;stroke-linejoin:round}.big-hand .skin-detail{stroke:var(--leo-skin-detail)}.sleeve-cuff{fill:none;stroke:oklch(0.5 0.1 65)!important;stroke-width:6!important}
+.iced path,.iced rect,.iced ellipse,.iced circle{fill:oklch(0.88 0.06 230)!important;stroke:oklch(0.62 0.1 235)!important}
+.iced-tex path,.iced-tex rect,.iced-tex ellipse,.iced-tex circle{fill:url(#ice-tex)!important;stroke:none!important}
+.ice-tex-bg{fill:oklch(0.97 0.03 220 / .25)}.ice-tex-line{stroke:oklch(1 0 0 / .8);stroke-width:1.6;fill:none}
+.frost-vein{fill:none;stroke:oklch(0.98 0.02 220);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.frost-vein-glow{fill:none;stroke:oklch(0.8 0.12 225 / .55);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+.frost-flash{fill:oklch(0.97 0.04 220)}
+.ice-star{fill:oklch(1 0 0);stroke:oklch(0.78 0.12 225);stroke-width:.8}
+.ice-crystal{fill:oklch(0.9 0.07 220 / .92);stroke:oklch(0.55 0.13 240);stroke-width:1.6;stroke-linejoin:round}
+.ice-sheet{fill:oklch(0.9 0.06 222 / .78);stroke:oklch(0.98 0.02 220);stroke-width:3}.ice-sheet-inner{fill:oklch(0.97 0.03 220 / .45)}
+.ice-glint{fill:none;stroke:oklch(1 0 0);stroke-width:3;stroke-linecap:round}.ice-crack{fill:none;stroke:oklch(0.55 0.12 240);stroke-width:2;stroke-linejoin:round}
+.mist-in{stop-color:oklch(0.97 0.02 220);stop-opacity:.75}.mist-out{stop-color:oklch(0.97 0.02 220);stop-opacity:0}
+.glow-in{stop-color:oklch(0.8 0.13 220);stop-opacity:.8}.glow-out{stop-color:oklch(0.8 0.13 220);stop-opacity:0}
+.edge-in{stop-color:oklch(0.95 0.04 220);stop-opacity:0}.edge-out{stop-color:oklch(0.95 0.04 220);stop-opacity:.75}
+.enz-sky{fill:oklch(0.9 0.05 225)}.enz-sky-dusk{fill:oklch(0.78 0.06 260)}
+.enz-rail .rail-bar{fill:none;stroke:oklch(0.4 0.02 250);stroke-width:7;stroke-linecap:round}.rail-post{fill:none;stroke:oklch(0.4 0.02 250);stroke-width:6;stroke-linecap:round}.rail-knob{fill:oklch(0.4 0.02 250)}
+.iced .rail-bar,.iced .rail-post{stroke:oklch(0.9 0.06 225)!important}
+.pave-line{fill:none;stroke:oklch(0.8 0.02 160);stroke-width:3}
+.enz-dim{fill:oklch(0.25 0.05 250)}
+.enz-kitchen-wall{fill:oklch(0.93 0.035 85)}.enz-tile{fill:oklch(0.97 0.012 200);stroke:oklch(0.86 0.02 200);stroke-width:3}
+.enz-cabinet{fill:oklch(0.66 0.09 165);stroke:var(--ink);stroke-width:3}.enz-cabinet-line{fill:none;stroke:var(--ink);stroke-width:4;stroke-linecap:round}
+.enz-counter-top{fill:oklch(0.85 0.02 80);stroke:var(--ink);stroke-width:3}.enz-counter{fill:oklch(0.58 0.08 165);stroke:var(--ink);stroke-width:3}
+.enz-water{fill:oklch(0.72 0.12 230)}.enz-glass{fill:oklch(0.95 0.03 220 / .35);stroke:var(--ink);stroke-width:3}.enz-glass-frost{fill:oklch(0.98 0.02 220 / .55);stroke:none}
+.enz-metal{fill:oklch(0.78 0.015 250);stroke:var(--ink);stroke-width:2.5}.enz-spoon-handle{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round}
+.enz-apple{fill:oklch(0.6 0.2 27);stroke:var(--ink);stroke-width:3}.tree-trunk-thin{fill:none;stroke:oklch(0.4 0.06 50);stroke-width:3;stroke-linecap:round}
+.enz-hall-wall{fill:oklch(0.86 0.045 60)}.enz-wainscot{fill:oklch(0.76 0.06 55)}.enz-frame{fill:oklch(0.9 0.04 225);stroke:var(--ink);stroke-width:5}
+.enz-door{fill:oklch(0.55 0.09 50);stroke:var(--ink);stroke-width:4}.enz-door-panel{fill:oklch(0.6 0.09 52);stroke:oklch(0.4 0.07 45);stroke-width:3}
+.enz-stem{fill:none;stroke:oklch(0.45 0.1 150);stroke-width:4;stroke-linecap:round}.enz-leaf{fill:oklch(0.6 0.15 150);stroke:var(--ink);stroke-width:2}.enz-pot{fill:oklch(0.62 0.13 40);stroke:var(--ink);stroke-width:3}
+.enz-floor{fill:oklch(0.63 0.08 60)}.enz-plank{fill:none;stroke:oklch(0.52 0.07 55);stroke-width:3}
+.enz-grass{fill:oklch(0.74 0.12 140)}.enz-path{fill:oklch(0.86 0.04 80)}.enz-wood{fill:oklch(0.6 0.1 55);stroke:var(--ink);stroke-width:3}
+.enz-lamp{fill:none;stroke:oklch(0.3 0.02 250);stroke-width:8;stroke-linecap:round}.enz-lamp-head{fill:oklch(0.3 0.02 250);stroke:var(--ink);stroke-width:2}
+.enz-cold-bg{fill:oklch(0.3 0.07 250)}.enz-final-bg{fill:oklch(0.17 0.05 255)}
+.enz-night-wall{fill:oklch(0.3 0.05 265)}.enz-night-window{fill:oklch(0.22 0.07 260);stroke:oklch(0.15 0.03 260);stroke-width:6}.enz-night-window-glass{fill:oklch(0.5 0.06 250 / .2)}
+.enz-moon{fill:oklch(0.95 0.04 95)}.enz-night-frame{fill:none;stroke:oklch(0.15 0.03 260);stroke-width:5}.enz-moonbeam{fill:oklch(0.85 0.06 240 / .12)}
+.enz-night-floor{fill:oklch(0.24 0.04 265)}.enz-night-bed{fill:oklch(0.32 0.06 260);stroke:oklch(0.12 0.02 260);stroke-width:3}.enz-night-blanket{fill:oklch(0.4 0.08 255);stroke:oklch(0.12 0.02 260);stroke-width:3}.enz-night-pillow{fill:oklch(0.65 0.03 250);stroke:oklch(0.12 0.02 260);stroke-width:3}
+.enz-night-desk{fill:oklch(0.4 0.05 50);stroke:oklch(0.12 0.02 260);stroke-width:3}.enz-night-leg{fill:oklch(0.35 0.04 50);stroke:oklch(0.12 0.02 260);stroke-width:5;stroke-linecap:round}
+.enz-mug{fill:oklch(0.62 0.15 30);stroke:var(--ink);stroke-width:3}.enz-mug-handle{fill:none;stroke:var(--ink);stroke-width:5}.enz-coffee{fill:oklch(0.35 0.06 55)}
+.enz-night-tint{fill:oklch(0.25 0.08 265 / .38);pointer-events:none}
+.enz-signature{fill:oklch(0.9 0.03 220);font-family:Arial,sans-serif;font-size:15px;font-weight:700;letter-spacing:6px}
