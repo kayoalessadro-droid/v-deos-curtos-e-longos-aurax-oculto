@@ -128,13 +128,13 @@ function Hand({ crystals, t, seed }: { crystals: number; t: number; seed: number
 /** Close-up of Enzo's hands, palms toward camera, with crystals growing from the fingers. */
 export function BigHands({ t, crystals, frost, glow, tremble = 1, y = 760, id = 'hands' }: { t: number; crystals: number; frost: number; glow: number; tremble?: number; y?: number; id?: string }) {
   const j = Math.sin(t * 37) * 1.4 * tremble, k = Math.cos(t * 29) * 1.1 * tremble;
-  const left = <g transform={`translate(${165 + j} ${y + k}) rotate(-14)`}><Hand crystals={crystals} t={t} seed={11}/></g>;
-  const right = <g transform={`translate(${375 - k} ${y + j}) rotate(14) scale(-1 1)`}><Hand crystals={crystals} t={t + .7} seed={17}/></g>;
+  const left = <g transform={`translate(${150 + j} ${y + k}) rotate(-14) scale(1.6)`}><Hand crystals={crystals} t={t} seed={11}/></g>;
+  const right = <g transform={`translate(${390 - k} ${y + j}) rotate(14) scale(-1.6 1.6)`}><Hand crystals={crystals} t={t + .7} seed={17}/></g>;
   return <g className="enzo-scope">
     {glow > 0 && <ellipse cx="270" cy={y - 60} rx="270" ry="230" fill="url(#enzo-glow)" opacity={clamp(glow)}/>}
-    <Freezable id={`${id}-l`} cx={165} cy={y - 90} p={frost} R={150}>{left}</Freezable>
-    <Freezable id={`${id}-r`} cx={375} cy={y - 90} p={frost} R={150}>{right}</Freezable>
-    <FrostBurst x={165} y={y - 70} p={frost * .8} size={90} seed={4} n={6} dir={-90} spread={150} t={t}/>
-    <FrostBurst x={375} y={y - 70} p={frost * .8} size={90} seed={9} n={6} dir={-90} spread={150} t={t}/>
+    <Freezable id={`${id}-l`} cx={150} cy={y - 130} p={frost} R={230}>{left}</Freezable>
+    <Freezable id={`${id}-r`} cx={390} cy={y - 130} p={frost} R={230}>{right}</Freezable>
+    <FrostBurst x={150} y={y - 110} p={frost * .8} size={90} seed={4} n={6} dir={-90} spread={150} t={t}/>
+    <FrostBurst x={390} y={y - 110} p={frost * .8} size={90} seed={9} n={6} dir={-90} spread={150} t={t}/>
   </g>;
 }
