@@ -111,7 +111,7 @@ function Plaza({ t, benchP, benchC, ice, iceC, treeP, dusk = false }: { t: numbe
     <CityBack t={t} night={dusk}/>
     <rect y="620" width="540" height="340" className="enz-grass"/>
     <path d="M-40 980Q200 760 300 640L360 640Q330 760 600 980Z" className="enz-path"/>
-    {[[70, 600, 1], [470, 590, .9]].map(([x, y, s], i) => <Freezable key={i} id={`tree${i}`} cx={x} cy={y + 40} p={treeP} R={230}><g transform={`translate(${x} ${y}) scale(${s})`}><path className="tree-trunk" d="M0 50V-110"/><path className="tree-leaves" d="M-40 -90Q-65 -125 -40 -150Q-52 -192 -18 -205Q27 -220 46 -180Q78 -150 46 -122Q52 -86 10 -74Z"/></g></Freezable>)}
+    {([[70, 600, 1], [470, 590, .9]] as Array<[number, number, number]>).map(([x, y, s], i) => <Freezable key={i} id={`tree${i}`} cx={x} cy={y + 40} p={treeP} R={230}><g transform={`translate(${x} ${y}) scale(${s})`}><path className="tree-trunk" d="M0 50V-110"/><path className="tree-leaves" d="M-40 -90Q-65 -125 -40 -150Q-52 -192 -18 -205Q27 -220 46 -180Q78 -150 46 -122Q52 -86 10 -74Z"/></g></Freezable>)}
     <Freezable id="lamp" cx={500} cy={720} p={treeP} R={220}><g><path d="M500 760V450" className="enz-lamp"/><path d="M478 450H522L512 425H488Z" className="enz-lamp-head"/></g></Freezable>
     <IceSheet cx={iceC.x} cy={iceC.y} r={ice} t={t} cracks={ice > 80 ? 1 : 0} seed={14}/>
     <Freezable id="bench" cx={benchC.x} cy={benchC.y} p={benchP} R={300}><g>
@@ -177,7 +177,7 @@ export function EnzoScene({ time }: { time: number }) {
     const touch = Math.max(ramp(t, 17.9, 18.45) * (1 - ramp(t, 20.6, 21.3)), ramp(t, 23.0, 23.45) * (1 - ramp(t, 23.6, 23.9)), ramp(t, 24.0, 24.35) * (1 - ramp(t, 25.0, 25.5)));
     const expr: LeoExpression = t < 19.6 ? 'curious' : t < 22.3 ? 'surprised' : t < 25.2 ? 'curious' : 'happy';
     bg = <Kitchen t={t} glassP={glassP} spoonP={spoonP} appleP={appleP}/>;
-    fg = <><Person tx={tx} ty={386} s={S} scope="enzo-scope" t={t} walking={t > 22.6 && t < 24.25 && (t < 23.3 || t > 23.75)} expression={expr} reach={14 - touch * 24} shine/>
+    fg = <><Person tx={tx} ty={386} s={S} scope="enzo-scope" t={t} walking={t > 22.6 && t < 24.25 && (t < 23.3 || t > 23.75)} expression={expr} reach={14 - touch * 44} shine/>
       <Counter t={t} glassP={glassP} spoonP={spoonP} appleP={appleP}/></>;
     cam = t < 18.9 ? z(240, 520, 1.3) : t < 22.3 ? z(333, 565, 2.6 + lin(t, 18.9, 22.3) * .5) : t < 25.1 ? z(330 + lin(t, 22.3, 25.1) * 90, 560, 1.7) : z(300, 520, 1.25);
   }
