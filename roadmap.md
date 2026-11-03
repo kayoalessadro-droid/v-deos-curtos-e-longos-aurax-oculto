@@ -38,3 +38,6 @@
 - [x] Narração Puck (71,8 s) em /mnt/documents/videos/dor/narracao-lucas.wav
 - [x] Animação 3D, trilha e MP4 final em /mnt/documents/videos/dor-aurax-oculto.mp4 (80,8 s)
 - [x] Sugerir próximo passo após o remix
+
+# 60 Segundos Sem Gravidade (16:9, ~10 min, 3D por código)
+- [x] Narração das 10 cenas, 3D por código com Rafael, Nina e Davi, trilha e efeitos; MP4 1920x1080 (9min31s) em /mnt/documents/videos/60-segundos-sem-gravidade.mp4
