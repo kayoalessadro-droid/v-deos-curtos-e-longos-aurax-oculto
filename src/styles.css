@@ -252,3 +252,52 @@
 .enz-mug{fill:oklch(0.62 0.15 30);stroke:var(--ink);stroke-width:3}.enz-mug-handle{fill:none;stroke:var(--ink);stroke-width:5}.enz-coffee{fill:oklch(0.35 0.06 55)}
 .enz-night-tint{fill:oklch(0.25 0.08 265 / .38);pointer-events:none}
 .enz-signature{fill:oklch(0.9 0.03 220);font-family:Arial,sans-serif;font-size:15px;font-weight:700;letter-spacing:6px}
+
+/* ---------- Lucas — cópias de si mesmo ---------- */
+.lucas-scope{--leo-green:oklch(0.6 0.19 27);--leo-hair:oklch(0.28 0.05 45);--leo-pants:oklch(0.32 0.03 260);--leo-skin:oklch(0.8 0.08 62);--leo-shoe:oklch(0.97 0.01 90)}
+.hood-collar{fill:none;stroke:oklch(0.48 0.16 25);stroke-width:7;stroke-linecap:round}.hood-string{fill:none;stroke:oklch(0.97 0.01 90);stroke-width:2.6;stroke-linecap:round}.hood-tip{fill:oklch(0.97 0.01 90)}
+.hood-pocket{fill:oklch(0.54 0.18 26);stroke:var(--ink);stroke-width:2.4;stroke-linejoin:round}.hood-hem{fill:none;stroke:oklch(0.48 0.16 25);stroke-width:5;stroke-linecap:round}
+.clone-ghost path,.clone-ghost ellipse,.clone-ghost circle,.clone-ghost rect{fill:oklch(0.9 0.1 205)!important;stroke:oklch(0.72 0.15 220)!important}
+.cl-wall-shadow path,.cl-wall-shadow ellipse,.cl-wall-shadow circle,.cl-wall-shadow rect{fill:oklch(0.12 0.03 270)!important;stroke:none!important}
+.cl-shadow{fill:oklch(0.2 0.03 260 / .22)}
+.clone-ring{fill:none;stroke:oklch(0.85 0.14 210);stroke-width:5}.clone-ring-solid{fill:none;stroke:oklch(0.92 0.1 205);stroke-width:6}
+.clone-flash{fill:oklch(0.97 0.04 210)}.clone-particle{fill:oklch(0.9 0.12 205)}
+.clone-trail{fill:none;stroke:oklch(0.97 0.05 205);stroke-width:4;stroke-linecap:round}.clone-trail-glow{fill:none;stroke:oklch(0.8 0.15 215 / .5);stroke-width:16;stroke-linecap:round}
+.cl-glow-in{stop-color:oklch(0.97 0.06 205);stop-opacity:.95}.cl-glow-mid{stop-color:oklch(0.8 0.15 215);stop-opacity:.45}.cl-glow-out{stop-color:oklch(0.8 0.15 215);stop-opacity:0}
+.cl-beam-edge{stop-color:oklch(0.85 0.13 210);stop-opacity:0}.cl-beam-core{stop-color:oklch(0.95 0.07 205);stop-opacity:.75}
+.cl-lamp-in{stop-color:oklch(0.88 0.12 75);stop-opacity:.8}.cl-lamp-out{stop-color:oklch(0.88 0.12 75);stop-opacity:0}
+.cl-night{fill:oklch(0.18 0.06 270)}
+.cl-wall{fill:oklch(0.84 0.05 240)}.cl-wall-stripe{fill:none;stroke:oklch(0.8 0.05 240);stroke-width:16}
+.cl-window-sky{fill:oklch(0.78 0.11 55)}.cl-sunset{fill:oklch(0.92 0.12 85)}.cl-city{fill:oklch(0.45 0.07 300)}
+.cl-frame{fill:none;stroke:oklch(0.97 0.01 90);stroke-width:8}.cl-frame-line{fill:none;stroke:oklch(0.97 0.01 90);stroke-width:5}
+.cl-curtain{fill:oklch(0.62 0.12 160);stroke:var(--ink);stroke-width:3}
+.cl-poster{fill:oklch(0.3 0.06 270);stroke:var(--ink);stroke-width:3}.cl-rocket{fill:oklch(0.95 0.02 90);stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round}
+.cl-shelf{fill:oklch(0.55 0.08 55);stroke:var(--ink);stroke-width:2.5}
+.cl-book-a{fill:oklch(0.6 0.16 30);stroke:var(--ink);stroke-width:2}.cl-book-b{fill:oklch(0.72 0.13 90);stroke:var(--ink);stroke-width:2}.cl-book-c{fill:oklch(0.55 0.12 250);stroke:var(--ink);stroke-width:2}
+.cl-bed-frame{fill:oklch(0.55 0.08 55);stroke:var(--ink);stroke-width:3}.cl-mattress{fill:oklch(0.97 0.01 90);stroke:var(--ink);stroke-width:3}
+.cl-pillow{fill:oklch(0.98 0.01 90);stroke:var(--ink);stroke-width:3}.cl-blanket{fill:oklch(0.62 0.12 160);stroke:var(--ink);stroke-width:3;stroke-linejoin:round}
+.cl-leg{fill:none;stroke:oklch(0.35 0.04 50);stroke-width:7;stroke-linecap:round}
+.cl-chair{fill:oklch(0.4 0.05 260);stroke:var(--ink);stroke-width:2.5}.cl-desk{fill:oklch(0.6 0.08 60);stroke:var(--ink);stroke-width:3}
+.cl-lamp-arm{fill:none;stroke:oklch(0.3 0.02 260);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.cl-lamp-head{fill:oklch(0.72 0.13 90);stroke:var(--ink);stroke-width:2.5}
+.cl-floor{fill:oklch(0.62 0.08 60)}.cl-plank{fill:none;stroke:oklch(0.54 0.07 55);stroke-width:3}.cl-rug{fill:oklch(0.7 0.1 30);stroke:oklch(0.6 0.1 30);stroke-width:5}
+.cl-basket{fill:oklch(0.74 0.09 80);stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round}.cl-basket-line{fill:none;stroke:oklch(0.55 0.08 70);stroke-width:2.5}
+.cl-cloth{fill:oklch(0.65 0.13 250);stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round}.cl-cloth2{fill:oklch(0.78 0.12 95);stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round}
+.cl-sock{fill:oklch(0.97 0.01 90);stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round}.cl-paper{fill:oklch(0.98 0.01 90);stroke:var(--ink);stroke-width:2}.cl-can{fill:oklch(0.62 0.17 145);stroke:var(--ink);stroke-width:2}
+.cl-pencil{fill:none;stroke:oklch(0.8 0.15 85);stroke-width:5;stroke-linecap:round}.cl-notebook{fill:oklch(0.98 0.01 90);stroke:var(--ink);stroke-width:2}.cl-check{fill:none;stroke:oklch(0.6 0.17 145);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.cl-stick{fill:none;stroke:oklch(0.55 0.09 60);stroke-width:6;stroke-linecap:round}.cl-bristle{fill:oklch(0.8 0.12 85);stroke:var(--ink);stroke-width:2.5;stroke-linejoin:round}
+.cl-dust{fill:oklch(0.92 0.02 80)}
+.cl-neck{fill:none;stroke:oklch(0.42 0.07 50);stroke-width:9;stroke-linecap:round}.cl-wood-dark{fill:oklch(0.35 0.06 50);stroke:var(--ink);stroke-width:2}
+.cl-guitar{fill:oklch(0.7 0.13 65);stroke:var(--ink);stroke-width:2.6}.cl-hole{fill:oklch(0.25 0.04 50)}
+.cl-controller{fill:oklch(0.3 0.02 260);stroke:var(--ink);stroke-width:2}.cl-btn{fill:oklch(0.65 0.2 25)}.cl-btn2{fill:oklch(0.7 0.15 145)}
+.cl-note{fill:oklch(0.25 0.04 270)}.cl-note-stem{fill:none;stroke:oklch(0.25 0.04 270);stroke-width:3;stroke-linejoin:round}
+.cl-lr-wall{fill:oklch(0.88 0.05 75)}.cl-backsplash{fill:oklch(0.95 0.015 200)}.cl-tile{fill:none;stroke:oklch(0.86 0.02 200);stroke-width:2.5}
+.cl-cabinet{fill:oklch(0.62 0.1 220);stroke:var(--ink);stroke-width:3}.cl-cab-line{fill:none;stroke:var(--ink);stroke-width:3.5;stroke-linecap:round}
+.cl-counter-top{fill:oklch(0.86 0.02 80);stroke:var(--ink);stroke-width:3}.cl-stove{fill:oklch(0.28 0.02 260);stroke:var(--ink);stroke-width:2}.cl-oven{fill:oklch(0.35 0.02 260);stroke:var(--ink);stroke-width:3}
+.cl-handle{fill:none;stroke:oklch(0.25 0.02 260);stroke-width:6;stroke-linecap:round}.cl-pan{fill:oklch(0.3 0.02 260);stroke:var(--ink);stroke-width:2.5}.cl-pancake{fill:oklch(0.78 0.12 75);stroke:oklch(0.55 0.1 60);stroke-width:2}
+.cl-day-sky{fill:oklch(0.85 0.07 230)}.cl-hill{fill:oklch(0.68 0.13 145)}
+.cl-sofa{fill:oklch(0.55 0.13 160);stroke:var(--ink);stroke-width:3}.cl-sofa-seat{fill:oklch(0.62 0.13 160);stroke:var(--ink);stroke-width:3}
+.cl-lamp-pole{fill:none;stroke:oklch(0.3 0.02 260);stroke-width:6;stroke-linecap:round}.cl-lamp-shade{fill:oklch(0.9 0.08 85);stroke:var(--ink);stroke-width:2.5}
+.cl-tvstand{fill:oklch(0.45 0.06 55);stroke:var(--ink);stroke-width:3}.cl-tv{fill:oklch(0.2 0.02 260);stroke:var(--ink);stroke-width:3}.cl-screen{fill:oklch(0.28 0.03 260)}
+.cl-game-a{fill:oklch(0.55 0.15 280)}.cl-game-b{fill:oklch(0.6 0.15 250)}.cl-game-hero{fill:oklch(0.85 0.17 95)}.cl-game-block{fill:oklch(0.7 0.17 145)}
+.cl-floor2{fill:oklch(0.6 0.07 55)}.cl-plank2{fill:none;stroke:oklch(0.52 0.06 50);stroke-width:3}.cl-rug2{fill:oklch(0.55 0.1 260);stroke:oklch(0.47 0.1 260);stroke-width:5}
+.cl-beanbag{fill:oklch(0.7 0.15 50);stroke:var(--ink);stroke-width:3}.cl-pillow2{fill:oklch(0.8 0.13 90);stroke:var(--ink);stroke-width:2.5}
