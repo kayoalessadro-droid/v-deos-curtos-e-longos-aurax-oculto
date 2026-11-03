@@ -139,7 +139,7 @@ function Bedroom({ t, mess }: { t: number; mess: number }) {
     {/* desk & chair */}
     <rect x="384" y="560" width="14" height="150" rx="4" className="cl-chair"/><rect x="384" y="702" width="84" height="12" rx="4" className="cl-chair"/><path d="M394 714V812M460 714V812" className="cl-leg"/>
     <rect x="470" y="628" width="230" height="16" rx="3" className="cl-desk"/><path d="M490 644V812M680 644V812" className="cl-leg"/>
-    <path d="M640 628V570L610 548" className="cl-lamp-arm"/><path d="M592 540L626 552L616 566Z" className="cl-lamp-head"/>
+    <path d="M640 628V570L610 548" className="cl-lamp-arm"/><path d="M598 534H626L636 558H588Z" className="cl-lamp-head"/>
     <rect x="590" y="612" width="44" height="16" className="cl-book-a"/><rect x="596" y="600" width="36" height="12" className="cl-book-c"/>
     {/* floor */}
     <rect x="-400" y="812" width="1400" height="600" className="cl-floor"/>
@@ -319,7 +319,7 @@ export function ClonesScene({ time }: { time: number }) {
       : t < 31.0 ? z(500, 610, 2.0)
       : t < 32.1 ? z(300, 690, 1.75)
       : t < 34.3 ? z(170, 690, 1.9 - lin(t, 32.1, 34.3) * .15)
-      : t < 35.2 ? z(300, 850, 1.45)
+      : t < 35.2 ? z(290, 800, 1.3)
       : t < 36.0 ? z(548, 618, 3.4)
       : t < 39.6 ? z(240, 680, 1.15 + lin(t, 36, 39.6) * .15)
       : z(90, 690, 2.2 + lin(t, 39.6, 41.1) * .3);
@@ -416,7 +416,7 @@ export function ClonesScene({ time }: { time: number }) {
         : t < 46.4 ? z(250, 560, .64 - lin(t, 43, 46.4) * .05)
         : t < 47.4 ? z(-130, 580, 1.7)
         : t < 48.5 ? z(640, 660, 1.75)
-        : t < 49.6 ? z(GUITAR_X + 30, 610, 1.9)
+        : t < 49.6 ? z(GUITAR_X - 15, 610, 2.3)
         : t < 50.6 ? z(SOFA_X, 560, 1.5)
         : z(260, 560, .7 + Math.sin(t * 3) * .01);
       if (t > 50.6) shake = 2 + ramp(t, 50.6, 52) * 3;
