@@ -9,10 +9,12 @@ type LeoProps = {
   gaze?: readonly [number, number] | undefined;
   /** Adds eye highlights for close-ups. */
   shine?: boolean;
+  /** Hides both arms (close-ups where separate hands are drawn). */
+  hideArms?: boolean;
 };
 
 // All poses use this one rig; rotations pivot at the actual shoulder/hip joints.
-export function Leo({ time = 0, walking = false, running = false, seated = false, expression = 'curious', backpack = true, reach, armL, gaze, shine = false }: LeoProps) {
+export function Leo({ time = 0, walking = false, running = false, seated = false, expression = 'curious', backpack = true, reach, armL, gaze, shine = false, hideArms = false }: LeoProps) {
   const stride = walking ? Math.sin(time * (running ? 13 : 7)) * (running ? 35 : 20) : 0;
   const bob = walking ? Math.abs(Math.sin(time * (running ? 13 : 7))) * (running ? 5 : 2) : Math.sin(time * 2) * 1.4;
   const blink = expression === 'sleeping' || time % 3.7 > 3.52;
@@ -27,11 +29,11 @@ export function Leo({ time = 0, walking = false, running = false, seated = false
     {backpack && <g className="leo-bag"><path d="M58 129 Q34 122 31 146 L28 205 Q29 216 44 218 L64 218Z"/><path d="M35 154L51 154L51 200L33 200" className="bag-detail"/></g>}
     <g transform={`rotate(${seated ? -65 : -stride} 77 222)`}><path className="leo-pants" d="M60 216L89 216L86 282L80 330L60 330L61 273Z"/><path className="leo-shoe" d="M60 322L81 322L83 334L94 340Q97 348 87 348L54 348L54 336Z"/></g>
     <g transform={`rotate(${seated ? -65 : stride} 104 222)`}><path className="leo-pants" d="M90 216L119 216L122 278L128 330L107 333L95 275Z"/><path className="leo-shoe" d="M106 324L128 324L130 335L144 340Q147 348 137 348L105 348L101 337Z"/></g>
-    <g transform={`rotate(${back} 59 148)`}><path className="leo-shirt" d="M62 132Q45 130 39 147L34 170L55 178L69 155Z"/><path className="leo-skin" d="M36 169L52 174L46 216Q45 226 34 224Q25 222 28 211Z"/></g>
+    {!hideArms && <g transform={`rotate(${back} 59 148)`}><path className="leo-shirt" d="M62 132Q45 130 39 147L34 170L55 178L69 155Z"/><path className="leo-skin" d="M36 169L52 174L46 216Q45 226 34 224Q25 222 28 211Z"/></g>}
     <path className="leo-shirt" d="M64 128Q89 118 113 131L126 175L122 225Q86 237 54 223L58 162Z"/>
     {backpack && <path className="bag-strap" d="M66 132Q55 168 63 208"/>}
     <path className="leo-skin" d="M76 107L77 133Q88 144 101 130L99 104Z"/>
-    <g transform={`rotate(${wave} 115 145)`}><path className="leo-shirt" d="M109 130Q126 126 135 143L141 166L119 176L107 150Z"/><path className="leo-skin" d="M122 170L139 163L149 190L163 170Q169 161 176 167Q184 175 176 184L156 209Q149 217 141 209Z"/><path className="skin-detail" d="M166 177L174 170"/></g>
+    {!hideArms && <g transform={`rotate(${wave} 115 145)`}><path className="leo-shirt" d="M109 130Q126 126 135 143L141 166L119 176L107 150Z"/><path className="leo-skin" d="M122 170L139 163L149 190L163 170Q169 161 176 167Q184 175 176 184L156 209Q149 217 141 209Z"/><path className="skin-detail" d="M166 177L174 170"/></g>}
     <g transform={`rotate(${walking ? -3 : Math.sin(time * 1.4) * 3} 88 91)`}>
       <ellipse className="leo-skin" cx="47" cy="84" rx="10" ry="15"/><ellipse className="leo-skin" cx="126" cy="84" rx="10" ry="15"/>
       <path className="leo-skin" d="M48 56Q50 26 89 28Q130 32 126 72L121 100Q112 126 88 127Q60 125 50 99Z"/>

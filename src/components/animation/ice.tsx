@@ -27,7 +27,7 @@ export function blob(cx: number, cy: number, r: number, seed: number, n = 22, ji
 }
 
 /** Branching frost veins growing from a point. dir/spread in degrees limit the fan (default: all around). */
-export function FrostBurst({ x, y, p, size, seed = 1, n = 8, dir = 0, spread = 360, t = 0 }: { x: number; y: number; p: number; size: number; seed?: number; n?: number; dir?: number; spread?: number; t?: number }) {
+export function FrostBurst({ x, y, p, size, seed = 1, n = 8, dir = 0, spread = 360, t = 0, flash = true }: { x: number; y: number; p: number; size: number; seed?: number; n?: number; dir?: number; spread?: number; t?: number; flash?: boolean }) {
   const q = clamp(p);
   if (q <= 0) return null;
   const veins: string[] = [], tips: Array<[number, number, number]> = [];
@@ -49,7 +49,7 @@ export function FrostBurst({ x, y, p, size, seed = 1, n = 8, dir = 0, spread = 3
     veins.push(d); tips.push([px, py, rnd(seed, i + 90)]);
   }
   return <g className="frost-burst">
-    {q < .35 && <circle cx={x} cy={y} r={size * (.15 + q)} className="frost-flash" opacity={(.35 - q) * 2.2}/>}
+    {flash && q < .35 && <circle cx={x} cy={y} r={size * (.15 + q)} className="frost-flash" opacity={(.35 - q) * 2.2}/>}
     <path d={veins.join('')} className="frost-vein-glow"/>
     <path d={veins.join('')} className="frost-vein"/>
     {tips.map(([tx, ty, r], i) => <Star key={i} x={tx} y={ty} r={(3 + r * 4) * (0.6 + .4 * Math.sin(t * 6 + i))}/>)}
@@ -104,7 +104,7 @@ export function EdgeFrost({ p, t }: { p: number; t: number }) {
   const pts: Array<[number, number, number]> = [[0, 0, 45], [540, 0, 135], [0, 960, -45], [540, 960, -135], [0, 480, 0], [540, 480, 180], [270, 0, 90], [270, 960, -90]];
   return <g>
     <rect width="540" height="960" fill="url(#enzo-edge)" opacity={clamp(p)}/>
-    {pts.map(([x, y, d], i) => <FrostBurst key={i} x={x} y={y} p={p} size={i < 4 ? 300 : 170} seed={30 + i} n={7} dir={d} spread={100} t={t}/>)}
+    {pts.map(([x, y, d], i) => <FrostBurst key={i} x={x} y={y} p={p} size={i < 4 ? 300 : 170} seed={30 + i} n={7} dir={d} spread={100} t={t} flash={false}/>)}
   </g>;
 }
 

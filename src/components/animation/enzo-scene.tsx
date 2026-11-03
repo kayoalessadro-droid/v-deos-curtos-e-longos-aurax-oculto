@@ -3,11 +3,11 @@ import { getEnzoFrame, ramp, lin, clamp, handPos, T } from '@/lib/enzo-timeline'
 import { Leo, type LeoExpression } from './leo';
 import { Freezable, FrostBurst, ColdMist, IceSheet, Sparkles, EdgeFrost, BigHands } from './ice';
 
-type PersonProps = { tx: number; ty: number; s: number; flip?: boolean; scope: string; t: number; walking?: boolean; seated?: boolean; expression?: LeoExpression; reach?: number | undefined; armL?: number | undefined; gaze?: readonly [number, number] | undefined; shine?: boolean };
-function Person({ tx, ty, s, flip = false, scope, t, walking = false, seated = false, expression = 'curious', reach, armL, gaze, shine = false }: PersonProps) {
+type PersonProps = { tx: number; ty: number; s: number; flip?: boolean; scope: string; t: number; walking?: boolean; seated?: boolean; expression?: LeoExpression; reach?: number | undefined; armL?: number | undefined; gaze?: readonly [number, number] | undefined; shine?: boolean; hideArms?: boolean };
+function Person({ tx, ty, s, flip = false, scope, t, walking = false, seated = false, expression = 'curious', reach, armL, gaze, shine = false, hideArms = false }: PersonProps) {
   return <g transform={flip ? `translate(${tx + s * 180} ${ty}) scale(${-s} ${s})` : `translate(${tx} ${ty}) scale(${s})`}>
     <g className={scope}>
-      <Leo time={t} walking={walking} seated={seated} expression={expression} backpack={false} reach={reach} armL={armL} gaze={gaze} shine={shine}/>
+      <Leo time={t} walking={walking} seated={seated} expression={expression} backpack={false} reach={reach} armL={armL} gaze={gaze} shine={shine} hideArms={hideArms}/>
       {scope === 'enzo-scope' && <path d="M89 131L88 226" className="jacket-zip"/>}
       {scope === 'enzo-scope' && <path d="M66 128Q88 146 112 130" className="jacket-collar"/>}
     </g>
@@ -254,7 +254,7 @@ export function EnzoScene({ time }: { time: number }) {
     if (n === 6 && t >= T.hands) {
       const c = lin(t, T.crystals, 79.2);
       bg = <><rect width="540" height="960" className="enz-cold-bg"/><ColdMist x={270} y={900} t={t} amount={1} w={540} n={10} rise={500} size={1.6}/></>;
-      fg = <><BigHands t={t} crystals={c} frost={lin(t, 77, 79.4) * .45} glow={.4 + c * .6} id="hands6"/><Sparkles x={60} y={300} w={420} h={420} t={t} n={14} amount={c}/></>;
+      fg = <><BigHands t={t} crystals={c} frost={lin(t, 77, 79.4) * .45} glow={.4 + c * .6} y={720} id="hands6"/><Sparkles x={60} y={300} w={420} h={420} t={t} n={14} amount={c}/></>;
       cam = `translate(${-270 * lin(t, 74.4, 79.6) * .08} ${-480 * lin(t, 74.4, 79.6) * .08}) scale(${1 + lin(t, 74.4, 79.6) * .08})`;
       vig = .55;
     }
@@ -276,7 +276,7 @@ export function EnzoScene({ time }: { time: number }) {
     } else {
       const pulse = .7 + .3 * Math.sin(t * 3);
       bg = <rect width="540" height="960" className="enz-final-bg"/>;
-      fg = <><Person tx={-12} ty={70 + Math.sin(t * 1.2) * 2} s={3.2} scope="enzo-scope" t={t} expression="scared" reach={20} gaze={[0, 3.2]} shine/>
+      fg = <><Person tx={-12} ty={70 + Math.sin(t * 1.2) * 2} s={3.2} scope="enzo-scope" t={t} expression="scared" gaze={[0, 3.2]} shine hideArms/>
         <ColdMist x={300} y={400} t={t} amount={.6} w={30} rise={90} size={.9} n={4}/>
         <BigHands t={t} crystals={1} frost={.5 + lin(t, 95.6, 98) * .3} glow={pulse} y={820} id="hands7"/>
         <Sparkles x={40} y={520} w={460} h={420} t={t} n={16}/></>;
