@@ -153,9 +153,10 @@ function Bedroom({ t, mess }: { t: number; mess: number }) {
     })}
   </g>;
 }
-function LivingRoom({ t, chaos, tv }: { t: number; chaos: number; tv: number }) {
+function LivingRoom({ t, chaos, tv, wallShadow }: { t: number; chaos: number; tv: number; wallShadow?: ReactNode }) {
   return <g>
     <rect x="-900" y="-500" width="2200" height="1312" className="cl-lr-wall"/>
+    {wallShadow}
     {/* kitchen */}
     <rect x="-340" y="520" width="440" height="116" className="cl-backsplash"/>
     {Array.from({ length: 22 }, (_, i) => <rect key={i} x={-340 + (i % 11) * 40} y={520 + Math.floor(i / 11) * 58} width="40" height="58" className="cl-tile"/>)}
@@ -188,7 +189,7 @@ function LivingRoom({ t, chaos, tv }: { t: number; chaos: number; tv: number }) 
     <rect x="-900" y="812" width="2200" height="700" className="cl-floor2"/>
     {Array.from({ length: 18 }, (_, i) => <path key={i} d={`M${-700 + i * 120} 812L${-1000 + i * 170} 1500`} className="cl-plank2"/>)}
     <ellipse cx="420" cy="900" rx="300" ry="48" className="cl-rug2"/>
-    <ellipse cx="560" cy="880" rx="56" ry="26" className="cl-beanbag"/>
+    <ellipse cx="560" cy="806" rx="58" ry="26" className="cl-beanbag"/>
     {chaos > 0 && <Flying t={t} amount={chaos}/>}
   </g>;
 }
@@ -318,7 +319,7 @@ export function ClonesScene({ time }: { time: number }) {
       : t < 31.0 ? z(500, 610, 2.0)
       : t < 32.1 ? z(300, 690, 1.75)
       : t < 34.3 ? z(170, 690, 1.9 - lin(t, 32.1, 34.3) * .15)
-      : t < 35.2 ? z(330, 860, 1.9)
+      : t < 35.2 ? z(300, 850, 1.45)
       : t < 36.0 ? z(548, 618, 3.4)
       : t < 39.6 ? z(240, 680, 1.15 + lin(t, 36, 39.6) * .15)
       : z(90, 690, 2.2 + lin(t, 39.6, 41.1) * .3);
@@ -370,10 +371,10 @@ export function ClonesScene({ time }: { time: number }) {
       lExpr = 'angry'; lReach = t < 61.0 ? swing(t, 58.9, -30, -125, -62) : -62 + Math.sin(t * 30) * (t < 63 ? 2 : 0);
       if (t >= 62.9 && t < 65.9) { lExpr = 'surprised'; lReach = mix(-62, -15, ramp(t, 64.0, 64.6)); }
       if (t >= 65.9 && t < 68.6) { lReach = -64; lExpr = 'angry'; lTalk = talkAmount(t, 'lucas'); }
-      if (t >= 68.6) { lReach = undefined; lExpr = 'surprised'; }
+      if (t >= 68.6) { lReach = -10; lExpr = 'surprised'; }
       if (t >= 73.4) { lx = mix(250, 170, ramp(t, 73.9, 75.8)); lWalk = t > 73.9 && t < 75.8; lExpr = 'scared'; }
     }
-    if (n === 7) { lx = 170; lExpr = 'scared'; lJit = t > 85.4 ? 1.6 : .8; lGaze = [2, 0]; }
+    if (n === 7) { lx = 170; lReach = -8; lExpr = 'scared'; lJit = t > 85.4 ? 1.6 : .8; lGaze = [2, 0]; }
     const lHand = hand(lx, lReach ?? -20, lflip);
     const handGlow = (n === 4 && t < 43.2) || (n === 5 && t > 56.9) || (n === 6 && t < 63.0) ? .55 + Math.sin(t * 10) * .1 : 0;
     // swap at the end: two identical figures trade places in the dark
@@ -392,7 +393,7 @@ export function ClonesScene({ time }: { time: number }) {
       <Lucas x={GUITAR_X} t={t + 1.1} appear={ap('guitar', 'guitar')} pop={t - spawns.guitar} expression={stilled ? 'surprised' : 'happy'} reach={strum} armL={-80} gaze={stilled ? [2, 0] : [2, 3]} extra={GUITAR}/>
       <Lucas x={SOFA_X} g={748} t={t + 1.7} appear={ap('sofa', 'sofa')} pop={t - spawns.sofa} lift={jump} expression={stilled ? 'surprised' : 'happy'} reach={busy ? -150 : -20} armL={busy ? -140 : 0} gaze={[2, -1]} shadow={false}/>
       <Lucas x={GAMER_X} g={935} t={t + 2.8} seated appear={ap('gamer', 'gamer')} expression={stilled ? 'surprised' : 'happy'} reach={-40 + (busy ? Math.sin(t * 20) * 3 : 0)} armL={-70} gaze={stilled ? [-2, 0] : [3, 0]} extra={CONTROLLER} flip={stilled}/>
-      {!(n === 5 && t > 54.3 && t < 56.9) && <Lucas x={stilled ? 40 : runB.x} g={820} s={1.1} t={t + 3.3} flip={stilled ? false : runB.flip} walking={busy} running={busy} appear={ap('run', 'run')} pop={t - spawns.run} expression={stilled ? 'surprised' : 'happy'} gaze={[2, 0]}/>}
+      <Lucas x={stilled ? 40 : runB.x} g={820} s={1.1} t={t + 3.3} flip={stilled ? false : runB.flip} walking={busy} running={busy} appear={ap('run', 'run')} pop={t - spawns.run} expression={stilled ? 'surprised' : 'happy'} gaze={[2, 0]}/>
       {n === 4 && [0, 1, 2].map(i => <Note key={i} x={GUITAR_X + 40 + i * 26 + Math.sin(t * 3 + i) * 8} y={560 - ((t * 40 + i * 30) % 90)} o={busy ? 1 - ((t * 40 + i * 30) % 90) / 90 : 0}/>)}
       {n === 4 && busy && [0, 1, 2].map(i => { const ph = (t * .8 + i / 3) % 1; return <circle key={i} cx={-226 + Math.sin(t * 2 + i) * 10} cy={600 - ph * 90} r={8 + ph * 18} className="cl-dust" opacity={(1 - ph) * .8}/>; })}
       {Object.entries(vanish).map(([k, v]) => {
@@ -400,10 +401,10 @@ export function ClonesScene({ time }: { time: number }) {
         const g = k === 'sofa' ? 748 : k === 'gamer' ? 900 : k === 'run' ? 820 : G;
         return <Dissolve key={k} x={x} g={g} p={(t - v) / .9} t={t}/>;
       })}
-      {n === 4 && ([['guitar', GUITAR_X, G], ['sofa', SOFA_X, 748], ['run', 480, 820], ['rebel', 360, 820]] as Array<[keyof typeof spawns, number, number]>).map(([k, x, g]) => <SpawnFx key={k} x={x} g={g} p={t - spawns[k]} t={t}/>)}
+      {n === 4 && ([['guitar', GUITAR_X, G], ['sofa', SOFA_X, 748], ['run', runB.x, 820], ['rebel', runA.x, 820]] as Array<[keyof typeof spawns, number, number]>).map(([k, x, g]) => <SpawnFx key={k} x={x} g={g} p={t - spawns[k]} t={t}/>)}
     </> : null;
-    world = <><LivingRoom t={t} chaos={n === 4 ? ramp(t, 50.4, 51.2) : n === 5 ? 1 - ramp(t, 53.1, 54.4) : 0} tv={n <= 5 && t < 56.9 ? appearAt(t, 41.5) : 0}/>
-      {shadowCopy}{bgCopies}{B}{A}
+    world = <><LivingRoom t={t} chaos={n === 4 ? ramp(t, 50.4, 51.2) : n === 5 ? 1 - ramp(t, 53.1, 54.4) : 0} tv={n <= 5 && t < 56.9 ? appearAt(t, 41.5) : 0} wallShadow={shadowCopy}/>
+      {bgCopies}{B}{A}
       <Trail x={250} at={41.4} t={t} a={-20} b={-120}/><Trail x={250} at={42.2} t={t} a={-60} b={-130}/><Trail x={250} at={58.9} t={t} a={-30} b={-125}/>
       <Glow x={lHand.x} y={lHand.y} r={70} a={handGlow}/>
       {n === 6 && t > 61 && t < 63 && <Sparkles x={lHand.x - 40} y={lHand.y - 40} w={80} h={80} t={t} n={10}/>}
@@ -413,7 +414,7 @@ export function ClonesScene({ time }: { time: number }) {
     if (n === 4) {
       cam = t < 43.0 ? z(300, 590, .92)
         : t < 46.4 ? z(250, 560, .64 - lin(t, 43, 46.4) * .05)
-        : t < 47.4 ? z(cookHand.x - 60, cookHand.y - 10, 2.0)
+        : t < 47.4 ? z(-130, 580, 1.7)
         : t < 48.5 ? z(640, 660, 1.75)
         : t < 49.6 ? z(GUITAR_X + 30, 610, 1.9)
         : t < 50.6 ? z(SOFA_X, 560, 1.5)
