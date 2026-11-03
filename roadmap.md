@@ -44,4 +44,4 @@
 
 # Enzo — tudo o que toca congela (2D, rig do Léo)
 - [x] Narração Puck (97,7 s) cobrindo as 7 cenas do roteiro
-- [ ] Animação 2D com efeitos de gelo, trilha de suspense e efeitos; MP4 1080x1920 em /mnt/documents/videos/enzo-tudo-congela.mp4
+- [x] Animação 2D com efeitos de gelo, trilha de suspense e efeitos; MP4 1080x1920 em /mnt/documents/videos/enzo-tudo-congela.mp4
