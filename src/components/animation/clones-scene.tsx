@@ -356,7 +356,7 @@ export function ClonesScene({ time }: { time: number }) {
     }
     if (n === 7) {
       rCross = false; rExpr = 'cold';
-      rx = mix(430, 340, ramp(t, 78.8, 82.0)); rWalk = t > 78.8 && t < 82.0;
+      rx = mix(430, 350, ramp(t, 78.8, 82.0)); rWalk = t > 78.8 && t < 82.0; rReach = 6;
       rTalk = talkAmount(t, 'copy');
     }
     // Lucas
@@ -372,9 +372,9 @@ export function ClonesScene({ time }: { time: number }) {
       if (t >= 62.9 && t < 65.9) { lExpr = 'surprised'; lReach = mix(-62, -15, ramp(t, 64.0, 64.6)); }
       if (t >= 65.9 && t < 68.6) { lReach = -64; lExpr = 'angry'; lTalk = talkAmount(t, 'lucas'); }
       if (t >= 68.6) { lReach = -10; lExpr = 'surprised'; }
-      if (t >= 73.4) { lx = mix(250, 170, ramp(t, 73.9, 75.8)); lWalk = t > 73.9 && t < 75.8; lExpr = 'scared'; }
+      if (t >= 73.4) { lx = mix(250, 160, ramp(t, 73.9, 75.8)); lWalk = t > 73.9 && t < 75.8; lExpr = 'scared'; }
     }
-    if (n === 7) { lx = 170; lReach = -8; lExpr = 'scared'; lJit = t > 85.4 ? 1.6 : .8; lGaze = [2, 0]; }
+    if (n === 7) { lx = 160; lReach = 10; lExpr = 'scared'; lJit = t > 85.4 ? 1.6 : .8; lGaze = [2, 0]; }
     const lHand = hand(lx, lReach ?? -20, lflip);
     const handGlow = (n === 4 && t < 43.2) || (n === 5 && t > 56.9) || (n === 6 && t < 63.0) ? .55 + Math.sin(t * 10) * .1 : 0;
     // swap at the end: two identical figures trade places in the dark
@@ -382,8 +382,8 @@ export function ClonesScene({ time }: { time: number }) {
     let A = <Lucas x={lx} t={t} flip={lflip} walking={lWalk} expression={lExpr} reach={lReach} armL={lArmL} gaze={lGaze} jitter={lJit} talk={lTalk}/>;
     let B = <Lucas x={rx} g={rG} s={rS} t={t + 2.2} flip={rflip} walking={rWalk} running={rRun} expression={rExpr} crossed={rCross} reach={rReach} armL={rArmL} flicker={rFlicker} jitter={rJit} talk={rTalk} gaze={rGaze} appear={appearAt(t, spawns.rebel)} pop={t - spawns.rebel} pace={n === 7 ? .55 : 1}/>;
     if (n === 7 && t > 93.3) {
-      A = <Lucas x={swapped ? 340 : 170} t={t} flip={swapped} expression="scared" reach={-8} gaze={[2, 0]} jitter={.8}/>;
-      B = <Lucas x={swapped ? 170 : 340} t={t + 2.2} flip={!swapped} expression="scared" reach={-8} gaze={[2, 0]} jitter={.8}/>;
+      A = <Lucas x={swapped ? 350 : 160} t={t} flip={swapped} expression="scared" reach={10} gaze={[2, 0]} jitter={.8}/>;
+      B = <Lucas x={swapped ? 160 : 350} t={t + 2.2} flip={!swapped} expression="scared" reach={10} gaze={[2, 0]} jitter={.8}/>;
     }
     const shadowCopy = n === 6 && t > 73.4 ? <g opacity={ramp(t, 73.6, 76) * .45}><g transform={`translate(490 812) scale(${1.25 + lin(t, 73.6, 78.6) * .45}) translate(-490 -812)`}><g className="cl-wall-shadow"><Lucas x={490} g={812} t={t} flip crossed expression="cold" shadow={false} shine={false}/></g></g></g> : null;
     const bgCopies = n <= 6 && t < 61.5 ? <>
@@ -391,14 +391,14 @@ export function ClonesScene({ time }: { time: number }) {
         extra={null}/>
       {ap('cook', 'cook') > 0 && <g transform={`translate(${cookHand.x} ${cookHand.y}) scale(-1 1)`} opacity={ap('cook', 'cook')}><path d="M0 0L44 -4" className="cl-handle"/><ellipse cx="70" cy="-6" rx="30" ry="9" className="cl-pan"/><ellipse cx="70" cy={-14 - flipUp} rx="17" ry="5" className="cl-pancake" transform={`rotate(${flipUp * 4} 70 ${-14 - flipUp})`}/></g>}
       <Lucas x={GUITAR_X} t={t + 1.1} appear={ap('guitar', 'guitar')} pop={t - spawns.guitar} expression={stilled ? 'surprised' : 'happy'} reach={strum} armL={-80} gaze={stilled ? [2, 0] : [2, 3]} extra={GUITAR}/>
-      <Lucas x={stilled ? 300 : SOFA_X} g={stilled ? 890 : 748} t={t + 1.7} seated={stilled} appear={ap('sofa', 'sofa')} pop={t - spawns.sofa} lift={jump} expression={stilled ? 'surprised' : 'happy'} reach={busy ? -150 : -10} armL={busy ? -140 : 0} gaze={[2, -1]} shadow={false}/>
+      <Lucas x={t >= 53.1 ? 700 : SOFA_X} g={t >= 53.1 ? G : 748} t={t + 1.7} appear={ap('sofa', 'sofa')} pop={t - spawns.sofa} lift={t >= 53.1 ? 0 : jump} flip={t >= 53.1} expression={stilled ? 'surprised' : 'happy'} reach={busy ? -150 : -10} armL={busy ? -140 : 0} gaze={[2, -1]} shadow={t >= 53.1}/>
       <Lucas x={GAMER_X} g={935} t={t + 2.8} seated appear={ap('gamer', 'gamer')} expression={stilled ? 'surprised' : 'happy'} reach={-40 + (busy ? Math.sin(t * 20) * 3 : 0)} armL={-70} gaze={stilled ? [-2, 0] : [3, 0]} extra={CONTROLLER} flip={stilled}/>
       <Lucas x={stilled ? 40 : runB.x} g={820} s={1.1} t={t + 3.3} flip={stilled ? false : runB.flip} walking={busy} running={busy} appear={ap('run', 'run')} pop={t - spawns.run} expression={stilled ? 'surprised' : 'happy'} gaze={[2, 0]}/>
       {n === 4 && [0, 1, 2].map(i => <Note key={i} x={GUITAR_X + 40 + i * 26 + Math.sin(t * 3 + i) * 8} y={560 - ((t * 40 + i * 30) % 90)} o={busy ? 1 - ((t * 40 + i * 30) % 90) / 90 : 0}/>)}
       {n === 4 && busy && [0, 1, 2].map(i => { const ph = (t * .8 + i / 3) % 1; return <circle key={i} cx={-226 + Math.sin(t * 2 + i) * 10} cy={600 - ph * 90} r={8 + ph * 18} className="cl-dust" opacity={(1 - ph) * .8}/>; })}
       {Object.entries(vanish).map(([k, v]) => {
-        const x = k === 'cook' ? COOK : k === 'guitar' ? GUITAR_X : k === 'sofa' ? 300 : k === 'gamer' ? GAMER_X : 40;
-        const g = k === 'sofa' ? 860 : k === 'gamer' ? 900 : k === 'run' ? 820 : G;
+        const x = k === 'cook' ? COOK : k === 'guitar' ? GUITAR_X : k === 'sofa' ? 700 : k === 'gamer' ? GAMER_X : 40;
+        const g = k === 'sofa' ? G : k === 'gamer' ? 900 : k === 'run' ? 820 : G;
         return <Dissolve key={k} x={x} g={g} p={(t - v) / .9} t={t}/>;
       })}
       {n === 4 && ([['guitar', GUITAR_X, G], ['sofa', SOFA_X, 748], ['run', runB.x, 820], ['rebel', runA.x, 820]] as Array<[keyof typeof spawns, number, number]>).map(([k, x, g]) => <SpawnFx key={k} x={x} g={g} p={t - spawns[k]} t={t}/>)}
@@ -438,7 +438,7 @@ export function ClonesScene({ time }: { time: number }) {
       lamp = mood; vig = .5;
     } else {
       mood = .85; lamp = .9; vig = .62;
-      const [ahx, ahy] = headOf(170), [bhx, bhy] = headOf(rx, true);
+      const [ahx, ahy] = headOf(160), [bhx, bhy] = headOf(rx, true);
       cam = t < 82.2 ? z(255, 640, 1.18 + lin(t, 78.6, 82.2) * .15)
         : t < 85.4 ? z(bhx - 20, bhy - 4, 5.0 + lin(t, 82.2, 85.4) * .5)
         : t < 86.6 ? z(bhx - 20, bhy + 10, 3.1)
