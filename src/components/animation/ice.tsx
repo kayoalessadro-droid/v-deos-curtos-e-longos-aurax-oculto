@@ -110,7 +110,7 @@ export function EdgeFrost({ p, t }: { p: number; t: number }) {
 
 function Hand({ crystals, t, seed }: { crystals: number; t: number; seed: number }) {
   const fingers: Array<[number, number]> = [[-33, 68], [-11, 82], [11, 78], [32, 62]];
-  return <g>
+  return <g className="big-hand">
     <rect x="-56" y="86" width="112" height="150" rx="18" className="leo-shirt hand-sleeve"/>
     <path d="M-56 98H56" className="sleeve-cuff"/>
     <path className="leo-skin" d="M-47 -4Q-50 66 -24 94L24 94Q50 66 47 -4Z"/>
