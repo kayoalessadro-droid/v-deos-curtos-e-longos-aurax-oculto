@@ -22,7 +22,7 @@ export function Water({ y, t, amp = 6, x0 = -500, x1 = 1040, bottom = 2600, deep
     <path d={wavePath(y - amp * .8, t * .8, amp * .7, .028, 1.2, x0, x1, bottom, 2)} className="gl-sea-back"/>
     <path d={wavePath(y, t, amp, .035, 1.6, x0, x1, bottom)} className={deep ? 'gl-sea-deep' : 'gl-sea'}/>
     {foam && <path d={waveLine(y, t, amp, .035, 1.6, x0, x1)} className="gl-foam-line"/>}
-    <rect x={x0} y={y + 60} width={x1 - x0} height={bottom - y} className="gl-sea-depth" opacity=".55"/>
+    <rect x={x0} y={y + 90} width={x1 - x0} height={bottom - y} className="gl-sea-depth" opacity={deep ? .55 : .3}/>
     {glints && Array.from({ length: 9 }, (_, i) => {
       const gx = x0 + 80 + ((i * 137 + t * 14) % (x1 - x0 - 160)), gy = y + 18 + (i % 4) * 22;
       return <path key={i} d={`M${gx} ${gy}h${16 + (i % 3) * 8}`} className="gl-glint" opacity={.35 + .35 * Math.sin(t * 3 + i)}/>;

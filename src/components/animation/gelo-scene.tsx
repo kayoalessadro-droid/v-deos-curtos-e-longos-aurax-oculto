@@ -213,7 +213,9 @@ function street(t: number, wl: number, front: number, storm: number): ReactNode 
     <Car x={carX} y={mix(830, wl + 14, carRise)} s={1.1} cls="gl-car-a" rot={carRise * Math.sin(t * 2) * 10}/>
     <g transform={`translate(${-600 + front} 0)`}>
       <path d={wavePathLocal(wl, t, 7 + storm * 6)} className="gl-sea"/>
-      <path d={`M560 ${wl - 6}Q${600 + Math.sin(t * 8) * 6} ${wl - 30} 624 ${wl}Q600 ${wl + 40} 600 ${1200}H560Z`} className="gl-foam"/>
+      <path d={`M540 ${wl - 4}Q${592 + Math.sin(t * 8) * 5} ${wl - 26} 618 ${wl + 6}Q650 ${(wl + 830) / 2} 700 834L700 1300H540Z`} className="gl-sea"/>
+      <path d={`M548 ${wl - 6}Q${592 + Math.sin(t * 8) * 5} ${wl - 28} 620 ${wl + 4}Q652 ${(wl + 830) / 2} 702 832`} className="gl-foam-edge"/>
+      {Array.from({ length: 9 }, (_, i) => { const ph = (t * 1.6 + i / 9) % 1; return <circle key={i} cx={590 + i * 12 + ph * 30} cy={wl - 10 - Math.sin(Math.PI * ph) * 40 + i * 8} r={3 + (i % 3) * 2} className="gl-foam" opacity={1 - ph}/>; })}
     </g>
   </>;
 }
@@ -274,7 +276,6 @@ function shot16(t: number): Shot {
   const rows: Array<[number, number, number, number]> = [[520, .45, 9, 2], [640, .75, 7, 3], [800, 1.15, 5, 4]];
   return { night: .3, tint: .25, cam: z(240 + p * 70, 500, 1.04), el: <>
     <Sky kind="storm"/>
-    <path d="M300 0L250 430H420Z" className="gl-sunbeam" opacity={.25 + .1 * Math.sin(t * 2)}/>
     {[0, 1, 2].map(i => <Cloud key={i} x={(t * 20 + i * 250) % 800 - 140} y={150 + i * 50} s={1.5} cls="gl-cloud-dark"/>)}
     <path d="M-200 430H900" className="gl-horizon"/>
     <Water y={430} t={t * .6} amp={3} foam={false}/>
@@ -370,7 +371,7 @@ function shot20(t: number): Shot {
     {[120, 260, 520].map(x => <g key={x}><path d={`M${x} 860V650M${x - 14} 662H${x + 14}`} className="gl-pole"/></g>)}
     {[90, 150, 470, 520].map((x, i) => <Tree key={x} x={x} y={740 + (i % 2) * 30} s={.8}/>)}
     {flood > 0 && <Water y={wl} t={t} amp={4} op={.96}/>}
-    <Person x={84} g={1040} s={1.25} t={t} scarf expression={t > T.sea ? 'surprised' : 'curious'} gaze={[4, 3]} shine reach={10} armL={8}/>
+    <Person x={128} g={1040} s={1.25} t={t} scarf expression={t > T.sea ? 'surprised' : 'curious'} gaze={[4, 3]} shine reach={10} armL={8}/>
   </> };
 }
 function shot21(t: number): Shot {
@@ -378,7 +379,7 @@ function shot21(t: number): Shot {
   return { cam: z(270, 480, 1 + lin(t, 67.4, 70) * .06), el: <>
     {goldenBack(t, 700)}
     <rect x="-100" y="0" width="740" height="960" className="gl-soft" opacity=".25"/>
-    <Person x={270} g={1000} s={2.5} t={t} scarf expression={t > T.map ? 'scared' : 'surprised'} shine gaze={t > T.map ? [0, 4] : [2, 0]} reach={20} armL={20} shadow={false}/>
+    <Person x={270} g={1000} s={2.5} t={t} scarf expression="surprised" shine gaze={t > T.map ? [0, 4] : [2, 0]} reach={20} armL={20} shadow={false}/>
     <g transform={`translate(270 ${mix(1150, 880, mapUp)}) scale(.9) rotate(-4)`}><MapSheet flood={0} t={t}/></g>
   </> };
 }

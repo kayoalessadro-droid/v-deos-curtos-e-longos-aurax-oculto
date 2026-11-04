@@ -375,3 +375,4 @@
 .gl-soft{fill:oklch(0.9 0.06 70)}.gl-solar{fill:oklch(0.35 0.08 255)}.gl-rope{fill:none;stroke:oklch(0.35 0.04 60);stroke-width:2}.gl-bird{fill:none;stroke:oklch(0.2 0.02 260);stroke-width:2.5;stroke-linecap:round}
 .gl-icicle{fill:oklch(0.82 0.08 225)}.gl-drop{fill:oklch(0.85 0.08 220);stroke:oklch(0.97 0.02 220);stroke-width:1.5}.gl-ring{fill:none;stroke:oklch(0.9 0.05 220);stroke-width:2.5}
 .gl-sea{fill-opacity:.8}.gl-sea-back{fill-opacity:.88}.gl-sand-wet{fill:oklch(0.72 0.07 80)}.gl-win-dim{fill:oklch(0.5 0.04 240)}.gl-sunbeam{fill:oklch(0.9 0.06 80)}
+.gelo-film .gl-sea-back{fill-opacity:.55}.gl-foam-edge{fill:none;stroke:oklch(0.96 0.02 220);stroke-width:9;stroke-linecap:round}
