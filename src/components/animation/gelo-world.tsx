@@ -40,7 +40,7 @@ export function Stars({ t, n = 60, seed = 2, h = 520, op = 1 }: { t: number; n?:
 }
 export function Aurora({ t, y = 150, op = 1 }: { t: number; y?: number; op?: number }) {
   if (op <= 0) return null;
-  const band = (k: number, ph: number) => { let d = ''; for (let x = -60; x <= 600; x += 20) d += `${x ? 'L' : 'M'}${x} ${(y + k * 40 + Math.sin(x * .012 + t * .5 + ph) * 38 + Math.sin(x * .03 - t * .3) * 12).toFixed(1)}`; return d; };
+  const band = (k: number, ph: number) => { let d = ''; for (let x = -60; x <= 600; x += 20) d += `${d ? 'L' : 'M'}${x} ${(y + k * 40 + Math.sin(x * .012 + t * .5 + ph) * 38 + Math.sin(x * .03 - t * .3) * 12).toFixed(1)}`; return d; };
   return <g opacity={op}>
     {[0, 1, 2].map(i => <g key={i}><path d={band(i, i * 1.7)} className="gl-aurora-wide"/><path d={band(i, i * 1.7)} className={i === 1 ? 'gl-aurora-core2' : 'gl-aurora-core'}/></g>)}
   </g>;
