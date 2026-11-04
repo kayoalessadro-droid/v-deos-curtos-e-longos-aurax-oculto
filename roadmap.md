@@ -49,3 +49,7 @@
 # Lucas — cópias de si mesmo (2D, rig do Léo)
 - [x] Narração Puck + falas do Lucas e da cópia (mesma voz para os dois), pausa dramática antes do final
 - [x] Animação 2D com cópias idênticas, quarto e sala, trilha e efeitos; MP4 1080x1920 em /mnt/documents/videos/lucas-copias-de-si-mesmo.mp4
+
+# Aurax Oculto — e se todo o gelo da Terra derretesse (2D, rig do Léo)
+- [x] Narração Puck (5 cenas, ~91 s) com chamada final para o canal
+- [x] Animação 2D: Antártida, derretimento, cidades alagadas, Théo no morro, planeta azul; trilha crescente e efeitos; MP4 1080x1920 em /mnt/documents/videos/gelo-derretimento-aurax-oculto.mp4
