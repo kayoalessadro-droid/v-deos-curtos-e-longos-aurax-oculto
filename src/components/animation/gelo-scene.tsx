@@ -24,11 +24,12 @@ function glacierWide(t: number, m = 0, extra: ReactNode = null): ReactNode {
 }
 function shot0(t: number): Shot {
   const crack = lin(t, T.melt, T.melt + .7) * .45;
-  return { cam: z(280, 540, 1 + lin(t, 0, 3.6) * .12), el: <>
+  return { cam: z(280, 580, 1.08 + lin(t, 0, 3.6) * .12), el: <>
     <Sky kind="polar"/><Stars t={t} op={.7}/><Aurora t={t} y={160}/>
     {glacierWide(t, 0, <Crack x={300} y0={455} y1={612} p={crack} seed={4}/>)}
     <Floe x={140} y={800} w={210}/>
     {[90, 130, 175].map((x, i) => <Penguin key={x} x={x} y={790} s={.9} t={t + i} look={t > T.melt ? 18 : 0}/>)}
+    <Iceberg x={440} y={860} s={1.6} t={t} seed={8}/>
     <Snow t={t} n={36} wind={25}/>
   </> };
 }
@@ -173,7 +174,8 @@ function coastCity(t: number, wl: number, drift = 0): ReactNode {
     <path d="M-300 637H900" className="gl-road-line"/>
     {[-100, 30, 200, 380, 560].map((x, i) => <Car key={x} x={x + ((t * (i % 2 ? -40 : 50) - drift) % 900 + 900) % 900 - 300} y={wl < 640 ? Math.min(650, wl + 6) : 650} s={.55} cls={i % 2 ? 'gl-car-b' : 'gl-car-a'} rot={wl < 640 ? Math.sin(t * 2 + i) * 8 * floatK : 0}/>)}
     {[-40, 120, 290, 450].map((x, i) => <Palm key={x} x={x} y={604} s={.8} sway={Math.sin(t * 1.5 + i) * 4}/>)}
-    <path d="M-300 654H900L900 790L-300 790Z" className="gl-sand"/>
+    <path d="M-300 654H900L900 1500L-300 1500Z" className="gl-sand"/>
+    <path d="M-300 790H900V1500H-300Z" className="gl-sand-wet"/>
     {[[40, 'gl-umb-a'], [150, 'gl-umb-b'], [260, 'gl-umb-a'], [380, 'gl-umb-b'], [490, 'gl-umb-a']].map(([x, c], i) => <Umbrella key={i} x={Number(x)} y={wl < 700 ? wl + 4 : 712 + (i % 2) * 18} cls={String(c)} tilt={wl < 700 ? 30 + Math.sin(t * 2 + i) * 15 : 0}/>)}
     {Array.from({ length: 10 }, (_, i) => <circle key={i} cx={20 + i * 52 + Math.sin(t + i) * 6} cy={wl > 720 ? 740 + (i % 3) * 10 : -50} r="4" className="gl-person-dot"/>)}
     <Water y={wl} t={t} amp={wl < 700 ? 6 : 4}/>
@@ -189,7 +191,7 @@ function shot9(t: number): Shot {
 }
 function shot10(t: number): Shot {
   const wl = t < T.avenues ? mix(790, 662, ease(lin(t, 39.2, 40.6))) : mix(662, 606, ease(lin(t, T.avenues, 41.8)));
-  return { tint: .35, cam: z(250 + lin(t, 39.15, 42) * 40, 640, 1.3), el: <>
+  return { tint: .35, cam: z(250 + lin(t, 39.15, 42) * 40, 600, 1.3), el: <>
     <Sky kind="storm" op={.55}/><Sky kind="day" op={.45}/>
     {[0, 1].map(i => <Cloud key={i} x={(t * 14 + i * 300) % 760 - 100} y={300 + i * 60} s={1.2} cls="gl-cloud-grey"/>)}
     {coastCity(t, wl)}
@@ -269,16 +271,24 @@ function landmark(t: number, kind: 'rio' | 'ny' | 'sh', a: number): Shot {
 }
 function shot16(t: number): Shot {
   const p = lin(t, 50.5, 53.05);
-  return { night: .35, tint: .3, cam: z(240 + p * 80, 520, 1.05), el: <>
+  const rows: Array<[number, number, number, number]> = [[520, .45, 9, 2], [640, .75, 7, 3], [800, 1.15, 5, 4]];
+  return { night: .3, tint: .25, cam: z(240 + p * 70, 500, 1.04), el: <>
     <Sky kind="storm"/>
-    {[0, 1, 2].map(i => <Cloud key={i} x={(t * 20 + i * 250) % 800 - 140} y={160 + i * 50} s={1.5} cls="gl-cloud-dark"/>)}
-    <path d="M-200 560H900" className="gl-horizon"/>
-    <Water y={560} t={t * .6} amp={3} foam={false}/>
-    {Array.from({ length: 16 }, (_, i) => { const x = -120 + (i % 8) * 100 + (i > 7 ? 50 : 0), y = i > 7 ? 760 : 640, w = 40 + rnd(2, i) * 50, h = 12 + rnd(3, i) * 40;
-      return <g key={i}><rect x={x} y={y - h} width={w} height={h} className={i % 2 ? 'gl-bld-dusk' : 'gl-bld-dusk2'}/>
-        {rnd(5, i) > .5 && <path d={`M${x + w / 2} ${y - h}V${y - h - 20}`} className="gl-antenna"/>}
-        <path d={`M${x - 12} ${y + Math.sin(t * 2 + i) * 2}Q${x + w / 2} ${y + 8} ${x + w + 12} ${y + Math.sin(t * 2 + i + 1) * 2}`} className="gl-ripple"/></g>; })}
-    {Array.from({ length: 6 }, (_, i) => <rect key={i} x={(i * 97 + t * 10) % 640 - 50} y={700 + i * 34} width={14 + i * 3} height="5" className="gl-wood" transform={`rotate(${Math.sin(t + i) * 10} ${(i * 97) % 640} ${700 + i * 34})`}/>)}
+    <path d="M300 0L250 430H420Z" className="gl-sunbeam" opacity={.25 + .1 * Math.sin(t * 2)}/>
+    {[0, 1, 2].map(i => <Cloud key={i} x={(t * 20 + i * 250) % 800 - 140} y={150 + i * 50} s={1.5} cls="gl-cloud-dark"/>)}
+    <path d="M-200 430H900" className="gl-horizon"/>
+    <Water y={430} t={t * .6} amp={3} foam={false}/>
+    {rows.map(([y, k, n, seed]) => Array.from({ length: n }, (_, i) => {
+      const w = (40 + rnd(seed, i) * 50) * k, h = (14 + rnd(seed + 1, i) * 50) * k, x = -160 + i * (760 / n) + rnd(seed + 2, i) * 30;
+      const bob = Math.sin(t * 2 + i + seed);
+      return <g key={`${y}-${i}`}>
+        <rect x={x} y={y - h} width={w} height={h} className={i % 2 ? 'gl-bld-dusk' : 'gl-bld-dusk2'}/>
+        {Array.from({ length: Math.max(1, Math.floor(w / (18 * k))) }, (_, c) => <rect key={c} x={x + 6 * k + c * 18 * k} y={y - h + 8 * k} width={8 * k} height={8 * k} className={rnd(seed + 5, i * 7 + c) > .8 ? 'gl-win-lit' : 'gl-win-dim'}/>)}
+        {rnd(seed + 3, i) > .55 && <path d={`M${x + w / 2} ${y - h}V${y - h - 26 * k}`} className="gl-antenna"/>}
+        <path d={`M${x - 14 * k} ${y + bob * 1.5}Q${x + w / 2} ${y + 9 * k} ${x + w + 14 * k} ${y - bob * 1.5}`} className="gl-ripple"/>
+      </g>;
+    }))}
+    {Array.from({ length: 8 }, (_, i) => <rect key={i} x={(i * 97 + t * 12) % 640 - 50} y={560 + i * 46} width={(14 + i * 4)} height="6" className="gl-wood" transform={`rotate(${Math.sin(t + i) * 10} ${(i * 97) % 640} ${560 + i * 46})`}/>)}
     <Rain t={t} n={50} amount={.6}/>
   </> };
 }
@@ -299,8 +309,8 @@ function shot17(t: number): Shot {
     {people}
     <Water y={mix(930, 900, p)} t={t} amp={6}/>
     <Boat x={60 + (t - 53) * 14} y={mix(934, 904, p)} t={t} s={.9}>
-      <Person x={-20} g={0} s={.32} t={t} scope="gl-p3" seated backpack={false} shadow={false} expression="scared"/>
-      <Person x={22} g={0} s={.26} t={t + 1} scope="gl-p4" seated backpack={false} shadow={false} expression="curious"/>
+      <Person x={-20} g={22} s={.32} t={t} scope="gl-p3" seated backpack={false} shadow={false} expression="scared"/>
+      <Person x={22} g={18} s={.26} t={t + 1} scope="gl-p4" seated backpack={false} shadow={false} expression="curious"/>
     </Boat>
     <Rain t={t} n={40} amount={.5}/>
   </> };
@@ -407,7 +417,7 @@ function shot24(t: number): Shot {
     {Array.from({ length: 10 }, (_, i) => <path key={i} d={`M${230 + Math.sin(t * 3 + i) * 14 - i * 2} ${650 + i * 16}h${30 + i * 8}`} className="gl-glitter" opacity={.4 + .5 * Math.sin(t * 5 + i)}/>)}
     {[0, 1, 2].map(i => <path key={i} d="M0 0q8 -8 16 0q8 -8 16 0" transform={`translate(${(t * 40 + i * 50) % 700 - 100} ${300 + i * 22 + Math.sin(t * 2 + i) * 6})`} className="gl-bird"/>)}
     <Boat x={430 - (t - 76.95) * 45} y={800} t={t} s={1.3}>
-      <Person x={0} g={-2} s={.42} t={t} scarf seated backpack={false} shadow={false} expression="curious" reach={-60 + Math.sin(t * 3) * 25} armL={-40 + Math.sin(t * 3) * 25}/>
+      <Person x={0} g={30} s={.42} t={t} scarf seated backpack={false} shadow={false} expression="curious" reach={-60 + Math.sin(t * 3) * 25} armL={-40 + Math.sin(t * 3) * 25}/>
       <path d={`M${10 + Math.sin(t * 3) * 10} -60L${-60 + Math.sin(t * 3) * 30} 20`} className="gl-oar"/>
     </Boat>
   </> };
@@ -423,9 +433,9 @@ function shot25(t: number): Shot {
   </> };
 }
 function shot26(t: number): Shot {
-  const grow = lin(t, 84.85, 86.0), fall = lin(t, 86.0, T.hoje), rip = t - T.hoje, back = ease(lin(t, 87.0, 90.6));
+  const grow = lin(t, 84.85, 86.0), fall = lin(t, 86.0, T.hoje), rip = t - T.hoje, back = ease(lin(t, 86.9, 90.6));
   const dropY = 316 + fall * fall * 444;
-  return { night: .15, shake: rip > 0 && rip < .5 ? 3 * (1 - rip * 2) : 0, cam: z(270, mix(440, 470, back), mix(1.55, .9, back)), el: <>
+  return { night: .15, shake: rip > 0 && rip < .5 ? 3 * (1 - rip * 2) : 0, cam: t < 86.0 ? z(270, 330, 2.4) : t < T.hoje ? z(270, mix(330, 700, fall * fall), 2.4 - fall * .5) : z(270, mix(700, 470, back), mix(1.9, .9, back)), el: <>
     <Sky kind="night"/><Stars t={t} n={80} op={.9}/><Aurora t={t} y={170} op={.4 + back * .6}/>
     <Mountains y={600} far/>
     <IceShelf x0={-200} x1={760} top={180} base={280} seed={14}/>
