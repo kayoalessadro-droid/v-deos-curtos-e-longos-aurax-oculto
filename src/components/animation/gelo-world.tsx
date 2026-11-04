@@ -9,16 +9,19 @@ export const z = (cx: number, cy: number, s: number) => `translate(${270 - cx * 
 export const mix = (a: number, b: number, k: number) => a + (b - a) * k;
 
 /** Wavy water surface filled down to `bottom`. */
+export function waveLine(y: number, t: number, amp = 6, k = .035, w = 1.6, x0 = -500, x1 = 1040, ph = 0) {
+  let d = '';
+  for (let x = x0; x <= x1; x += 16) d += `${d ? 'L' : 'M'}${x} ${(y + Math.sin(x * k + t * w + ph) * amp + Math.sin(x * k * 2.3 - t * w * 1.3 + ph) * amp * .4).toFixed(1)}`;
+  return d;
+}
 export function wavePath(y: number, t: number, amp = 6, k = .035, w = 1.6, x0 = -500, x1 = 1040, bottom = 2600, ph = 0) {
-  let d = `M${x0} ${bottom}`;
-  for (let x = x0; x <= x1; x += 16) d += `L${x} ${(y + Math.sin(x * k + t * w + ph) * amp + Math.sin(x * k * 2.3 - t * w * 1.3 + ph) * amp * .4).toFixed(1)}`;
-  return d + `L${x1} ${bottom}Z`;
+  return `M${x0} ${bottom}L` + waveLine(y, t, amp, k, w, x0, x1, ph).slice(1) + `L${x1} ${bottom}Z`;
 }
 export function Water({ y, t, amp = 6, x0 = -500, x1 = 1040, bottom = 2600, deep = false, foam = true, glints = true, op = 1 }: { y: number; t: number; amp?: number; x0?: number; x1?: number; bottom?: number; deep?: boolean; foam?: boolean; glints?: boolean; op?: number }) {
   return <g opacity={op}>
     <path d={wavePath(y - amp * .8, t * .8, amp * .7, .028, 1.2, x0, x1, bottom, 2)} className="gl-sea-back"/>
     <path d={wavePath(y, t, amp, .035, 1.6, x0, x1, bottom)} className={deep ? 'gl-sea-deep' : 'gl-sea'}/>
-    {foam && <path d={wavePath(y, t, amp, .035, 1.6, x0, x1, bottom).replace(/L\d+ \d+Z$/, '')} className="gl-foam-line"/>}
+    {foam && <path d={waveLine(y, t, amp, .035, 1.6, x0, x1)} className="gl-foam-line"/>}
     <rect x={x0} y={y + 60} width={x1 - x0} height={bottom - y} className="gl-sea-depth" opacity=".55"/>
     {glints && Array.from({ length: 9 }, (_, i) => {
       const gx = x0 + 80 + ((i * 137 + t * 14) % (x1 - x0 - 160)), gy = y + 18 + (i % 4) * 22;
