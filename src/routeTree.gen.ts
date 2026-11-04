@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CopiasRouteImport } from './routes/copias'
 import { Route as EnzoRouteImport } from './routes/enzo'
+import { Route as GeloRouteImport } from './routes/gelo'
 import { Route as LeoParte2RouteImport } from './routes/leo-parte-2'
 import { Route as TeleporteRouteImport } from './routes/teleporte'
 
@@ -30,6 +31,11 @@ const EnzoRoute = EnzoRouteImport.update({
   path: '/enzo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GeloRoute = GeloRouteImport.update({
+  id: '/gelo',
+  path: '/gelo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LeoParte2Route = LeoParte2RouteImport.update({
   id: '/leo-parte-2',
   path: '/leo-parte-2',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/copias': typeof CopiasRoute
   '/enzo': typeof EnzoRoute
+  '/gelo': typeof GeloRoute
   '/leo-parte-2': typeof LeoParte2Route
   '/teleporte': typeof TeleporteRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/copias': typeof CopiasRoute
   '/enzo': typeof EnzoRoute
+  '/gelo': typeof GeloRoute
   '/leo-parte-2': typeof LeoParte2Route
   '/teleporte': typeof TeleporteRoute
 }
@@ -60,21 +68,30 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/copias': typeof CopiasRoute
   '/enzo': typeof EnzoRoute
+  '/gelo': typeof GeloRoute
   '/leo-parte-2': typeof LeoParte2Route
   '/teleporte': typeof TeleporteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/copias' | '/enzo' | '/leo-parte-2' | '/teleporte'
+  fullPaths: '/' | '/copias' | '/enzo' | '/gelo' | '/leo-parte-2' | '/teleporte'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/copias' | '/enzo' | '/leo-parte-2' | '/teleporte'
-  id: '__root__' | '/' | '/copias' | '/enzo' | '/leo-parte-2' | '/teleporte'
+  to: '/' | '/copias' | '/enzo' | '/gelo' | '/leo-parte-2' | '/teleporte'
+  id:
+    | '__root__'
+    | '/'
+    | '/copias'
+    | '/enzo'
+    | '/gelo'
+    | '/leo-parte-2'
+    | '/teleporte'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CopiasRoute: typeof CopiasRoute
   EnzoRoute: typeof EnzoRoute
+  GeloRoute: typeof GeloRoute
   LeoParte2Route: typeof LeoParte2Route
   TeleporteRoute: typeof TeleporteRoute
 }
@@ -102,6 +119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnzoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gelo': {
+      id: '/gelo'
+      path: '/gelo'
+      fullPath: '/gelo'
+      preLoaderRoute: typeof GeloRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/leo-parte-2': {
       id: '/leo-parte-2'
       path: '/leo-parte-2'
@@ -123,6 +147,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CopiasRoute: CopiasRoute,
   EnzoRoute: EnzoRoute,
+  GeloRoute: GeloRoute,
   LeoParte2Route: LeoParte2Route,
   TeleporteRoute: TeleporteRoute,
 }
