@@ -301,3 +301,76 @@
 .cl-game-a{fill:oklch(0.55 0.15 280)}.cl-game-b{fill:oklch(0.6 0.15 250)}.cl-game-hero{fill:oklch(0.85 0.17 95)}.cl-game-block{fill:oklch(0.7 0.17 145)}
 .cl-floor2{fill:oklch(0.6 0.07 55)}.cl-plank2{fill:none;stroke:oklch(0.52 0.06 50);stroke-width:3}.cl-rug2{fill:oklch(0.55 0.1 260);stroke:oklch(0.47 0.1 260);stroke-width:5}
 .cl-beanbag{fill:oklch(0.7 0.15 50);stroke:var(--ink);stroke-width:3}.cl-pillow2{fill:oklch(0.8 0.13 90);stroke:var(--ink);stroke-width:2.5}
+
+/* ===== Gelo — "E se todo o gelo da Terra derretesse?" ===== */
+.gelo-film{--gl-ink:var(--ink)}
+.gl-polar-top{stop-color:oklch(0.22 0.07 265)}.gl-polar-mid{stop-color:oklch(0.42 0.09 240)}.gl-polar-low{stop-color:oklch(0.8 0.07 30)}
+.gl-day-top{stop-color:oklch(0.58 0.13 245)}.gl-day-mid{stop-color:oklch(0.74 0.1 230)}.gl-day-low{stop-color:oklch(0.92 0.04 210)}
+.gl-night-top{stop-color:oklch(0.12 0.04 275)}.gl-night-mid{stop-color:oklch(0.2 0.06 265)}.gl-night-low{stop-color:oklch(0.34 0.07 245)}
+.gl-storm-top{stop-color:oklch(0.24 0.02 255)}.gl-storm-mid{stop-color:oklch(0.36 0.025 245)}.gl-storm-low{stop-color:oklch(0.52 0.02 235)}
+.gl-sunset-top{stop-color:oklch(0.34 0.1 300)}.gl-sunset-mid{stop-color:oklch(0.6 0.16 25)}.gl-sunset-low{stop-color:oklch(0.85 0.13 70)}
+.gl-gold-top{stop-color:oklch(0.55 0.1 250)}.gl-gold-mid{stop-color:oklch(0.78 0.1 60)}.gl-gold-low{stop-color:oklch(0.9 0.11 80)}
+.gl-space-top{stop-color:oklch(0.06 0.02 275)}.gl-space-mid{stop-color:oklch(0.1 0.04 270)}.gl-space-low{stop-color:oklch(0.14 0.05 260)}
+.gl-memory-top{stop-color:oklch(0.72 0.06 70)}.gl-memory-mid{stop-color:oklch(0.84 0.07 75)}.gl-memory-low{stop-color:oklch(0.92 0.06 85)}
+.gl-glow-in{stop-color:oklch(0.97 0.1 90);stop-opacity:.75}.gl-glow-out{stop-color:oklch(0.97 0.1 90);stop-opacity:0}
+.gl-plain-far{stop-color:oklch(0.86 0.05 250)}.gl-plain-near{stop-color:oklch(0.97 0.015 230)}
+.gl-depth-top{stop-color:oklch(0.5 0.12 240);stop-opacity:0}.gl-depth-bottom{stop-color:oklch(0.22 0.09 255);stop-opacity:.9}
+.gl-atmo-in{stop-color:oklch(0.75 0.12 230);stop-opacity:0}.gl-atmo-mid{stop-color:oklch(0.75 0.12 230);stop-opacity:.55}.gl-atmo-out{stop-color:oklch(0.75 0.12 230);stop-opacity:0}
+.gl-shade-in{stop-color:oklch(0 0 0);stop-opacity:0}.gl-shade-out{stop-color:oklch(0.05 0.03 270);stop-opacity:.75}
+.gl-base{fill:oklch(0.12 0.03 260)}.gl-night{fill:oklch(0.1 0.05 265)}.gl-grey{fill:oklch(0.45 0.01 240)}.gl-flash{fill:oklch(0.97 0.03 250)}
+.gelo-film :is(.gl-ice-face,.gl-ice-top,.gl-iceberg,.gl-peng-back,.gl-peng-belly,.gl-bld-a,.gl-bld-b,.gl-bld-c,.gl-car-a,.gl-car-b,.gl-wheel,.gl-house-a,.gl-house-b,.gl-roof-a,.gl-roof-b,.gl-door,.gl-tree,.gl-boat,.gl-umb-a,.gl-umb-b,.gl-palm-leaf,.gl-rock,.gl-light-tower,.gl-light-top,.gl-wood,.gl-wood-dark,.gl-shop,.gl-signal,.gl-tent,.gl-gull,.gl-map-paper,.gl-suitcase,.gl-land,.gl-statue,.gl-liberty,.gl-pedestal,.gl-pearl,.gl-pearl-leg,.gl-island,.gl-scarf,.gl-thumb,.gl-solar,.gl-mtn,.gl-icicle,.gl-flag){stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.gl-sea{fill:oklch(0.45 0.11 232)}.gl-sea-back{fill:oklch(0.55 0.1 225)}.gl-sea-deep{fill:oklch(0.33 0.09 245)}.gl-sea-depth{fill:oklch(0.24 0.08 250)}
+.gl-foam-line{fill:none;stroke:oklch(0.95 0.03 220);stroke-width:3;stroke-linecap:round;opacity:.85}.gl-foam{fill:oklch(0.96 0.02 220)}
+.gl-glint{stroke:oklch(0.97 0.04 210);stroke-width:2.5;stroke-linecap:round}.gl-star{fill:oklch(0.97 0.02 250)}
+.gl-aurora-wide{fill:none;stroke:oklch(0.82 0.18 160);stroke-width:46;stroke-opacity:.12;stroke-linecap:round}.gl-aurora-core{fill:none;stroke:oklch(0.86 0.19 160);stroke-width:8;stroke-opacity:.45;stroke-linecap:round}.gl-aurora-core2{fill:none;stroke:oklch(0.75 0.16 300);stroke-width:7;stroke-opacity:.35;stroke-linecap:round}
+.gl-snow{fill:oklch(0.98 0.01 240)}.gl-rain{stroke:oklch(0.85 0.04 240);stroke-width:1.6;stroke-opacity:.7}
+.gl-bolt{fill:none;stroke:oklch(0.98 0.06 100);stroke-width:4;stroke-linejoin:round}.gl-bolt-glow{fill:none;stroke:oklch(0.9 0.1 260);stroke-width:16;stroke-opacity:.35}
+.gl-cloud{fill:oklch(0.97 0.01 240);opacity:.9}.gl-cloud-grey{fill:oklch(0.62 0.015 245)}.gl-cloud-dark{fill:oklch(0.3 0.02 255)}.gl-cloud-gold{fill:oklch(0.88 0.08 60);opacity:.9}
+.gl-sun{fill:oklch(0.96 0.12 95)}.gl-sun-cold{fill:oklch(0.95 0.06 70)}.gl-sun-gold{fill:oklch(0.9 0.15 70)}
+.gl-mtn{fill:oklch(0.55 0.04 255)}.gl-mtn-far{fill:oklch(0.5 0.05 255)}.gl-mtn-snow{fill:oklch(0.96 0.02 240)}
+.gl-ice-face{fill:oklch(0.86 0.06 225)}.gl-ice-top{fill:oklch(0.97 0.015 230)}.gl-ice-deep{fill:oklch(0.62 0.12 235)}.gl-ice-under{fill:oklch(0.68 0.1 225)}.gl-ice-stria{fill:none;stroke:oklch(0.97 0.02 230);stroke-width:2;stroke-opacity:.65}
+.gl-peng-back{fill:oklch(0.22 0.02 260)}.gl-peng-belly{fill:oklch(0.98 0.005 90)}.gl-peng-wing{fill:none;stroke:oklch(0.22 0.02 260);stroke-width:7;stroke-linecap:round}.gl-peng-eye{fill:oklch(0.98 0 0)}.gl-peng-beak{fill:oklch(0.75 0.16 60)}
+.gl-crack{fill:none;stroke:oklch(0.22 0.07 250);stroke-width:4;stroke-linejoin:round;stroke-linecap:round}.gl-crack-glow{fill:none;stroke:oklch(0.8 0.12 220);stroke-width:12;stroke-opacity:.5}
+.gl-bld-a{fill:oklch(0.78 0.07 65)}.gl-bld-b{fill:oklch(0.68 0.05 235)}.gl-bld-c{fill:oklch(0.82 0.05 25)}.gl-bld-edge{fill:none}
+.gl-bld-dusk{fill:oklch(0.32 0.04 280)}.gl-bld-dusk2{fill:oklch(0.27 0.04 265)}
+.gl-win{fill:oklch(0.88 0.06 220)}.gl-win-lit{fill:oklch(0.9 0.14 85)}.gl-antenna{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round}
+.gl-palm-trunk{fill:none;stroke:oklch(0.48 0.07 55);stroke-width:9;stroke-linecap:round}.gl-palm-leaf{fill:oklch(0.6 0.15 145)}
+.gl-pole{fill:none;stroke:oklch(0.35 0.02 250);stroke-width:4;stroke-linecap:round}.gl-umb-a{fill:oklch(0.66 0.19 25)}.gl-umb-b{fill:oklch(0.85 0.15 92)}
+.gl-car-a{fill:oklch(0.62 0.18 28)}.gl-car-b{fill:oklch(0.6 0.12 240)}.gl-wheel{fill:oklch(0.25 0.01 250)}
+.gl-house-a{fill:oklch(0.88 0.05 80)}.gl-house-b{fill:oklch(0.8 0.07 40)}.gl-roof-a{fill:oklch(0.55 0.15 30)}.gl-roof-b{fill:oklch(0.5 0.08 250)}.gl-door{fill:oklch(0.45 0.07 50)}
+.gl-trunk{fill:none;stroke:oklch(0.42 0.06 55);stroke-width:6;stroke-linecap:round}.gl-tree{fill:oklch(0.55 0.13 145)}
+.gl-boat{fill:oklch(0.55 0.1 50)}.gl-boat-rim{fill:none;stroke:oklch(0.9 0.05 80);stroke-width:4}.gl-oar{fill:none;stroke:oklch(0.5 0.08 55);stroke-width:5;stroke-linecap:round}
+.gl-shadow{fill:oklch(0.1 0.02 250);opacity:.22}.gl-scarf{fill:oklch(0.66 0.18 30)}
+.theo-scope{--leo-green:oklch(0.55 0.1 195);--leo-hair:oklch(0.24 0.03 40);--leo-pants:oklch(0.42 0.05 65);--leo-skin:oklch(0.74 0.09 55);--leo-shoe:oklch(0.95 0.01 90);--leo-coral:oklch(0.74 0.15 70);--leo-coral-dark:oklch(0.55 0.12 60)}
+.gl-p1{--leo-green:oklch(0.6 0.15 300);--leo-hair:oklch(0.3 0.05 30);--leo-pants:oklch(0.35 0.03 260);--leo-skin:oklch(0.66 0.09 50)}
+.gl-p2{--leo-green:oklch(0.7 0.17 50);--leo-hair:oklch(0.2 0.02 60);--leo-pants:oklch(0.3 0.03 250);--leo-skin:oklch(0.82 0.07 65)}
+.gl-p3{--leo-green:oklch(0.55 0.13 145);--leo-hair:oklch(0.55 0.1 60);--leo-pants:oklch(0.4 0.06 255);--leo-skin:oklch(0.78 0.08 60)}
+.gl-p4{--leo-green:oklch(0.6 0.16 15);--leo-hair:oklch(0.22 0.02 40);--leo-pants:oklch(0.45 0.04 70);--leo-skin:oklch(0.55 0.09 45)}
+.gl-p5{--leo-green:oklch(0.62 0.12 230);--leo-hair:oklch(0.35 0.06 40);--leo-pants:oklch(0.3 0.02 250);--leo-skin:oklch(0.72 0.09 55)}
+.gl-land{fill:oklch(0.62 0.13 140)}.gl-land-high{fill:oklch(0.72 0.1 95)}.gl-ocean{fill:oklch(0.5 0.13 245)}.gl-ocean-deep{fill:oklch(0.48 0.17 250)}.gl-polar-cap{fill:oklch(0.97 0.01 230)}.gl-atmo-rim{fill:none;stroke:oklch(0.8 0.1 225);stroke-width:3;stroke-opacity:.6}
+.gelo-film .gl-land{stroke-width:1.4}
+.gl-map-paper{fill:oklch(0.88 0.06 80)}.gl-map-sea{fill:oklch(0.72 0.07 220);opacity:.65}.gl-map-coast-old{fill:none;stroke:oklch(0.45 0.06 60);stroke-width:2;stroke-dasharray:5 4}.gl-map-land{fill:oklch(0.78 0.09 90);stroke:oklch(0.45 0.06 60);stroke-width:2}.gl-map-fold{fill:none;stroke:oklch(0.7 0.05 70);stroke-width:2}.gl-map-wet{fill:oklch(0.55 0.1 230)}
+.gl-sastrugi{fill:none;stroke:oklch(0.78 0.06 240);stroke-width:2.5;stroke-linecap:round}
+.gl-rock{fill:oklch(0.4 0.03 45)}.gl-rock-dark{fill:oklch(0.3 0.03 45)}
+.gl-band-a{fill:oklch(0.88 0.05 225)}.gl-band-b{fill:oklch(0.8 0.08 228)}.gl-bubble{fill:oklch(0.97 0.02 220);opacity:.55}.gl-lake{fill:oklch(0.65 0.16 220)}
+.gl-measure{fill:none;stroke:oklch(0.97 0.05 90);stroke-width:3;stroke-dasharray:14 10;opacity:.8}.gl-measure-tick{stroke:oklch(0.97 0.05 90);stroke-width:3;opacity:.8}.gl-surface-line{stroke:oklch(0.98 0.01 230);stroke-width:5}
+.gl-tent{fill:oklch(0.7 0.18 45)}.gl-flag{fill:oklch(0.66 0.19 25)}
+.gl-river-bed{fill:none;stroke:oklch(0.55 0.14 235);stroke-width:16;stroke-linecap:round}.gl-river{fill:none;stroke:oklch(0.85 0.08 220);stroke-width:5;stroke-dasharray:18 22;stroke-linecap:round}
+.gl-fall{fill:oklch(0.78 0.08 220);opacity:.9}.gl-fall-streak{fill:none;stroke:oklch(0.97 0.02 220);stroke-width:3;stroke-dasharray:40 30;stroke-linecap:round}.gl-mist{fill:oklch(0.97 0.01 220)}.gl-pond{fill:oklch(0.62 0.13 230)}
+.gl-light-tower{fill:oklch(0.96 0.01 90)}.gl-light-band{fill:none;stroke:oklch(0.6 0.19 25);stroke-width:18}.gl-light-top{fill:oklch(0.9 0.12 90)}
+.gl-gull{fill:oklch(0.97 0.01 240)}.gl-gull-beak{stroke:oklch(0.75 0.16 70);stroke-width:3}.gl-gull-wing{fill:none;stroke:oklch(0.5 0.01 250);stroke-width:5;stroke-linecap:round}
+.gl-horizon{stroke:oklch(0.85 0.04 220);stroke-width:2}
+.gl-wood{fill:oklch(0.5 0.07 55)}.gl-wood-dark{fill:oklch(0.42 0.06 50)}.gl-plank{stroke:oklch(0.3 0.04 50);stroke-width:2}.gl-tide-mark{fill:oklch(0.6 0.08 140);opacity:.6}.gl-barnacle{stroke:oklch(0.85 0.03 90);stroke-width:5;stroke-dasharray:3 4}
+.gl-walk{fill:oklch(0.78 0.02 80)}.gl-road{fill:oklch(0.38 0.01 250)}.gl-road-line{stroke:oklch(0.9 0.12 90);stroke-width:2;stroke-dasharray:16 14}.gl-road-dash{fill:none;stroke:oklch(0.92 0.02 90);stroke-width:3;stroke-dasharray:22 20}
+.gl-sand{fill:oklch(0.86 0.08 85)}.gl-person-dot{fill:oklch(0.55 0.12 40)}.gl-shop{fill:oklch(0.82 0.06 210)}
+.gl-sig-red{fill:oklch(0.65 0.22 25)}.gl-sig-off{fill:oklch(0.35 0.02 150)}.gl-signal{fill:oklch(0.28 0.01 250)}
+.gl-hill-dusk{fill:oklch(0.26 0.04 270)}.gl-statue{fill:oklch(0.86 0.02 250)}.gl-cable{stroke:oklch(0.2 0.02 260);stroke-width:1.5}
+.gl-pedestal{fill:oklch(0.55 0.03 70)}.gl-liberty{fill:oklch(0.66 0.09 175)}.gl-torch{fill:oklch(0.85 0.16 80)}.gl-liberty-ray{stroke:oklch(0.66 0.09 175);stroke-width:5;stroke-linecap:round}
+.gl-pearl-leg{fill:oklch(0.55 0.04 280)}.gl-pearl-shaft{stroke:oklch(0.6 0.04 280);stroke-width:14}.gl-pearl{fill:oklch(0.62 0.2 350)}
+.gl-ripple{fill:none;stroke:oklch(0.9 0.03 220);stroke-width:2;stroke-opacity:.7}
+.gl-grass{fill:oklch(0.62 0.12 135)}.gl-grass-dark{fill:oklch(0.45 0.08 145)}.gl-blade{fill:none;stroke:oklch(0.5 0.12 140);stroke-width:3;stroke-linecap:round}.gl-path-line{fill:none;stroke:oklch(0.7 0.06 70);stroke-width:14;stroke-linecap:round}
+.gl-suitcase{fill:oklch(0.5 0.12 30)}
+.gl-sea-gold{fill:oklch(0.5 0.09 230)}.gl-glitter{stroke:oklch(0.95 0.12 85);stroke-width:3;stroke-linecap:round}.gl-island{fill:oklch(0.42 0.07 160)}
+.gl-hill-far{fill:oklch(0.65 0.1 130)}.gl-field{fill:oklch(0.75 0.12 105)}.gl-field-line{stroke:oklch(0.62 0.12 120);stroke-width:3}.gl-road-wide{fill:none;stroke:oklch(0.45 0.01 250);stroke-width:22;stroke-linecap:round}
+.gl-soft{fill:oklch(0.9 0.06 70)}.gl-solar{fill:oklch(0.35 0.08 255)}.gl-rope{fill:none;stroke:oklch(0.35 0.04 60);stroke-width:2}.gl-bird{fill:none;stroke:oklch(0.2 0.02 260);stroke-width:2.5;stroke-linecap:round}
+.gl-icicle{fill:oklch(0.82 0.08 225)}.gl-drop{fill:oklch(0.85 0.08 220);stroke:oklch(0.97 0.02 220);stroke-width:1.5}.gl-ring{fill:none;stroke:oklch(0.9 0.05 220);stroke-width:2.5}
