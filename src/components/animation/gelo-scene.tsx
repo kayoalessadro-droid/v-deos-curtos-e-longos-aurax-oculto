@@ -288,7 +288,7 @@ function shot17(t: number): Shot {
   const slope = (x: number) => 900 - (x + 100) * .52;
   const people = [0, 1, 2, 3, 4].map(i => {
     const x = -40 + i * 95 + (t - 53.05) * 42;
-    return <Person key={i} x={x} g={slope(x)} s={i === 2 ? .42 : .48} t={t * 1.1 + i * .7} scope={SCOPES[i]} walking expression={i % 2 ? 'scared' : 'curious'} backpack={i !== 3}
+    return <Person key={i} x={x} g={slope(x)} s={i === 2 ? .42 : .48} t={t * 1.1 + i * .7} scope={SCOPES[i] ?? 'gl-p1'} walking expression={i % 2 ? 'scared' : 'curious'} backpack={i !== 3}
       extra={i === 1 || i === 4 ? <rect x="150" y="196" width="46" height="36" rx="5" className="gl-suitcase"/> : null}/>;
   });
   return { night: .25, tint: .25, cam: z(mix(230, 330, p), 600, 1.05), el: <>
