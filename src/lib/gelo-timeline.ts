@@ -5,28 +5,28 @@ import { clamp } from './enzo-timeline';
 
 export const GELO_DURATION = 92.5;
 export const GELO_SCENES = [
-  { id: '01', start: 0, end: 14.6, title: 'O começo' },
-  { id: '02', start: 14.6, end: 34.6, title: 'A transformação' },
-  { id: '03', start: 34.6, end: 56.0, title: 'As cidades' },
-  { id: '04', start: 56.0, end: 71.7, title: 'O novo planeta' },
-  { id: '05', start: 71.7, end: GELO_DURATION, title: 'O final' },
+  { id: '01', start: 0, end: 14.75, title: 'O começo' },
+  { id: '02', start: 14.75, end: 34.75, title: 'A transformação' },
+  { id: '03', start: 34.75, end: 56.1, title: 'As cidades' },
+  { id: '04', start: 56.1, end: 71.85, title: 'O novo planeta' },
+  { id: '05', start: 71.85, end: GELO_DURATION, title: 'O final' },
 ] as const;
 
 /** Spoken-word anchors from word-level transcription of the placed narration. */
 export const T = {
-  melt: 2.66, piece: 3.5, all: 4.62, antarctica: 5.8, thick: 8.04, crack: 11.08, wall: 12.6, collapse: 13.98,
-  day: 14.76, centuries: 17.3, rivers: 19.18, fall: 21.0, rise: 22.6, cm: 24.1, meters: 26.4, final: 28.38, seventy: 29.14,
-  building: 31.3, water: 33.6,
-  vanish: 34.74, beaches: 39.0, avenues: 40.46, streets: 41.9, surround: 43.56, storms: 44.92,
-  rio: 47.42, ny: 48.36, shanghai: 49.38, under: 50.36, people: 52.96,
-  theo: 56.08, future: 58.22, hill: 59.64, roads: 62.66, sea: 65.7, realize: 67.4, map: 68.6, gone: 70.18,
-  space: 71.86, blue: 75.02, islands: 76.88, restart: 79.16, tellMe: 81.88, future2: 83.6, today: 84.88, follow: 87.26, fade: 90.9,
+  melt: 2.74, piece: 3.72, all: 4.8, antarctica: 5.86, thick: 7.72, crack: 11.28, wall: 12.88, tip: 13.36, collapse: 14.16,
+  day: 14.88, centuries: 17.6, rivers: 19.2, fall: 21.22, rise: 22.88, cm: 24.28, meters: 26.36, final: 27.9, seventy: 29.32,
+  building: 31.5, water: 33.5,
+  vanish: 34.84, beaches: 39.28, avenues: 40.74, streets: 42.04, surround: 43.8, storms: 45.18,
+  rio: 47.64, ny: 48.44, shanghai: 49.48, under: 50.72, people: 53.16,
+  theo: 56.18, name: 57.88, hill: 59.78, roads: 62.88, sea: 65.98, realize: 67.5, map: 68.9, gone: 70.26,
+  space: 71.98, blue: 75.12, islands: 77.06, restart: 79.34, tellMe: 81.94, future2: 83.7, today: 84.94, hoje: 86.64, follow: 87.54, fade: 90.6,
 } as const;
 
 /** Shot boundaries: every cut in the film, used by the scene renderer and the sound mix. */
 export const GELO_SHOTS = [
-  0, 3.45, 5.75, 9.6, 14.6, 19.1, 22.4, 24.0, 28.3, 34.6, 38.9, 41.85, 44.85, 47.3, 48.3, 49.3, 50.3, 52.9,
-  56.0, 59.55, 62.6, 67.3, 69.9, 71.7, 76.8, 81.8, 84.8, GELO_DURATION,
+  0, 3.6, 5.8, 9.9, 14.75, 19.1, 22.5, 24.15, 27.8, 34.75, 39.15, 42.0, 45.0, 47.5, 48.35, 49.4, 50.5, 53.05,
+  56.1, 59.7, 62.75, 67.4, 70.0, 71.85, 76.95, 81.85, 84.85, GELO_DURATION,
 ] as const;
 
 export const GELO_CUES: ReadonlyArray<{ t: number; type: string }> = cues;

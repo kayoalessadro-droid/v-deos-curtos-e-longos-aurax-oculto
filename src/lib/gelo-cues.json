@@ -1,0 +1,12 @@
+[
+  {"t": 2.74, "type": "crack_small"}, {"t": 3.6, "type": "whoosh"}, {"t": 5.8, "type": "whoosh"}, {"t": 9.9, "type": "whoosh"},
+  {"t": 11.28, "type": "crack_small"}, {"t": 12.0, "type": "crack_small"}, {"t": 12.88, "type": "crack_small"}, {"t": 13.36, "type": "crack_big"},
+  {"t": 14.25, "type": "splash_big"}, {"t": 14.75, "type": "riser_short"}, {"t": 19.1, "type": "whoosh"}, {"t": 22.5, "type": "whoosh"},
+  {"t": 24.15, "type": "whoosh"}, {"t": 27.8, "type": "whoosh"}, {"t": 33.6, "type": "wave_big"}, {"t": 34.75, "type": "whoosh"},
+  {"t": 39.6, "type": "wave"}, {"t": 41.0, "type": "wave"}, {"t": 42.0, "type": "rush"}, {"t": 45.0, "type": "whoosh"},
+  {"t": 45.35, "type": "thunder"}, {"t": 46.6, "type": "thunder"}, {"t": 47.5, "type": "hit"}, {"t": 48.35, "type": "hit"}, {"t": 49.4, "type": "hit"},
+  {"t": 50.5, "type": "thunder"}, {"t": 53.05, "type": "whoosh"}, {"t": 56.1, "type": "whoosh"}, {"t": 59.7, "type": "whoosh"},
+  {"t": 62.75, "type": "whoosh"}, {"t": 65.6, "type": "wave"}, {"t": 67.4, "type": "whoosh"}, {"t": 70.5, "type": "paper"},
+  {"t": 71.85, "type": "riser_short"}, {"t": 75.2, "type": "shimmer"}, {"t": 76.95, "type": "whoosh"}, {"t": 79.4, "type": "shimmer"},
+  {"t": 81.85, "type": "whoosh"}, {"t": 84.85, "type": "whoosh"}, {"t": 86.0, "type": "drip"}, {"t": 86.64, "type": "boom"}
+]
