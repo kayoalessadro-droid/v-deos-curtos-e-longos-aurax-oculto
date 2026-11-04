@@ -213,8 +213,8 @@ function street(t: number, wl: number, front: number, storm: number): ReactNode 
     <Car x={carX} y={mix(830, wl + 14, carRise)} s={1.1} cls="gl-car-a" rot={carRise * Math.sin(t * 2) * 10}/>
     <g transform={`translate(${-600 + front} 0)`}>
       <path d={wavePathLocal(wl, t, 7 + storm * 6)} className="gl-sea"/>
-      <path d={`M540 ${wl - 4}Q${592 + Math.sin(t * 8) * 5} ${wl - 26} 618 ${wl + 6}Q650 ${(wl + 830) / 2} 700 834L700 1300H540Z`} className="gl-sea"/>
-      <path d={`M548 ${wl - 6}Q${592 + Math.sin(t * 8) * 5} ${wl - 28} 620 ${wl + 4}Q652 ${(wl + 830) / 2} 702 832`} className="gl-foam-edge"/>
+      <path d={`M599 ${wl}Q${610 + Math.sin(t * 8) * 3} ${wl - 18} 620 ${wl + 6}Q650 ${(wl + 830) / 2} 700 834L700 1300H599Z`} className="gl-sea"/>
+      <path d={`M586 ${wl - 4}Q${610 + Math.sin(t * 8) * 3} ${wl - 20} 620 ${wl + 4}Q652 ${(wl + 830) / 2} 702 832`} className="gl-foam-edge"/>
       {Array.from({ length: 9 }, (_, i) => { const ph = (t * 1.6 + i / 9) % 1; return <circle key={i} cx={590 + i * 12 + ph * 30} cy={wl - 10 - Math.sin(Math.PI * ph) * 40 + i * 8} r={3 + (i % 3) * 2} className="gl-foam" opacity={1 - ph}/>; })}
     </g>
   </>;
