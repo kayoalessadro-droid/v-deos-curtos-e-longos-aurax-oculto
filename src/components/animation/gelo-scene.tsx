@@ -365,13 +365,11 @@ function shot20(t: number): Shot {
 }
 function shot21(t: number): Shot {
   const mapUp = ease(lin(t, 68.4, 69.4));
-  const [hx, hy] = headOf(270, 1000, 2.5);
   return { cam: z(270, 480, 1 + lin(t, 67.4, 70) * .06), el: <>
     {goldenBack(t, 700)}
     <rect x="-100" y="0" width="740" height="960" className="gl-soft" opacity=".25"/>
-    <Person x={270} g={1000 + (hy - 420) * 0} s={2.5} t={t} scarf expression={t > T.map ? 'scared' : 'surprised'} shine gaze={t > T.map ? [0, 4] : [2, 0]} reach={20} armL={20} shadow={false}/>
+    <Person x={270} g={1000} s={2.5} t={t} scarf expression={t > T.map ? 'scared' : 'surprised'} shine gaze={t > T.map ? [0, 4] : [2, 0]} reach={20} armL={20} shadow={false}/>
     <g transform={`translate(270 ${mix(1150, 880, mapUp)}) scale(.9) rotate(-4)`}><MapSheet flood={0} t={t}/></g>
-    <text x={hx} y={-9999}>{''}</text>
   </> };
 }
 function shot22(t: number): Shot {
