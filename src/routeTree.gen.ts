@@ -16,6 +16,7 @@ import { Route as ExodoRouteImport } from './routes/exodo'
 import { Route as GeloRouteImport } from './routes/gelo'
 import { Route as LeoParte2RouteImport } from './routes/leo-parte-2'
 import { Route as TeleporteRouteImport } from './routes/teleporte'
+import { Route as Voltar5SegundosRouteImport } from './routes/voltar-5-segundos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,11 @@ const TeleporteRoute = TeleporteRouteImport.update({
   path: '/teleporte',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Voltar5SegundosRoute = Voltar5SegundosRouteImport.update({
+  id: '/voltar-5-segundos',
+  path: '/voltar-5-segundos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/gelo': typeof GeloRoute
   '/leo-parte-2': typeof LeoParte2Route
   '/teleporte': typeof TeleporteRoute
+  '/voltar-5-segundos': typeof Voltar5SegundosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/gelo': typeof GeloRoute
   '/leo-parte-2': typeof LeoParte2Route
   '/teleporte': typeof TeleporteRoute
+  '/voltar-5-segundos': typeof Voltar5SegundosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/gelo': typeof GeloRoute
   '/leo-parte-2': typeof LeoParte2Route
   '/teleporte': typeof TeleporteRoute
+  '/voltar-5-segundos': typeof Voltar5SegundosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/gelo'
     | '/leo-parte-2'
     | '/teleporte'
+    | '/voltar-5-segundos'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/gelo'
     | '/leo-parte-2'
     | '/teleporte'
+    | '/voltar-5-segundos'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/gelo'
     | '/leo-parte-2'
     | '/teleporte'
+    | '/voltar-5-segundos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +131,7 @@ export interface RootRouteChildren {
   GeloRoute: typeof GeloRoute
   LeoParte2Route: typeof LeoParte2Route
   TeleporteRoute: typeof TeleporteRoute
+  Voltar5SegundosRoute: typeof Voltar5SegundosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeleporteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/voltar-5-segundos': {
+      id: '/voltar-5-segundos'
+      path: '/voltar-5-segundos'
+      fullPath: '/voltar-5-segundos'
+      preLoaderRoute: typeof Voltar5SegundosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   GeloRoute: GeloRoute,
   LeoParte2Route: LeoParte2Route,
   TeleporteRoute: TeleporteRoute,
+  Voltar5SegundosRoute: Voltar5SegundosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
