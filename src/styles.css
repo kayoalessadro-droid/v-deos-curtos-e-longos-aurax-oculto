@@ -463,3 +463,43 @@
 .ex-carve-fill{fill:oklch(0.3 0.04 60)}.ex-carve-dots{fill:none;stroke:oklch(0.3 0.04 60);stroke-width:7;stroke-dasharray:2 16;stroke-linecap:round}.ex-carve-orbit{fill:none;stroke:oklch(0.3 0.04 60);stroke-width:3;stroke-dasharray:8 8}
 .ex-earth-stone{fill:oklch(0.6 0.15 240)}.ex-earth-stone-lit{fill:oklch(0.75 0.15 235)}.ex-mote{fill:oklch(0.95 0.06 90)}
 .ex-hand{stroke:var(--ink);stroke-width:2.8}
+
+/* ---------- Rewind (voltar 5 segundos) ---------- */
+.gb-scope{--leo-green:oklch(0.55 0.13 200);--leo-hair:oklch(0.28 0.05 45);--leo-pants:oklch(0.3 0.03 260);--leo-skin:oklch(0.74 0.08 55);--leo-shoe:oklch(0.93 0.02 90);--leo-coral:oklch(0.7 0.15 45);--leo-coral-dark:oklch(0.55 0.13 45);--leo-skin-detail:oklch(0.6 0.08 45)}
+.rwg-scope{--leo-green:oklch(0.72 0.13 350);--leo-hair:oklch(0.42 0.09 40);--leo-pants:oklch(0.42 0.07 255);--leo-skin:oklch(0.68 0.08 50);--leo-shoe:oklch(0.95 0.01 90);--leo-coral:oklch(0.7 0.15 350);--leo-coral-dark:oklch(0.55 0.13 350);--leo-skin-detail:oklch(0.55 0.08 45)}
+.rewind-film :is(.gb-fist,.gb-sleeve,.rw-coat,.rw-mug,.rw-mug-rim-fill,.rw-phone,.rw-ball,.rw-dial,.rw-watch-face,.rw-window-frame,.rw-cabinet,.rw-counter,.rw-counter-top,.rw-pot,.rw-frame,.rw-table,.rw-sofa,.rw-crown,.rw-car,.rw-car-glass,.rw-car-grill,.rw-light-box,.rw-lamp-head,.rw-shelter-roof,.rw-bench,.rw-watch-band,.rw-watch-case,.rw-apple,.rw-step){stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.gb-fist{fill:var(--leo-skin)}.gb-sleeve{fill:var(--leo-green)}
+.rw-man-legs{fill:oklch(0.22 0.02 260)}.rw-coat{fill:oklch(0.84 0.17 95)}.rw-hood-in{fill:oklch(0.12 0.02 260)}.rw-eye-glow{fill:oklch(0.9 0.12 200)}.rw-glint{fill:oklch(0.97 0.05 200)}
+.rw-watch-band{fill:oklch(0.25 0.02 250)}.rw-watch-case{fill:oklch(0.78 0.03 240)}.rw-watch-face{fill:oklch(0.97 0.01 90)}
+.rw-mug{fill:oklch(0.95 0.01 90)}.rw-mug-rim{fill:none;stroke:var(--ink);stroke-width:2.2}.rw-mug-rim-fill{fill:oklch(0.65 0.16 30)}.rw-mug-handle{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round}.rw-mug-stripe{stroke:oklch(0.65 0.16 30);stroke-width:5;stroke-linecap:round}.rw-splash{fill:oklch(0.45 0.07 55)}
+.rw-phone{fill:oklch(0.2 0.02 260)}.rw-phone-screen{fill:oklch(0.82 0.1 220)}.rw-ball{fill:oklch(0.97 0.01 90)}.rw-ball-line{fill:none;stroke:oklch(0.55 0.17 28);stroke-width:3}
+.rw-dial{fill:oklch(0.96 0.02 90)}.rw-dial-sky{fill:oklch(0.95 0.04 210 / .18);stroke:oklch(0.95 0.05 210 / .7);stroke-width:3}.rw-wedge{fill:oklch(0.78 0.13 210 / .55)}
+.rw-tick{stroke:oklch(0.35 0.02 250);stroke-width:1.5}.rw-tick-big{stroke:oklch(0.25 0.02 250);stroke-width:3.5}
+.rw-hand-h{stroke:oklch(0.2 0.02 250);stroke-width:7;stroke-linecap:round}.rw-hand-m{stroke:oklch(0.25 0.02 250);stroke-width:4.5;stroke-linecap:round}.rw-hand-s{stroke:oklch(0.62 0.2 28);stroke-width:2.5;stroke-linecap:round}.rw-hand-cap{fill:oklch(0.62 0.2 28)}
+.rw-wall{fill:oklch(0.86 0.05 80)}.rw-wall-b{fill:oklch(0.8 0.05 160)}.rw-window{fill:oklch(0.9 0.04 220)}.rw-far-bld{fill:oklch(0.7 0.05 240)}.rw-window-bar{stroke:oklch(0.97 0.01 90);stroke-width:8}.rw-window-frame{fill:none;stroke-width:6}
+.rw-beam-in{stop-color:oklch(0.97 0.09 90);stop-opacity:.45}.rw-beam-out{stop-color:oklch(0.97 0.09 90);stop-opacity:0}
+.rw-cabinet{fill:oklch(0.62 0.08 60)}.rw-line{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round}.rw-floor{fill:oklch(0.62 0.06 55)}.rw-floor-line{stroke:oklch(0.55 0.06 55);stroke-width:2}
+.rw-counter{fill:oklch(0.55 0.07 60)}.rw-counter-top{fill:oklch(0.9 0.02 240)}.rw-steam{fill:none;stroke:oklch(0.98 0 0);stroke-width:3;stroke-linecap:round}.rw-pot{fill:oklch(0.45 0.04 250)}
+.rw-frame{fill:oklch(0.95 0.03 90)}.rw-art{fill:oklch(0.65 0.12 200)}.rw-table{fill:oklch(0.55 0.08 55)}.rw-table-leg{stroke:oklch(0.4 0.06 55);stroke-width:8;stroke-linecap:round}.rw-sofa{fill:oklch(0.6 0.12 30)}.rw-plant-stem{fill:none;stroke:oklch(0.45 0.1 140);stroke-width:4}
+.rw-step{fill:oklch(0.7 0.05 60)}.rw-rail{stroke:oklch(0.35 0.03 50);stroke-width:7;stroke-linecap:round}.rw-rail-post{stroke:oklch(0.35 0.03 50);stroke-width:4}
+.rw-trunk{stroke:oklch(0.42 0.06 55);stroke-width:14;stroke-linecap:round}.rw-crown{fill:oklch(0.6 0.15 140)}.rw-path{fill:none;stroke:oklch(0.85 0.06 85);stroke-width:60}.rw-bird{fill:none;stroke:oklch(0.3 0.03 250);stroke-width:2.5;stroke-linecap:round}
+.rw-car{fill:oklch(0.55 0.19 28)}.rw-car-glass{fill:oklch(0.35 0.05 240)}.rw-car-grill{fill:oklch(0.3 0.02 250)}.rw-headlight{fill:oklch(0.98 0.07 95)}
+.rw-hglow-in{stop-color:oklch(0.98 0.1 95);stop-opacity:.5}.rw-hglow-out{stop-color:oklch(0.98 0.1 95);stop-opacity:0}
+.rw-pole-thin{fill:none;stroke:oklch(0.32 0.02 250);stroke-width:7;stroke-linecap:round}.rw-light-box{fill:oklch(0.25 0.02 250)}
+.rw-l-red{fill:oklch(0.65 0.23 28)}.rw-l-yellow{fill:oklch(0.88 0.17 90)}.rw-l-green{fill:oklch(0.75 0.2 150)}.rw-l-off{fill:oklch(0.35 0.02 250)}
+.rw-zebra{fill:oklch(0.95 0.01 90)}
+.rw-rain{stroke:oklch(0.85 0.04 230 / .6);stroke-width:1.6;stroke-linecap:round}
+.rw-lamp-pole{fill:none;stroke:oklch(0.28 0.02 250);stroke-width:9;stroke-linecap:round}.rw-lamp-head{fill:oklch(0.3 0.02 250)}.rw-lamp-bulb{fill:oklch(0.97 0.1 95)}
+.rw-shelter-roof{fill:oklch(0.4 0.05 230)}.rw-shelter-glass{fill:oklch(0.75 0.05 220 / .3)}.rw-bench{fill:oklch(0.5 0.06 55)}
+.rw-bld-night{fill:oklch(0.25 0.03 260)}.rw-win-night{fill:oklch(0.32 0.03 260)}.rw-wet-road{fill:oklch(0.26 0.02 250)}.rw-puddle{fill:oklch(0.55 0.05 230 / .4)}
+.rw-spark{stroke:oklch(0.92 0.16 85);stroke-width:3;stroke-linecap:round}.rw-dust{fill:oklch(0.6 0.02 250 / .55)}
+.rw-wash{fill:oklch(0.72 0.12 210 / .28)}.rw-band{fill:oklch(0.95 0.06 210 / .22)}.rw-scan{stroke:oklch(0.95 0.05 210 / .12);stroke-width:2}
+.rw-ring{fill:none;stroke:oklch(0.88 0.12 205);stroke-width:4;stroke-linecap:round}.rw-ring-arrow{fill:none;stroke:oklch(0.88 0.12 205);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.rw-snap{fill:none;stroke:oklch(0.9 0.12 205);stroke-width:6}.rw-deep{fill:oklch(0.17 0.04 255)}
+.rw-bglow-in{stop-color:oklch(0.75 0.13 210);stop-opacity:.5}.rw-bglow-out{stop-color:oklch(0.75 0.13 210);stop-opacity:0}
+.rw-ghost-path{fill:none;stroke:oklch(0.85 0.12 205);stroke-width:4;stroke-dasharray:8 10}
+.rw-apple{fill:oklch(0.62 0.2 28)}.rw-apple-stem{fill:none;stroke:oklch(0.4 0.08 60);stroke-width:3}
+.rw-speed{stroke:oklch(0.97 0.02 90 / .7);stroke-width:3;stroke-linecap:round}.rw-focus{fill:none;stroke:oklch(0.88 0.13 205);stroke-width:4;stroke-dasharray:10 8}
+.rw-bolt{fill:none;stroke:oklch(0.97 0.05 220);stroke-width:6;stroke-linejoin:round}.rw-breath{fill:oklch(0.97 0.01 240)}
+.rw-ghost{filter:saturate(0) brightness(1.4)}.rw-glass-shine{fill:oklch(1 0 0 / .08)}
+.rw-gray{fill:oklch(0.55 0.01 250);mix-blend-mode:saturation}.rw-memory{fill:oklch(0.72 0.08 70);mix-blend-mode:multiply}
