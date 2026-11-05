@@ -139,23 +139,23 @@ function streetEl(t: number, s: StreetState) {
   return <>
     <Street t={t} man light={s.light ?? 'green'}/>
     {s.car <= 1 && <CarFront d={Math.max(0, s.car)} t={t}/>}
-    <Person who="girl" x={s.girl} g={805} s={.72} t={t} walking={!s.girlBack} flip={!!s.girlBack} reach={-55} gaze={[3, 5]} expression={s.girlBack ? 'surprised' : 'curious'}
+    <Person who="girl" x={s.girl} g={805} s={.72} t={t} walking={!s.girlBack} reach={-55} gaze={[3, 5]} expression={s.girlBack ? 'surprised' : 'curious'}
       extra={<g transform="translate(160 150) rotate(-20)"><rect x="-6" y="-10" width="12" height="20" rx="2" className="rw-phone"/><rect x="-4" y="-8" width="8" height="15" className="rw-phone-screen"/></g>}/>
-    <Person who="gabriel" x={s.gx} g={880} s={.8} t={t} running={s.run} walking={s.run} lean={s.lean ?? 0} expression={s.gab ?? 'curious'} gaze={[5, -1]} talk={s.talk ?? 0} reach={s.gReach}/>
+    <Person who="gabriel" x={s.gx} g={880} s={.8} t={t} running={s.run} walking={s.run} flip lean={s.lean ?? 0} expression={s.gab ?? 'curious'} gaze={[5, -1]} talk={s.talk ?? 0} reach={s.gReach}/>
     {s.car > 1 && <CarFront d={Math.min(1.9, s.car)} t={t}/>}
   </>;
 }
-/** Attempt state by phase τ (0 = car appears far away, L = car reaches the crosswalk). */
+/** Attempt state by phase τ (0 = car appears far away, L = car reaches the crosswalk). Gabriel waits on the right kerb. */
 function attempt(k: 1 | 2 | 3, tau: number): StreetState {
   const L = k === 1 ? 3.5 : k === 2 ? 2.1 : 2.6, q = tau / L;
   const girl = 150 + clamp(q) * 120;
-  if (k === 1) return { girl, car: q, gx: tau > 2.27 ? 70 + (tau - 2.27) * 110 : 70, run: tau > 2.27, gab: tau > 2.0 ? 'scared' : 'curious' };
-  if (k === 2) { const fallen = tau > 1.4; return { girl, car: q, gx: Math.min(170, 70 + tau * 110), run: !fallen, gab: 'scared', talk: tau > 1.0 && tau < 1.4 ? Math.abs(Math.sin(tau * 16)) : 0, lean: fallen ? ease((tau - 1.4) / .3) * 70 : 0 }; }
+  if (k === 1) return { girl, car: q, gx: tau > 2.27 ? 480 - (tau - 2.27) * 110 : 480, run: tau > 2.27, gab: tau > 2.0 ? 'scared' : 'curious' };
+  if (k === 2) { const fallen = tau > 1.4; return { girl, car: q, gx: Math.max(370, 480 - tau * 110), run: !fallen, gab: 'scared', talk: tau > 1.0 && tau < 1.4 ? Math.abs(Math.sin(tau * 16)) : 0, lean: fallen ? ease((tau - 1.4) / .3) * 70 : 0 }; }
   const pull = ease(clamp((tau - 1.1) / .6));
-  return { girl: girl - pull * (girl - 175), car: q * 1.0 + Math.max(0, tau - L) * 1.6, gx: 200 - pull * 60, run: tau > .3 && tau < 1.1, gab: 'scared', gReach: tau > .9 ? -70 : undefined, girlBack: pull > .1 ? 1 : 0 };
+  return { girl: girl + pull * (330 - girl), car: q + Math.max(0, tau - L) * 1.6, gx: mix(400, 330, clamp(tau / 1.0)) + pull * 80, run: tau > .2 && tau < 1.0, gab: 'scared', gReach: tau > .9 ? -70 : undefined, girlBack: pull > .1 ? 1 : 0 };
 }
 function shot10(t: number): Shot {
-  const st: StreetState = { girl: mix(20, 150, lin(t, 32.5, 36.2)), car: -1, gx: 70, run: false };
+  const st: StreetState = { girl: mix(20, 150, lin(t, 32.5, 36.2)), car: -1, gx: 480, run: false };
   return { cam: z(270, 560 + (t - 32.5) * -6, 1.05 + (t - 32.5) * .02), el: streetEl(t, st) };
 }
 function shot11(t: number): Shot {
@@ -184,11 +184,11 @@ function shot15(t: number): Shot {
 function shot16(t: number): Shot {
   // Slow observation: light, car, her step — camera visits each.
   const a = ramp(t, 46.6, 47.2), b = ramp(t, 47.4, 47.9), c = ramp(t, 48.05, 48.45);
-  const cx = mix(mix(mix(260, 470, a), 270, b), 210, c), cy = mix(mix(mix(620, 520, a), 470, b), 790, c), s = mix(mix(mix(1.05, 2.2, a), 2.6, b), 2.2, c);
-  const st: StreetState = { girl: 150 + (t - 45.2) * 4, car: .02 + (t - 45.2) * .004, gx: 70 + (t - 45.2) * 30, run: false, gab: 'curious', light: t > 46.9 ? 'yellow' : 'green' };
+  const cx = mix(mix(mix(260, 90, a), 270, b), 210, c), cy = mix(mix(mix(620, 520, a), 470, b), 790, c), s = mix(mix(mix(1.05, 2.2, a), 2.6, b), 2.2, c);
+  const st: StreetState = { girl: 150 + (t - 45.2) * 4, car: .02 + (t - 45.2) * .004, gx: 480 - (t - 45.2) * 25, run: false, gab: 'curious', light: t > 46.9 ? 'yellow' : 'green' };
   return { cam: z(cx, cy, s), gray: .35, vig: .55, el: <>
     {streetEl(t * .25, st)}
-    {[[470, 506, a * (1 - b)], [270, 470, b * (1 - c)], [190, 800, c]].map(([x, y, o], i) => <circle key={i} cx={x} cy={y} r={30 + Math.sin(t * 6) * 3} className="rw-focus" opacity={o}/>)}
+    {[[70, 506, a * (1 - b)], [270, 470, b * (1 - c)], [190, 800, c]].map(([x, y, o], i) => <circle key={i} cx={x} cy={y} r={30 + Math.sin(t * 6) * 3} className="rw-focus" opacity={o}/>)}
   </> };
 }
 function shot17(t: number): Shot {
@@ -275,9 +275,9 @@ function shot24(t: number): Shot {
 /* ---------- Scene 05: the final turn ---------- */
 function shot25(t: number): Shot {
   // Rewind first, then he sprints and pushes the crowd back before the lamp falls onto the empty kerb.
-  const rew = t < 69.6, ang = rew ? mix(-84, 0, lin(t, 68.4, 69.6)) : 2 + Math.min(88, Math.pow(Math.max(0, t - 70.6) * 1.15, 2) * 70);
+  const rew = t < 69.6, ang = rew ? mix(-84, 0, lin(t, 68.4, 69.6)) : 2 + Math.min(80, Math.pow(Math.max(0, t - 70.6) * 1.15, 2) * 70);
   const gx = rew ? 390 : mix(90, 320, ease(lin(t, 69.6, 70.6))), push = ease(lin(t, 70.5, 71.1));
-  const hit = ang >= 89;
+  const hit = ang >= 81;
   return { cam: z(280, 580, 1.1), night: .15, shake: hit && t < 72.4 ? 5 : 0, el: <>
     <StormStreet t={t}/>
     <BusStop x={330 + push * 70} g={840} s={1}/>{crowd(t, push)}

@@ -194,7 +194,7 @@ export function Street({ t, night = false, man = false, light = 'green' }: { t: 
     <path d={`M${vx} ${vy + 22}L270 1100`} className="gl-road-dash"/>
     {Array.from({ length: 8 }, (_, i) => { const y0 = 770, y1 = 830, w0 = (y0 - vy) * 1.1, w1 = (y1 - vy) * 1.1, k = i / 8, k2 = (i + .55) / 8;
       return <path key={i} d={`M${vx - w0 + 2 * w0 * k} ${y0}L${vx - w0 + 2 * w0 * k2} ${y0}L${vx - w1 + 2 * w1 * k2} ${y1}L${vx - w1 + 2 * w1 * k} ${y1}Z`} className="rw-zebra"/>; })}
-    <TrafficLight x={470} y={760} state={light}/>
+    <TrafficLight x={70} y={760} state={light}/>
     {man && <YellowMan x={440} g={500} s={.33} t={t}/>}
   </g>;
 }
