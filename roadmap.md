@@ -53,3 +53,8 @@
 # Aurax Oculto — e se todo o gelo da Terra derretesse (2D, rig do Léo)
 - [x] Narração Puck (5 cenas, ~91 s) com chamada final para o canal
 - [x] Animação 2D: Antártida, derretimento, cidades alagadas, Théo no morro, planeta azul; trilha crescente e efeitos; MP4 1080x1920 em /mnt/documents/videos/gelo-derretimento-aurax-oculto.mp4
+
+# Aurax Oculto — e se a humanidade precisasse abandonar a Terra (2D, rig do Léo)
+- [x] Narração Puck (5 cenas, ~89 s) com chamada final para o canal
+- [x] Animação 2D com Miguel e Bia: Terra adoecendo, sirenes, naves, partida, viagem, novo planeta, ruínas e a revelação; trilha e efeitos
+- [x] Exportar MP4 1080x1920 (92 s) em /mnt/documents/videos/humanidade-abandonar-terra.mp4

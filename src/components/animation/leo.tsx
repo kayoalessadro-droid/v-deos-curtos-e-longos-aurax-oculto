@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-export type LeoExpression = 'curious' | 'happy' | 'surprised' | 'worried' | 'sleeping' | 'scared' | 'angry' | 'cold';
+export type LeoExpression = 'curious' | 'happy' | 'surprised' | 'worried' | 'sleeping' | 'scared' | 'angry' | 'cold' | 'sad';
 type LeoProps = {
   time?: number; walking?: boolean; running?: boolean; seated?: boolean; expression?: LeoExpression; backpack?: boolean;
   /** Overrides the front (right) arm angle in degrees; negative raises it forward. */
@@ -28,7 +28,8 @@ export function Leo({ time = 0, walking = false, running = false, seated = false
   const back = armL ?? stride;
   const [gx, gy] = gaze ?? [0, 0];
   const wide = expression === 'surprised' || expression === 'scared';
-  const brows = expression === 'worried' ? 'M59 65L76 71M101 71L117 65'
+  const brows = expression === 'sad' ? 'M60 71Q68 68 76 63M101 63Q109 68 117 71'
+    : expression === 'worried' ? 'M59 65L76 71M101 71L117 65'
     : expression === 'angry' ? 'M58 61L77 71M100 71L119 61'
     : expression === 'cold' ? 'M60 69L77 68M100 68L117 69'
     : expression === 'scared' ? 'M59 69Q66 62 76 59M101 59Q110 62 117 69'
@@ -36,7 +37,7 @@ export function Leo({ time = 0, walking = false, running = false, seated = false
   const mouth = talk > .05 ? <ellipse className="leo-mouth" cx="91" cy="109" rx={5 + talk * 1.5} ry={1.5 + talk * 6}/>
     : expression === 'surprised' ? <ellipse className="leo-mouth" cx="90" cy="108" rx="6" ry="8"/>
     : expression === 'scared' ? <path className="leo-mouth" d="M80 112Q85 103 91 108Q97 103 102 112Q91 117 80 112Z"/>
-    : <path className="face-line" d={expression === 'worried' ? 'M79 112Q91 101 103 112' : expression === 'angry' ? 'M80 113Q91 104 102 113' : expression === 'cold' ? 'M82 109L100 108' : expression === 'happy' ? 'M76 105Q91 121 106 103' : 'M81 107Q91 112 101 105'}/>;
+    : <path className="face-line" d={expression === 'sad' ? 'M82 111Q91 106 100 111' : expression === 'worried' ? 'M79 112Q91 101 103 112' : expression === 'angry' ? 'M80 113Q91 104 102 113' : expression === 'cold' ? 'M82 109L100 108' : expression === 'happy' ? 'M76 105Q91 121 106 103' : 'M81 107Q91 112 101 105'}/>;
   return <g className="leo-rig" data-character="leo-v1" data-expression={expression} transform={`translate(0 ${-bob})`}>
     {backpack && <g className="leo-bag"><path d="M58 129 Q34 122 31 146 L28 205 Q29 216 44 218 L64 218Z"/><path d="M35 154L51 154L51 200L33 200" className="bag-detail"/></g>}
     <g transform={`rotate(${seated ? -65 : -stride} 77 222)`}><path className="leo-pants" d="M60 216L89 216L86 282L80 330L60 330L61 273Z"/><path className="leo-shoe" d="M60 322L81 322L83 334L94 340Q97 348 87 348L54 348L54 336Z"/></g>

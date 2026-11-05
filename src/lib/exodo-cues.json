@@ -1,0 +1,13 @@
+[
+  {"t": 3.0, "type": "drone_rise"}, {"t": 4.4, "type": "wind_gust"}, {"t": 5.45, "type": "whoosh"}, {"t": 7.0, "type": "tv"},
+  {"t": 9.9, "type": "heartbeat"}, {"t": 10.75, "type": "heartbeat"}, {"t": 11.6, "type": "heartbeat"}, {"t": 12.45, "type": "heartbeat"},
+  {"t": 13.6, "type": "riser_short"}, {"t": 16.6, "type": "lock"}, {"t": 18.8, "type": "whoosh"}, {"t": 20.3, "type": "dig"}, {"t": 20.9, "type": "dig"},
+  {"t": 21.85, "type": "chime"}, {"t": 23.95, "type": "boom"}, {"t": 25.3, "type": "clank"}, {"t": 26.6, "type": "clank"},
+  {"t": 28.1, "type": "ignite"}, {"t": 30.1, "type": "rumble"}, {"t": 31.4, "type": "roar"}, {"t": 33.6, "type": "whoosh"},
+  {"t": 41.3, "type": "glass"}, {"t": 42.95, "type": "whoosh_long"}, {"t": 45.0, "type": "chime"}, {"t": 47.6, "type": "shimmer"},
+  {"t": 49.18, "type": "swell"}, {"t": 52.6, "type": "whoosh"}, {"t": 56.95, "type": "cheer"}, {"t": 60.6, "type": "whoosh"},
+  {"t": 61.3, "type": "scan"}, {"t": 63.4, "type": "alert"}, {"t": 64.0, "type": "alert"}, {"t": 64.6, "type": "alert"},
+  {"t": 64.9, "type": "boom"}, {"t": 67.4, "type": "whoosh"}, {"t": 69.0, "type": "click"}, {"t": 72.6, "type": "riser"},
+  {"t": 74.64, "type": "hit"}, {"t": 75.5, "type": "heartbeat"}, {"t": 76.35, "type": "heartbeat"}, {"t": 77.2, "type": "heartbeat"},
+  {"t": 78.05, "type": "heartbeat"}, {"t": 81.7, "type": "shimmer"}, {"t": 85.75, "type": "whoosh_long"}, {"t": 87.2, "type": "swell"}
+]
