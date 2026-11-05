@@ -372,7 +372,7 @@ function shot20(t: number): Shot {
   return { shake: t < 65.4 ? 2.5 : 0, cam: z(270, 520, 1 + p * .12), el: <>
     <XSky kind="alienDusk"/><Moon x={420} y={170} r={46} cls="ex-moon-a"/><Moon x={140} y={120} r={16} cls="ex-moon-b"/>
     <rect x="-200" y="460" width="1000" height="200" className="ex-fog" opacity=".35"/>
-    {[[-40, 80, 300, 1], [60, 100, 420, 2], [190, 70, 260, 3], [280, 120, 500, 4], [420, 90, 360, 5], [520, 80, 280, 6]].map(([x, w, h, sd], i) => <RuinTower key={i} x={x ?? 0} base={720} w={w ?? 80} h={h ?? 300} seed={sd} t={t} cls={i % 2 ? 'ex-ruin' : 'ex-ruin-b'}/>)}
+    {[[-40, 80, 300, 1], [60, 100, 420, 2], [190, 70, 260, 3], [280, 120, 500, 4], [420, 90, 360, 5], [520, 80, 280, 6]].map(([x, w, h, sd], i) => <RuinTower key={i} x={x ?? 0} base={720} w={w ?? 80} h={h ?? 300} seed={sd ?? 1} t={t} cls={i % 2 ? 'ex-ruin' : 'ex-ruin-b'}/>)}
     <rect x="-200" y="600" width="1000" height="160" className="ex-fog" opacity=".5"/>
     <path d="M-200 720Q100 690 270 720Q460 750 800 700V1200H-200Z" className="ex-alien-ground"/>
     {Array.from({ length: 6 }, (_, i) => <GlowTree key={i} x={-130 + i * 150} y={900 + (i % 2) * 40} s={1.5} t={t} seed={i + 40}/>)}
@@ -474,7 +474,7 @@ function shot25(t: number): Shot {
   return { cam: z(mix(330, 290, p), mix(700, 600, p), mix(1.45, 1.08, ease(p))), el: <>
     <XSky kind="alienDusk"/><Moon x={110} y={200} r={50} cls="ex-moon-a"/><Moon x={440} y={150} r={18} cls="ex-moon-b"/>
     <circle cx="400" cy="560" r="220" fill="url(#ex-flare)" opacity=".55"/>
-    {[[-60, 70, 260, 11], [40, 90, 340, 12], [420, 100, 300, 13], [520, 70, 220, 14]].map(([x, w, h, sd], i) => <RuinTower key={i} x={x ?? 0} base={680} w={w ?? 80} h={h ?? 300} seed={sd} t={t} cls="ex-ruin-far"/>)}
+    {[[-60, 70, 260, 11], [40, 90, 340, 12], [420, 100, 300, 13], [520, 70, 220, 14]].map(([x, w, h, sd], i) => <RuinTower key={i} x={x ?? 0} base={680} w={w ?? 80} h={h ?? 300} seed={sd ?? 1} t={t} cls="ex-ruin-far"/>)}
     <rect x="-200" y="600" width="1000" height="120" className="ex-fog" opacity=".45"/>
     <path d="M-200 700Q120 660 270 690Q460 720 800 680V1200H-200Z" className="ex-alien-hill"/>
     <path d={`M-200 ${g0}Q200 ${g0 - 20} 800 ${g0}V1200H-200Z`} className="ex-alien-ground"/>
