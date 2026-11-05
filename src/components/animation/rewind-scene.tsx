@@ -7,7 +7,7 @@ import {
   CarFront, Street, RainR, Lamp, BusStop, StormStreet, Sparks, Dust, RewindFx, SnapRing,
 } from './rewind-world';
 
-type Shot = { el: ReactNode; cam?: string; shake?: number; flash?: number; vig?: number; night?: number; red?: number; gray?: number; mem?: number; fx?: [number, number] };
+type Shot = { el: ReactNode; cam?: string; shake?: number; flash?: number; vig?: number; night?: number; red?: number; gray?: number; mem?: number; fx?: [number, number] | undefined };
 
 /* ---------- Scene 01: discovery ---------- */
 function shot0(t: number): Shot {
@@ -27,7 +27,7 @@ function shot1(t: number): Shot {
   </> };
 }
 /** Mug in the kitchen: held until it slips, falls and shatters. */
-function mugFall(t: number, hand: [number, number]) {
+function mugFall(t: number, hand: readonly [number, number]) {
   if (t < T.slip) return <Mug x={hand[0]} y={hand[1] - 6} s={1.3}/>;
   const k = clamp((t - T.slip) / (T.crash - T.slip));
   if (k < 1) return <Mug x={mix(hand[0], hand[0] + 30, k)} y={mix(hand[1] - 6, 852, k * k)} rot={k * 220} s={1.3}/>;
@@ -67,7 +67,7 @@ function shot4(t: number): Shot {
 }
 
 /* ---------- Scene 02: first tests ---------- */
-function phonePos(t: number, hand: [number, number]): [number, number, number] {
+function phonePos(t: number, hand: readonly [number, number]): [number, number, number] {
   const edge: [number, number] = [505, 630];
   if (t < 19.5) return [mix(410, edge[0], lin(t, 18.1, 19.5)), 630, 0];
   if (t < 20.4) { const k = lin(t, 19.5, 20.4); return [edge[0] + k * 30, mix(630, 850, k * k), k * 260]; }
@@ -134,7 +134,7 @@ function shot9(t: number): Shot {
 }
 
 /* ---------- Scene 03: the street ---------- */
-type StreetState = { girl: number; car: number; gx: number; run: boolean; gab?: 'curious' | 'scared' | 'surprised' | 'happy' | 'angry'; lean?: number; talk?: number; gReach?: number; girlBack?: number; light?: 'red' | 'green' | 'yellow' };
+type StreetState = { girl: number; car: number; gx: number; run: boolean; gab?: 'curious' | 'scared' | 'surprised' | 'happy' | 'angry'; lean?: number; talk?: number; gReach?: number | undefined; girlBack?: number; light?: 'red' | 'green' | 'yellow' };
 function streetEl(t: number, s: StreetState) {
   return <>
     <Street t={t} man light={s.light ?? 'green'}/>
