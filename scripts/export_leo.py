@@ -18,10 +18,10 @@ async def main(args):
         await page.wait_for_selector('.render-only')
         css=await page.evaluate("""() => [...document.styleSheets].flatMap(s=>{try{return [...s.cssRules].map(r=>r.cssText)}catch{return []}}).join('\\n')""")
         await page.evaluate("css => window.leoExportCss=css",css)
-        cmd=['ffmpeg','-y','-v','error','-f','image2pipe','-framerate',str(args.fps),'-i','pipe:0','-ss',str(args.start),'-i',args.audio,'-map','0:v','-map','1:a','-c:v','libx264','-preset','fast','-crf','19','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-t',str(DURATION-args.start),'-movflags','+faststart',str(output)]
+        cmd=['ffmpeg','-y','-v','error','-f','image2pipe','-framerate',str(args.fps),'-i','pipe:0','-ss',str(args.start),'-i',args.audio,'-map','0:v','-map','1:a','-c:v','libx264','-preset','fast','-crf','19','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-t',str((args.end or DURATION)-args.start),'-movflags','+faststart',str(output)]
         process=subprocess.Popen(cmd,stdin=subprocess.PIPE)
         try:
-            for i in range(round(args.start*args.fps),math.ceil(DURATION*args.fps)):
+            for i in range(round(args.start*args.fps),math.ceil((args.end or DURATION)*args.fps)):
                 data=await page.evaluate("""async ({t,width,height}) => {
                   window.dispatchEvent(new CustomEvent('leo-render-frame',{detail:t}));
                   const svg=document.querySelector('.animation-canvas').cloneNode(true);
@@ -44,5 +44,5 @@ async def main(args):
             await browser.close()
     print(f'Exported {output}',flush=True)
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--audio',required=True);parser.add_argument('--output',required=True);parser.add_argument('--fps',type=int,default=24);parser.add_argument('--start',type=float,default=0);parser.add_argument('--path',default='/?render=1');parser.add_argument('--duration',type=float,default=83.128095)
+    parser=argparse.ArgumentParser();parser.add_argument('--audio',required=True);parser.add_argument('--output',required=True);parser.add_argument('--fps',type=int,default=24);parser.add_argument('--start',type=float,default=0);parser.add_argument('--path',default='/?render=1');parser.add_argument('--duration',type=float,default=83.128095);parser.add_argument('--end',type=float,default=None)
     asyncio.run(main(parser.parse_args()))
