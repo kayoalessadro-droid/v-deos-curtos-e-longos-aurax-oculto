@@ -45,7 +45,7 @@ export const headAt = (who: Who, x: number, g: number, s: number, flip = false):
 export function handPt(r: number): V { const a = r * Math.PI / 180, dx = 50, dy = 50; return [115 + dx * Math.cos(a) - dy * Math.sin(a), 145 + dx * Math.sin(a) + dy * Math.cos(a)]; }
 
 /** Bia's seedling: a tin can with a sprout (grow 0) that becomes a little potted tree (grow 1). */
-export function Sprout({ x, y, s = 1, t, grow = 0, pot = false }: { x: number; y: number; s?: number; t: number; grow?: number; pot?: boolean }) {
+export function Sprout({ x, y, s = 1, t, grow = 0, pot = false, bare = false }: { x: number; y: number; s?: number; t: number; grow?: number; pot?: boolean; bare?: boolean }) {
   const h = 22 + grow * 120, sw = Math.sin(t * 2.4) * (3 + grow * 2);
   const leaves = 2 + Math.floor(grow * 9);
   return <g transform={`translate(${x} ${y}) scale(${s})`}>
@@ -55,7 +55,7 @@ export function Sprout({ x, y, s = 1, t, grow = 0, pot = false }: { x: number; y
       return <path key={i} d={`M${lx} ${ly}Q${lx + side * L * .6} ${ly - L * .8} ${lx + side * L * 1.4} ${ly - L * .2}Q${lx + side * L * .7} ${ly + L * .25} ${lx} ${ly}Z`} className="ex-leaf" transform={`rotate(${Math.sin(t * 2 + i) * 6} ${lx} ${ly})`}/>;
     })}
     {grow > .55 && <path d={blob(sw, -16 - h - 6, 16 + grow * 18, 33, 16, .35)} className="ex-leaf" opacity={(grow - .55) / .45}/>}
-    {pot ? <><path d="M-22 -18H22L16 20H-16Z" className="ex-pot"/><path d="M-24 -22H24V-14H-24Z" className="ex-pot-rim"/></>
+    {bare ? <path d="M-30 -14Q0 -26 30 -14Q0 -6 -30 -14Z" className="ex-soil"/> : pot ? <><path d="M-22 -18H22L16 20H-16Z" className="ex-pot"/><path d="M-24 -22H24V-14H-24Z" className="ex-pot-rim"/></>
       : <><rect x="-17" y="-18" width="34" height="38" rx="3" className="ex-can"/><path d="M-17 -4H17M-17 8H17" className="ex-can-rib"/><ellipse cx="0" cy="-18" rx="17" ry="4" className="ex-soil"/></>}
   </g>;
 }
