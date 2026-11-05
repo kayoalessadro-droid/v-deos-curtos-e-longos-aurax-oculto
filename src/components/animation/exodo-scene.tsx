@@ -339,7 +339,7 @@ function shot18(t: number): Shot {
     {Array.from({ length: 9 }, (_, i) => { const x = -30 + i * 70, up = cheer && i % 2 === 0 ? Math.sin(t * 7 + i) * 8 - 30 : 0;
       return <g key={i}><path d={`M${x - 26} 960Q${x - 26} 720 ${x} 712Q${x + 26} 720 ${x + 26} 960Z`} className="ex-crowd"/><circle cx={x} cy={694} r="22" className="ex-crowd"/>{cheer && <path d={`M${x + 18} 740L${x + 34} ${680 + up}`} className="ex-crowd-arm"/>}</g>; })}
     <rect x="-200" y="-200" width="1000" height="1400" fill="url(#ex-window-light)" opacity=".5"/>
-    <Char who="miguel" x={180} g={1010} s={1.4} t={t} expression={cheer ? 'happy' : 'surprised'} shine gaze={[2, -4]} reach={cheer ? -95 + Math.sin(t * 8) * 8 : 30} armL={4}/>
+    <Char who="miguel" x={180} g={1010} s={1.4} t={t} expression={cheer ? 'happy' : 'surprised'} shine gaze={[2, -4]} reach={cheer ? -58 + Math.sin(t * 8) * 6 : 30} armL={4}/>
     <g transform={`translate(0 ${-hop})`}><Char who="bia" x={340} g={1010} s={1.4} t={t} expression="happy" shine gaze={[1, -4]} reach={-30} armL={cheer ? -60 : 8} extra={held(-30, t, 1, true, .9)} shadow={false}/></g>
   </> };
 }
@@ -411,8 +411,8 @@ function Mural({ lit }: { lit: boolean }) {
     <path d="M70 360L110 400L90 440M150 350L130 400L170 430M100 470L120 420" className="ex-carve"/>
     {[0, 1, 2, 3].map(i => <path key={i} d={`M${80 + i * 28} 330Q${74 + i * 28} ${310 - i * 4} ${86 + i * 28} 296Q${96 + i * 28} 314 ${88 + i * 28} 330Z`} className="ex-carve-fill"/>)}
     {Array.from({ length: 6 }, (_, i) => <Figure key={i} x={210 + i * 44} y={570 - i * 8} s={1.35} step={i % 2 ? 4 : -2}/>)}
-    <g transform="translate(470 470) rotate(-28) scale(.42)"><path d="M-140 -40L120 -40Q200 -38 230 0Q200 38 120 40L-140 40Z" className="ex-carve"/><ellipse rx="36" ry="84" className="ex-carve"/></g>
-    <path d="M560 400Q640 320 760 300" className="ex-carve-dots"/>
+    <g transform="translate(530 440) rotate(-28) scale(.42)"><path d="M-140 -40L120 -40Q200 -38 230 0Q200 38 120 40L-140 40Z" className="ex-carve"/><ellipse rx="36" ry="84" className="ex-carve"/></g>
+    <path d="M600 380Q660 320 760 300" className="ex-carve-dots"/>
     <path d="M30 640H1100M30 200H1100" className="ex-carve"/>
   </g>;
 }
