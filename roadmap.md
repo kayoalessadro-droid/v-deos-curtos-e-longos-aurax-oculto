@@ -58,3 +58,8 @@
 - [x] Narração Puck (5 cenas, ~89 s) com chamada final para o canal
 - [x] Animação 2D com Miguel e Bia: Terra adoecendo, sirenes, naves, partida, viagem, novo planeta, ruínas e a revelação; trilha e efeitos
 - [x] Exportar MP4 1080x1920 (92 s) em /mnt/documents/videos/humanidade-abandonar-terra.mp4
+
+# Aurax Oculto — e se você pudesse voltar 5 segundos no tempo (2D, rig do Léo)
+- [x] Narração Puck (5 cenas, ~93 s) com chamada final para o canal
+- [x] Animação 2D com Gabriel, a moça e o homem de capa amarela; voltas no tempo com movimento reverso; trilha e efeitos
+- [x] Exportar MP4 1080x1920 em /mnt/documents/videos/voltar-5-segundos-aurax-oculto.mp4
