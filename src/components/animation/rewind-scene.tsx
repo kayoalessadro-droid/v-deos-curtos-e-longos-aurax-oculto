@@ -147,7 +147,7 @@ function streetEl(t: number, s: StreetState) {
 }
 /** Attempt state by phase τ (0 = car appears far away, L = car reaches the crosswalk). Gabriel waits on the right kerb. */
 function attempt(k: 1 | 2 | 3, tau: number): StreetState {
-  const L = k === 1 ? 3.5 : k === 2 ? 2.1 : 2.6, q = tau / L;
+  const L = k === 1 ? 3.5 : k === 2 ? 2.1 : 2.2, q = tau / L;
   const girl = 150 + clamp(q) * 120;
   if (k === 1) return { girl, car: q, gx: tau > 2.27 ? 480 - (tau - 2.27) * 110 : 480, run: tau > 2.27, gab: tau > 2.0 ? 'scared' : 'curious' };
   if (k === 2) { const fallen = tau > 1.4; return { girl, car: q, gx: Math.max(370, 480 - tau * 110), run: !fallen, gab: 'scared', talk: tau > 1.0 && tau < 1.4 ? Math.abs(Math.sin(tau * 16)) : 0, lean: fallen ? ease((tau - 1.4) / .3) * 70 : 0 }; }
@@ -203,8 +203,8 @@ function shot18(t: number): Shot {
   const l = t - 51.3;
   return { cam: z(270, 560, 1.4 + l * .05), el: <>
     <Street t={t} man light="red"/>
-    <Person who="girl" x={340} g={900} s={1.05} t={t} flip reach={-20} expression="surprised" gaze={[-3, 0]} shine/>
-    <Person who="gabriel" x={180} g={910} s={1.08} t={t} reach={-30} expression={l > .7 ? 'happy' : 'surprised'} gaze={[4, 0]} shine/>
+    <Person who="girl" x={190} g={900} s={1.05} t={t} reach={-20} expression="surprised" gaze={[3, 0]} shine/>
+    <Person who="gabriel" x={360} g={910} s={1.08} t={t} flip reach={-30} expression={l > .7 ? 'happy' : 'surprised'} gaze={[4, 0]} shine/>
   </> };
 }
 
