@@ -458,7 +458,7 @@
 .ex-hull-old{fill:oklch(0.55 0.04 80)}.ex-ring-old{fill:none;stroke:oklch(0.45 0.04 80);stroke-width:14}.ex-rib{stroke:oklch(0.45 0.04 80);stroke-width:4}
 .ex-hole{fill:oklch(0.1 0.02 280)}.ex-beam{fill:oklch(0.97 0.08 90);opacity:.35}.ex-torch{fill:oklch(0.3 0.02 250)}
 .ex-stone{fill:oklch(0.25 0.02 70)}.ex-stone-lit{fill:oklch(0.62 0.05 75)}.ex-stone-line{stroke:oklch(0.2 0.02 70);stroke-width:3}
-.ex-mural-dim .ex-carve,.ex-mural-dim .ex-carve-dots,.ex-mural-dim .ex-carve-orbit{stroke:oklch(0.35 0.02 70)}.ex-mural-dim .ex-carve-fill{fill:oklch(0.35 0.02 70)}
+.ex-mural-dim .ex-carve,.ex-mural-dim .ex-carve-dots,.ex-mural-dim .ex-carve-orbit{stroke:oklch(0.4 0.03 70)}.ex-mural-dim .ex-carve-fill{fill:oklch(0.4 0.03 70)}
 .ex-carve{fill:none;stroke:oklch(0.3 0.04 60);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.ex-carve circle{fill:none}
 .ex-carve-fill{fill:oklch(0.3 0.04 60)}.ex-carve-dots{fill:none;stroke:oklch(0.3 0.04 60);stroke-width:7;stroke-dasharray:2 16;stroke-linecap:round}.ex-carve-orbit{fill:none;stroke:oklch(0.3 0.04 60);stroke-width:3;stroke-dasharray:8 8}
 .ex-earth-stone{fill:oklch(0.6 0.15 240)}.ex-earth-stone-lit{fill:oklch(0.75 0.15 235)}.ex-mote{fill:oklch(0.95 0.06 90)}

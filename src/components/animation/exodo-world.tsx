@@ -54,7 +54,7 @@ export function Sprout({ x, y, s = 1, t, grow = 0, pot = false, bare = false }: 
       const k = .35 + .65 * (i / Math.max(1, leaves - 1)), ly = -16 - h * k, lx = sw * k * k, side = i % 2 ? 1 : -1, L = 9 + grow * 10 * (1 - k * .3);
       return <path key={i} d={`M${lx} ${ly}Q${lx + side * L * .6} ${ly - L * .8} ${lx + side * L * 1.4} ${ly - L * .2}Q${lx + side * L * .7} ${ly + L * .25} ${lx} ${ly}Z`} className="ex-leaf" transform={`rotate(${Math.sin(t * 2 + i) * 6} ${lx} ${ly})`}/>;
     })}
-    {grow > .55 && <path d={blob(sw, -16 - h - 6, 16 + grow * 18, 33, 16, .35)} className="ex-leaf" opacity={(grow - .55) / .45}/>}
+    {grow > .55 && <g opacity={(grow - .55) / .45}>{[[-14, 4, 15], [14, 2, 15], [0, -12, 18], [-6, 10, 12], [8, 12, 12]].map(([dx, dy, r], i) => <circle key={i} cx={sw + (dx ?? 0) * grow} cy={-16 - h + (dy ?? 0) * grow} r={(r ?? 12) * grow} className="ex-leaf"/>)}</g>}
     {bare ? <path d="M-30 -14Q0 -26 30 -14Q0 -6 -30 -14Z" className="ex-soil"/> : pot ? <><path d="M-22 -18H22L16 20H-16Z" className="ex-pot"/><path d="M-24 -22H24V-14H-24Z" className="ex-pot-rim"/></>
       : <><rect x="-17" y="-18" width="34" height="38" rx="3" className="ex-can"/><path d="M-17 -4H17M-17 8H17" className="ex-can-rib"/><ellipse cx="0" cy="-18" rx="17" ry="4" className="ex-soil"/></>}
   </g>;
@@ -148,7 +148,7 @@ export function Blight({ x, y, r, p, t, id = 'ex-blight' }: { x: number; y: numb
     <g clipPath={`url(#${id})`}>
       <circle cx={x} cy={y} r={r} className="ex-blight-tint" opacity={p * .45}/>
       {spots.map(([dx, dy, sd], i) => { const k = Math.min(1, Math.max(0, p * 1.4 - i * .12));
-        return k > 0 ? <path key={i} d={blob(x + dx * r - t * 4, y + dy * r, r * (.08 + .32 * k), sd * 7, 18, .55)} className={i % 2 ? 'ex-blight' : 'ex-blight-dark'} opacity={.75}/> : null; })}
+        return k > 0 ? <path key={i} d={blob(x + dx * r - t * 4, y + dy * r, r * (.08 + .32 * k), sd * 7, 24, .3)} className={i % 2 ? 'ex-blight' : 'ex-blight-dark'} opacity={.6}/> : null; })}
     </g>
   </g>;
 }

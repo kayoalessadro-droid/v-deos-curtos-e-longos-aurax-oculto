@@ -79,8 +79,8 @@ function shot3(t: number): Shot {
     <rect x="332" y="518" width="176" height="18" className="ex-tv-alert" opacity={.6 + .4 * Math.sin(t * 8)}/>
     <rect x="345" y="524" width={60 + (t * 40) % 60} height="6" className="ex-tv-bar"/>
     <path d="M30 600Q30 560 70 560H270Q310 560 310 600V720H30Z" className="ex-sofa"/><rect x="18" y="610" width="40" height="110" rx="14" className="ex-sofa-arm"/><rect x="282" y="610" width="40" height="110" rx="14" className="ex-sofa-arm"/>
-    <Char who="miguel" x={150} g={700} s={.78} t={t} seated expression={t > T.news ? 'scared' : 'curious'} gaze={[3, 0]} reach={-8} armL={6} backpack={false} shadow={false}/>
-    <Char who="bia" x={245} g={706} s={.78} t={t} seated expression="scared" gaze={[3, -1]} reach={-30} armL={10} shadow={false}/>
+    <Char who="miguel" x={150} g={700} s={.78} t={t} seated expression={t > T.news ? 'scared' : 'curious'} gaze={[3, 0]} reach={20} armL={6} backpack={false} shadow={false}/>
+    <Char who="bia" x={245} g={706} s={.78} t={t} seated expression="scared" gaze={[3, -1]} reach={20} armL={10} shadow={false}/>
     <rect x="-200" y="-200" width="1000" height="1400" fill="url(#ex-tv-light)" opacity={fl}/>
   </> };
 }
@@ -91,8 +91,8 @@ function shot4(t: number): Shot {
     <rect x="-200" y="-200" width="1000" height="1400" className="ex-wall"/>
     <rect x="-20" y="150" width="200" height="300" className="ex-win-frame"/><rect x="-10" y="160" width="180" height="280" fill="url(#gl-sky-orange)"/>
     <circle cx="60" cy="260" r="40" className="ex-sun-haze" opacity=".8"/>
-    <Char who="miguel" x={300} g={1260} s={2.6} t={t} expression="scared" shine gaze={[4, 0]} reach={8} armL={6} backpack={false} shadow={false}/>
-    <Char who="bia" x={120} g={1250} s={2.6} t={t} expression="scared" shine gaze={[4, -2]} reach={-20} armL={6} shadow={false}/>
+    <Char who="miguel" x={300} g={1260} s={2.6} t={t} expression="surprised" shine gaze={[4, 0]} reach={30} armL={6} backpack={false} shadow={false}/>
+    <Char who="bia" x={120} g={1250} s={2.6} t={t} expression="sad" shine gaze={[4, -2]} reach={30} armL={6} shadow={false}/>
     <rect x="-200" y="-200" width="1000" height="1400" fill="url(#ex-tv-light)" opacity={fl}/>
   </> };
 }
@@ -125,8 +125,8 @@ function shot6(t: number): Shot {
     <rect x="450" y="440" width="110" height="120" className="ex-win-frame"/><rect x="458" y="448" width="94" height="104" className="ex-win-dark"/>
     <rect x="-100" y="806" width="800" height="300" className="ex-porch"/>
     {[230, 470].map(x => <g key={x}><path d={`M${x - 18} 806L${x - 14} 770H${x + 14}L${x + 18} 806Z`} className="ex-pot"/><path d={blob(x, 756, 22, x, 12, .5)} className="ex-plant-dry"/></g>)}
-    <Char who="bia" x={95} g={810} s={1.0} t={t} expression="sad" gaze={[3, -1]} reach={-30} armL={8}/>
-    <Char who="miguel" x={mx} g={810} s={1.0} t={t} flip={walkL} walking={walkL} expression={t > 17.9 ? 'sad' : 'curious'} reach={turn ? undefined : -10} gaze={t > 17.9 ? [3, -2] : [2, 0]}/>
+    <Char who="bia" x={95} g={810} s={1.0} t={t} expression="sad" gaze={[3, -1]} reach={30} armL={8}/>
+    <Char who="miguel" x={mx} g={810} s={1.0} t={t} flip={walkL} walking={walkL} expression={t > 17.9 ? 'sad' : 'curious'} reach={!turn ? -10 : walkL ? undefined : 30} gaze={t > 17.9 ? [3, -2] : [2, 0]}/>
     <Dust t={t} n={16} speed={260} seed={8} cls="ex-leaf-fly"/>
   </> };
 }
@@ -143,7 +143,7 @@ function shot7(t: number): Shot {
     <g transform={`rotate(${sw} 150 262)`}><path d="M128 262V520M172 262V520" className="ex-rope"/><rect x="120" y="516" width="60" height="10" rx="3" className="ex-swing"/></g>
     <rect x="-100" y="730" width="800" height="400" className="ex-dirt"/>
     {[[420, 760], [480, 800], [520, 750]].map(([x, y], i) => <path key={i} d={blob(x ?? 0, y ?? 0, 18, i + 3, 10, .5)} className="ex-plant-dry"/>)}
-    <Char who="miguel" x={110} g={812} s={1.02} t={t} expression="sad" gaze={[3, 3]} reach={6} armL={4}/>
+    <Char who="miguel" x={110} g={812} s={1.02} t={t} expression="sad" gaze={[3, 3]} reach={30} armL={4}/>
     <Char who="bia" x={300} g={812 + 66 * .74} s={1.0} t={t} seated expression={t > 21 ? 'happy' : 'curious'} gaze={[3, 4]} reach={reach} armL={6} shadow={false}
       extra={t > 20.9 ? held(reach, t) : <Sprout x={190} y={268} s={1.1} t={t}/>}/>
     {dig && Array.from({ length: 6 }, (_, i) => { const ph = (t * 3 + i / 6) % 1; return <circle key={i} cx={380 + ph * 40 * (i % 2 ? 1 : -1)} cy={800 - Math.sin(Math.PI * ph) * 40} r="3.5" className="ex-soil"/>; })}
@@ -245,7 +245,7 @@ function shot12(t: number): Shot {
       {r < 30 && <circle cx={ex} cy={ey} r={14 + Math.sin(t * 4) * 3} fill="url(#ex-dot-glow)"/>}
     </Porthole>
     <rect x="-200" y="-200" width="1000" height="1400" fill="url(#ex-window-light)" opacity=".55"/>
-    <Char who="miguel" x={150} g={1000} s={1.3} t={t} expression="sad" gaze={[3, -4]} shine reach={4} armL={4}/>
+    <Char who="miguel" x={150} g={1000} s={1.3} t={t} expression="sad" gaze={[3, -4]} shine reach={30} armL={4}/>
     <Char who="bia" x={262} g={1010} s={1.3} t={t} expression="sad" gaze={[3, -4]} shine reach={-30} armL={6} extra={held(-30, t)}/>
   </> };
 }
@@ -339,7 +339,7 @@ function shot18(t: number): Shot {
     {Array.from({ length: 9 }, (_, i) => { const x = -30 + i * 70, up = cheer && i % 2 === 0 ? Math.sin(t * 7 + i) * 8 - 30 : 0;
       return <g key={i}><path d={`M${x - 26} 960Q${x - 26} 720 ${x} 712Q${x + 26} 720 ${x + 26} 960Z`} className="ex-crowd"/><circle cx={x} cy={694} r="22" className="ex-crowd"/>{cheer && <path d={`M${x + 18} 740L${x + 34} ${680 + up}`} className="ex-crowd-arm"/>}</g>; })}
     <rect x="-200" y="-200" width="1000" height="1400" fill="url(#ex-window-light)" opacity=".5"/>
-    <Char who="miguel" x={180} g={1010} s={1.4} t={t} expression={cheer ? 'happy' : 'surprised'} shine gaze={[2, -4]} reach={cheer ? -125 + Math.sin(t * 8) * 8 : 6} armL={4}/>
+    <Char who="miguel" x={180} g={1010} s={1.4} t={t} expression={cheer ? 'happy' : 'surprised'} shine gaze={[2, -4]} reach={cheer ? -95 + Math.sin(t * 8) * 8 : 30} armL={4}/>
     <g transform={`translate(0 ${-hop})`}><Char who="bia" x={340} g={1010} s={1.4} t={t} expression="happy" shine gaze={[1, -4]} reach={-30} armL={cheer ? -60 : 8} extra={held(-30, t, 1, true, .9)} shadow={false}/></g>
   </> };
 }
@@ -410,7 +410,7 @@ function Mural({ lit }: { lit: boolean }) {
     <circle cx="120" cy="400" r="74" className="ex-carve"/>
     <path d="M70 360L110 400L90 440M150 350L130 400L170 430M100 470L120 420" className="ex-carve"/>
     {[0, 1, 2, 3].map(i => <path key={i} d={`M${80 + i * 28} 330Q${74 + i * 28} ${310 - i * 4} ${86 + i * 28} 296Q${96 + i * 28} 314 ${88 + i * 28} 330Z`} className="ex-carve-fill"/>)}
-    {Array.from({ length: 6 }, (_, i) => <Figure key={i} x={220 + i * 36} y={560 - i * 6} s={.9} step={i % 2 ? 4 : -2}/>)}
+    {Array.from({ length: 6 }, (_, i) => <Figure key={i} x={210 + i * 44} y={570 - i * 8} s={1.35} step={i % 2 ? 4 : -2}/>)}
     <g transform="translate(470 470) rotate(-28) scale(.42)"><path d="M-140 -40L120 -40Q200 -38 230 0Q200 38 120 40L-140 40Z" className="ex-carve"/><ellipse rx="36" ry="84" className="ex-carve"/></g>
     <path d="M560 400Q640 320 760 300" className="ex-carve-dots"/>
     <path d="M30 640H1100M30 200H1100" className="ex-carve"/>
@@ -448,8 +448,8 @@ function shot22(t: number): Shot {
   const keys: Array<[number, number, number]> = [[69.0, 120, 400], [70.4, 140, 410], [T.people, 300, 520], [T.fleeing + .5, 470, 470], [73.2, 640, 340]];
   let sx = 120, sy = 400;
   for (let i = 1; i < keys.length; i++) { const a = keys[i - 1], b = keys[i]; if (a && b && t >= a[0] && t <= b[0]) { const u = ease((t - a[0]) / (b[0] - a[0])); sx = mix(a[1], b[1], u); sy = mix(a[2], b[2], u); } else if (b && t > b[0]) { sx = b[1]; sy = b[2]; } }
-  const cx = mix(220, 420, lin(t, 69, 73.2)), cy = 470;
-  return { vig: .7, night: .15, cam: z(cx, cy, 1.0), el: wallShot(t, [sx, sy], cx, cy, 1, 0) };
+  const cx = mix(200, 460, lin(t, 69, 73.2)), cy = 460;
+  return { vig: .65, night: .1, cam: z(cx, cy, 1.3), el: wallShot(t, [sx, sy], cx, cy, 1.3, 0) };
 }
 function shot23(t: number): Shot {
   const u = ease(lin(t, 73.2, 74.4)), sx = mix(700, EARTH_DOT[0], u), sy = mix(320, EARTH_DOT[1], u), zoom = ease(lin(t, 74.2, 75.4));
@@ -459,11 +459,11 @@ function shot23(t: number): Shot {
 function shot24(t: number): Shot {
   const p = lin(t, 75.5, 81.7), [hx, hy] = headAt('miguel', 230, 1250, 2.5);
   const expr = t < T.returned ? 'surprised' : 'sad';
-  return { night: .3, vig: .65, blue: .22 + .06 * Math.sin(t * 3), cam: z(mix(270, hx + 40, p), mix(620, hy + 60, p), 1 + p * .16), el: <>
+  return { night: .12, vig: .6, blue: .2 + .06 * Math.sin(t * 3), cam: z(mix(270, hx + 40, p), mix(620, hy + 60, p), 1 + p * .16), el: <>
     <rect x="-200" y="-200" width="1000" height="1400" className="ex-stone"/>
     <circle cx="520" cy="260" r="160" fill="url(#ex-dot-glow)" opacity=".7"/>
     <Char who="miguel" x={230} g={1250} s={2.5} t={t} expression={expr} shine gaze={[4, -2]} reach={-36} armL={6} backpack={false} shadow={false} extra={<rect x="166" y="150" width="26" height="12" rx="3" className="ex-torch"/>}/>
-    <Char who="bia" x={430} g={1300} s={2.5} t={t} flip expression="sad" shine gaze={[3, -4]} reach={-30} armL={6} shadow={false} extra={held(-30, t, 1, true, .9)}/>
+    <Char who="bia" x={440} g={1300} s={2.5} t={t} flip expression="sad" shine gaze={[3, -4]} reach={28} armL={6} shadow={false} extra={held(28, t, 1, true, .55)}/>
     {Array.from({ length: 18 }, (_, i) => { const ph = (t * .1 + rnd(50, i)) % 1; return <circle key={i} cx={rnd(51, i) * 540} cy={960 - ph * 960} r={1.5 + rnd(52, i) * 2} className="ex-mote" opacity={Math.sin(Math.PI * ph) * .8}/>; })}
     <rect x="-200" y="-200" width="1000" height="1400" fill="url(#ex-torch-light)" opacity=".5"/>
   </> };
@@ -479,7 +479,7 @@ function shot25(t: number): Shot {
     <path d="M-200 700Q120 660 270 690Q460 720 800 680V1200H-200Z" className="ex-alien-hill"/>
     <path d={`M-200 ${g0}Q200 ${g0 - 20} 800 ${g0}V1200H-200Z`} className="ex-alien-ground"/>
     {Array.from({ length: 30 }, (_, i) => { const x = -100 + i * 26, sw = Math.sin(t * 2 + i) * 4; return <path key={i} d={`M${x} ${g0 + 4}Q${x + sw} ${g0 - 10} ${x + sw * 2} ${g0 - 20 - (i % 3) * 6}`} className="ex-alien-blade"/>; })}
-    <Char who="miguel" x={170} g={g0 + 66} s={1.0} t={t} seated expression="sad" gaze={[4, 3]} reach={0} armL={6} shadow={false}/>
+    <Char who="miguel" x={170} g={g0 + 66} s={1.0} t={t} seated expression="sad" gaze={[4, 3]} reach={20} armL={6} shadow={false}/>
     {place >= 1 && <Sprout x={398} y={g0 + 4} s={1.1} t={t} grow={1} bare/>}
     <Char who="bia" x={300} g={g0 + 66 * .74} s={1.0} t={t} seated expression={place >= 1 ? 'happy' : 'curious'} gaze={[3, 4]} reach={reach} armL={6} shadow={false} extra={place < 1 ? held(reach, t, 1, false, .9) : null}/>
     <GlowTree x={-30} y={1000} s={1.6} t={t} seed={70}/><GlowTree x={560} y={1010} s={1.5} t={t} seed={71}/>
