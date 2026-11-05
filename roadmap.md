@@ -57,4 +57,4 @@
 # Aurax Oculto — e se a humanidade precisasse abandonar a Terra (2D, rig do Léo)
 - [x] Narração Puck (5 cenas, ~89 s) com chamada final para o canal
 - [x] Animação 2D com Miguel e Bia: Terra adoecendo, sirenes, naves, partida, viagem, novo planeta, ruínas e a revelação; trilha e efeitos
-- [ ] Exportar MP4 1080x1920 em /mnt/documents/videos/humanidade-abandonar-terra.mp4
+- [x] Exportar MP4 1080x1920 (92 s) em /mnt/documents/videos/humanidade-abandonar-terra.mp4
